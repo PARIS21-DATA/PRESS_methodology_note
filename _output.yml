@@ -1,15 +1,25 @@
 bookdown::gitbook:
-  css: style.css
+  #highlight: pygments
+  #theme: sandstone
   config:
     toc:
+      collapse: subsection
+      scroll_highlight: true
       before: |
         <li><a href="./">Methodology note</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https\://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    fontsettings:
+      theme: night
+      family: sans
+      size: 2
+  url: https://smartdatafinance.org/methodology_note
+  favicon: CH_logo.ico
+#  css: style.css
 
-bookdown::bs4_book:
-  theme:
-    primary: "#544154"
-  repo: https://github.com/PARIS21-DATA/PRESS_methodology_note
-  includes:
-    in_header: [ga_script.html]
+# bookdown::bs4_book:
+#   theme:
+#     primary: "#544154"
+#   repo: https://github.com/PARIS21-DATA/PRESS_methodology_note
+#   includes:
+#     in_header: [ga_script.html]
