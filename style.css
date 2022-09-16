@@ -1,74 +1,48 @@
-.book .book-header h1 {
-  opacity: 1;
-  text-align: left;
-}
+/*--- LOGO ---*/
 
-#header .title {
-  margin-bottom: 0em;
-}
-#header h4.author {
-  margin: 0;
-  color: #666;
-}
-#header h4.author em {
-  font-style: normal;
-}
-
-/* Sidebar formating --------------------------------------------*/
-
-div.sidebar, div.base {
-  border: 1px solid #ccc;
-  border-left-width: 5px;
-  border-radius: 5px;
-  padding: 1em;
-  margin: 1em 0;
-}
-
-/* .book .book-body .page-wrapper .page-inner section.normal is needed
-   to override the styles produced by gitbook, which are ridiculously
-   overspecified. Goal of the selectors is to ensure internal "margins"
-   controlled only by padding of container */
-
-.book .book-body .page-wrapper .page-inner section.normal div.sidebar > :first-child,
-.book .book-body .page-wrapper .page-inner section.normal div.base > :first-child {
-  margin-top: 0;
-}
-
-.book .book-body .page-wrapper .page-inner section.normal div.sidebar > :last-child,
-.book .book-body .page-wrapper .page-inner section.normal div.base > :last-child {
-  margin-bottom: 0;
-}
-
-div.base::before {
+.toc-logo {
+  width: 200px !important;
+  object-fit: contain;
+  margin: 0 auto;
   display: block;
-  content: "In base R";
 }
 
-div.base::before,
-.book .book-body .page-wrapper .page-inner section.normal .sidebar h3 {
-  font-size: 1.1em;
-  font-weight: 700;
-  margin-bottom: 0.25em;
-  color: #333;
+.toc-logo img {
+  max-width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.todo {
-  display: block;
-  border: 1px solid red;
-  border-left-width: 5px;
-  border-radius: 5px;
-  padding: 0.5em 1em;
-  margin: 1em 0;
+.summary > li:first-child {
+  height: auto !important; 
 }
 
-.todo::before {
-  content: "TO DO: ";
-  font-weight: bold;
-  color: red;
+
+/*--- Sidebar ---*/
+
+.book .book-summary {
+  background: #f1f6f7;
+  border-right: none;
 }
 
-/* Other gitbook tweaks -------------------------------------------------- */
-
-.book .book-body .page-wrapper .page-inner section.normal code {
-  padding: 2px 0;
+.book .book-summary ul.summary li a, 
+.book .book-summary ul.summary li span {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #2f5175;
 }
+
+/* color when hovering */
+.summary a:hover {  
+  color: #f16e59 !important;
+} 
+
+/* color for active links */
+.book .book-summary ul.summary li.active>a { /*active TOC links*/
+  color: #778ca5 !important;
+  border-left: solid 5px;
+  border-color: #1ca09f;
+  padding-left: 11px !important;
+}  

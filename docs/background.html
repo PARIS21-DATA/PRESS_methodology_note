@@ -56,6 +56,7 @@
 
 
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -68,6 +69,7 @@
       <nav role="navigation">
 
 <ul class="summary">
+<li class="toc-logo"><a href="./"><img src="P21_logo.png"></a></li>
 <li><a href="./">Methodology note</a></li>
 
 <li class="divider"></li>
@@ -118,6 +120,7 @@
             <section class="normal" id="section-">
 <div id="background" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Background<a href="background.html#background" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>For most types of output formats, you can customize the syntax highlighting styles using the highlight option of the specific format. Currently, the possible styles are default, tango, pygments, kate, monochrome, espresso, zenburn, haddock, and breezedark. For example, you can choose the tango style for the gitbook format:</p>
 
 </div>
             </section>
@@ -152,7 +155,7 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "night",
+"theme": "white",
 "family": "sans",
 "size": 2
 },
@@ -168,13 +171,14 @@ gitbook.start({
 "link": "https://github.com/PARIS21-DATA/PRESS_methodology_note/blob/master/01-Background.Rmd",
 "text": null
 },
-"download": null,
+"download": ["bookdownproj.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "subsection",
+"collapse": "section",
+"depth": 1,
 "scroll_highlight": true
 }
 });
