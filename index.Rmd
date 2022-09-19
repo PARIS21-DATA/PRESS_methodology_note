@@ -1,8 +1,25 @@
 --- 
-title: "PRESS Methodology note"
-author: "Johannes Abele"
-date: "`r Sys.Date()`"
+title: "Methodology for measuring and estimating funding to data and statistics"
+description: "Technical note for the Partner Report on Support to Statistics"
+author: 
+  - Yu Tian^[[PARIS21](https://www.paris21.org)]
+  - Archita Misra^[[PARIS21](https://www.paris21.org)]
+#date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Preface {-}
+# Acknowledgements {-}
+
+Draft  methodological  note  prepared  by  Yu  Tian  and  Archita  Misra  (PARIS21)  under  the  supervision  of  Rajiv 
+Ranjan (PARIS21). The authors are grateful to Eric Swanson and Lorenz Noe (Open Data Watch) and Simon Lange 
+(OECD)  for  their  valuable  review  and  feedback.  Further  comments  to  the  authors  (Yu.Tian@oecd.org; 
+Archita.misra@oecd.org) are welcome. 
+
+#### Code chunk example {-}
+
+```{r code-example}
+for (i in 1:10){
+  print(i)
+}
+
+```

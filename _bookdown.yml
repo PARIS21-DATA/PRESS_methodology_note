@@ -5,4 +5,4 @@ edit: https://github.com/PARIS21-DATA/PRESS_methodology_note/edit/master/%s
 view: https://github.com/PARIS21-DATA/PRESS_methodology_note/blob/master/%s
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: ""

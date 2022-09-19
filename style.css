@@ -46,3 +46,13 @@
   border-color: #1ca09f;
   padding-left: 11px !important;
 }  
+
+/*____Code Chunks____*/
+
+.sourceCode pre {
+  margin: 0 !important; /* makes space above and below symmetrical*/
+}
+
+.sourceCode {
+  margin-bottom: 0.85em; /* adds same amount of margin as a <p> would */
+}

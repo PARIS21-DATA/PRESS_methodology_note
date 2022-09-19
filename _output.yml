@@ -2,6 +2,7 @@ bookdown::gitbook:
   highlight: tango
   css: style.css
   #theme: sandstone
+  edit: no
   config:
     toc:
       depth: 1
@@ -9,11 +10,10 @@ bookdown::gitbook:
       scroll_highlight: true
       before: |
         <li class="toc-logo"><a href="./"><img src="P21_logo.png"></a></li>
-        <li><a href="./">Methodology note</a></li>
+        <li><a href="./">PRESS Methodology note</a></li>
       after: |
         <li><a href="https\://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: null
-    download: ["pdf"]
+    download: [["PRESS_methodology_note.pdf", "PDF"]]
   url: https\://methodology.note.smartdatafinance.org/
 
   #fontsettings:

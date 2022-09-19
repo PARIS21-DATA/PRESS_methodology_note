@@ -1,0 +1,33 @@
+# Conclusion
+
+The nowcast and forecast analysis aims to address the specific reporting lag issue faced by the PRESS,
+rather than to substitute it. Even with longer lag, PRESS still reports the most reliable and
+comprehensive data on funding to statistics. The PRESS database continues to serve as the source data
+for SDG Indicator 17.19.1.
+
+The outputs from nowcast and forecast also vary in their accuracy. While the merged database is as
+robust as PRESS, and the nowcast results are relatively reliable, the forecast analysis is based on
+several assumptions. Results produced through the nowcast and forecast analyses can therefore be
+used for different products to serve different purposes:
+
+  - The nowcast on disbursements and some information provided by the harmonised dataset
+can be directly presented in PRESS going forward, as a natural extension of its current
+content, based on existing data sources such as CRS.
+  - The forecast for funding gaps could be presented in separate policy briefs due to its
+speculative nature.
+  - The complete, harmonised database can also be deployed on a platform such as Bern
+Network’s [Clearinghouse for Financing Development Data](https://smartdatafinance.org) to be used as a dynamic
+planning tool by development partners.
+
+The immediate next step in improving the new methodology is to strengthen the communication and
+consultation between PARIS21, donors, and recipients. Benefits from such consultations would lead
+to further robust results by correcting erroneous information contained in IATI data, validating
+assumptions on the termination or continuation of projects in assumptions for forecasting, and
+enhancing data sharing in general. Consultations for this product will also help PARIS21 to shape its
+work in order to better meet the demand of its stakeholders.
+
+As the COVID‐19 pandemic will affect donors’ GNI and consequently their ODA, fluctuations in
+development financing for data and statistics can be expected. Despite the difficulty these anomalies
+will bring to the analyses, the transparency and timeliness of the information on funding to data and
+statistics have also become more relevant, as identified in Part I of PRESS 2020. The results from these
+analyses can play a crucial role in informing and supporting 

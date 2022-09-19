@@ -4,33 +4,33 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Monitoring funding to statistics with reduced reporting lag | PRESS Methodology note</title>
-  <meta name="description" content="Chapter 3 Monitoring funding to statistics with reduced reporting lag | PRESS Methodology note" />
+  <title>4 Monitoring funding to statistics with reduced reporting lag | Methodology for measuring and estimating funding to data and statistics</title>
+  <meta name="description" content="Technical note for the Partner Report on Support to Statistics" />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Monitoring funding to statistics with reduced reporting lag | PRESS Methodology note" />
+  <meta property="og:title" content="4 Monitoring funding to statistics with reduced reporting lag | Methodology for measuring and estimating funding to data and statistics" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:description" content="Technical note for the Partner Report on Support to Statistics" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Monitoring funding to statistics with reduced reporting lag | PRESS Methodology note" />
+  <meta name="twitter:title" content="4 Monitoring funding to statistics with reduced reporting lag | Methodology for measuring and estimating funding to data and statistics" />
   
-  
+  <meta name="twitter:description" content="Technical note for the Partner Report on Support to Statistics" />
   
 
-<meta name="author" content="Johannes Abele" />
+<meta name="author" content="Yu Tian" />
+<meta name="author" content="Archita Misra" />
 
 
-<meta name="date" content="2022-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="monitoring-funding-to-statistics-with-accuracy.html"/>
+<link rel="prev" href="machine-learning.html"/>
 <link rel="next" href="conclusion.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -54,6 +54,69 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -70,33 +133,40 @@
 
 <ul class="summary">
 <li class="toc-logo"><a href="./"><img src="P21_logo.png"></a></li>
-<li><a href="./">Methodology note</a></li>
+<li><a href="./">PRESS Methodology note</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
 <li class="chapter" data-level="1" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>1</b> Background</a></li>
 <li class="chapter" data-level="2" data-path="monitoring-funding-to-statistics-with-accuracy.html"><a href="monitoring-funding-to-statistics-with-accuracy.html"><i class="fa fa-check"></i><b>2</b> Monitoring funding to statistics with accuracy</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="monitoring-funding-to-statistics-with-accuracy.html"><a href="monitoring-funding-to-statistics-with-accuracy.html#oecds-creditor-reporting-system"><i class="fa fa-check"></i><b>2.1</b> OECD’s Creditor Reporting System</a></li>
-<li class="chapter" data-level="2.2" data-path="monitoring-funding-to-statistics-with-accuracy.html"><a href="monitoring-funding-to-statistics-with-accuracy.html#paris21s-annual-online-survey"><i class="fa fa-check"></i><b>2.2</b> PARIS21’s annual online survey</a></li>
+<li class="chapter" data-level="2.1" data-path="monitoring-funding-to-statistics-with-accuracy.html"><a href="monitoring-funding-to-statistics-with-accuracy.html#oecds-creditor-reporting-system-crs"><i class="fa fa-check"></i><b>2.1</b> OECD’s Creditor Reporting System (CRS)</a></li>
+<li class="chapter" data-level="2.2" data-path="monitoring-funding-to-statistics-with-accuracy.html"><a href="monitoring-funding-to-statistics-with-accuracy.html#P21-online-survey"><i class="fa fa-check"></i><b>2.2</b> PARIS21’s annual online survey</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><i class="fa fa-check"></i><b>3</b> Monitoring funding to statistics with reduced reporting lag</a>
+<li class="chapter" data-level="3" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>3</b> Identifying data and statistical projects using machine learning</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#what-is-the-reporting-lag"><i class="fa fa-check"></i><b>3.1</b> What is the reporting lag?</a></li>
-<li class="chapter" data-level="3.2" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#estimating-uptodate-support-to-statistics-using-crs"><i class="fa fa-check"></i><b>3.2</b> Estimating up‐to‐date support to statistics using CRS</a>
+<li class="chapter" data-level="3.1" data-path="machine-learning.html"><a href="machine-learning.html#reading-the-crs-data"><i class="fa fa-check"></i><b>3.1</b> Reading the CRS data</a></li>
+<li class="chapter" data-level="3.2" data-path="machine-learning.html"><a href="machine-learning.html#preparing-the-data"><i class="fa fa-check"></i><b>3.2</b> Preparing the data</a></li>
+<li class="chapter" data-level="3.3" data-path="machine-learning.html"><a href="machine-learning.html#a-title-pattern-matching"><i class="fa fa-check"></i><b>3.3</b> <strong>A</strong>: Title pattern matching</a></li>
+<li class="chapter" data-level="3.4" data-path="machine-learning.html"><a href="machine-learning.html#b-text-mining-of-long-descriptions"><i class="fa fa-check"></i><b>3.4</b> <strong>B</strong>: Text mining of long descriptions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><i class="fa fa-check"></i><b>4</b> Monitoring funding to statistics with reduced reporting lag</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#nowcasting-using-commitments-to-predict-current-disbursements"><i class="fa fa-check"></i><b>3.2.1</b> Nowcasting: using commitments to predict current disbursements</a></li>
-<li class="chapter" data-level="3.2.2" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#forecasting-anticipating-future-funding"><i class="fa fa-check"></i><b>3.2.2</b> Forecasting: anticipating future funding</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#expanding-the-press-database"><i class="fa fa-check"></i><b>3.3</b> Expanding the PRESS database</a>
+<li class="chapter" data-level="4.1" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#what-is-the-reporting-lag"><i class="fa fa-check"></i><b>4.1</b> What is the reporting lag?</a></li>
+<li class="chapter" data-level="4.2" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#estimating-using-CRS"><i class="fa fa-check"></i><b>4.2</b> Estimating up‐to‐date support to statistics using CRS</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#exploring-alternative-data-sources-for-aid-flows-on-statistics"><i class="fa fa-check"></i><b>3.3.1</b> Exploring alternative data sources for aid flows on statistics</a></li>
-<li class="chapter" data-level="3.3.2" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#addressing-gaps-in-the-alternative-data-sources"><i class="fa fa-check"></i><b>3.3.2</b> Addressing gaps in the alternative data sources</a></li>
-<li class="chapter" data-level="3.3.3" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#linking-the-alternative-sources-the-new-harmonised-database"><i class="fa fa-check"></i><b>3.3.3</b> Linking the alternative sources: the new harmonised database</a></li>
+<li class="chapter" data-level="4.2.1" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#nowcasting-using-commitments-to-predict-current-disbursements"><i class="fa fa-check"></i><b>4.2.1</b> Nowcasting: using commitments to predict current disbursements</a></li>
+<li class="chapter" data-level="4.2.2" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#forecasting-anticipating-future-funding"><i class="fa fa-check"></i><b>4.2.2</b> Forecasting: anticipating future funding</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#bringing-them-together-nowcasting-and-forecasting-with-the-new-harmonised-database"><i class="fa fa-check"></i><b>3.4</b> Bringing them together – nowcasting and forecasting with the new harmonised database</a></li>
+<li class="chapter" data-level="4.3" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#expanding-the-press-database"><i class="fa fa-check"></i><b>4.3</b> Expanding the PRESS database</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#exploring-alternative-data-sources-for-aid-flows-on-statistics"><i class="fa fa-check"></i><b>4.3.1</b> Exploring alternative data sources for aid flows on statistics</a></li>
+<li class="chapter" data-level="4.3.2" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#addressing-gaps-in-the-alternative-data-sources"><i class="fa fa-check"></i><b>4.3.2</b> Addressing gaps in the alternative data sources</a></li>
+<li class="chapter" data-level="4.3.3" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#linking-the-alternative-sources-the-new-harmonised-database"><i class="fa fa-check"></i><b>4.3.3</b> Linking the alternative sources: the new harmonised database</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>4</b> Conclusion</a></li>
+<li class="chapter" data-level="4.4" data-path="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#bringing-them-together-nowcasting-and-forecasting-with-the-new-harmonised-database"><i class="fa fa-check"></i><b>4.4</b> Bringing them together – nowcasting and forecasting with the new harmonised database</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https\://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -110,7 +180,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PRESS Methodology note</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Methodology for measuring and estimating funding to data and statistics</a>
           </h1>
         </div>
 
@@ -118,43 +188,339 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="monitoring-funding-to-statistics-with-reduced-reporting-lag" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Monitoring funding to statistics with reduced reporting lag<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#monitoring-funding-to-statistics-with-reduced-reporting-lag" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="what-is-the-reporting-lag" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> What is the reporting lag?<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#what-is-the-reporting-lag" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="monitoring-funding-to-statistics-with-reduced-reporting-lag" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Monitoring funding to statistics with reduced reporting lag<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#monitoring-funding-to-statistics-with-reduced-reporting-lag" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-the-reporting-lag" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> What is the reporting lag?<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#what-is-the-reporting-lag" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The workflows for combining the two main data sources of PRESS are described in Fig. <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fig:reporting-lag">4.1</a>.</p>
+<p>One key step when merging the PRESS data, reported by both donors and implementors, with the CRS
+data is avoiding duplication in a donor‐implementor‐recipient funding flow. To achieve this, the
+projects are examined against their unique identifier in both sources. The projects reported by
+implementers (mostly from the PRESS survey) are not counted as contribution of the reporting
+agencies. These projects are counted as projects by the donor agencies, after duplication checks were
+applied when merging the projects reported by implementers and the projects reported by donors.
+As the data and final report of PRESS depend in large part on the CRS database, which has a 12‐months
+lag in coverage, the previous editions of PRESS did not capture timely donor financial flows to
+statistics, leading to a structural lag in reporting.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:reporting-lag"></span>
+<img src="images/reporting_lag.png" alt="How the lag in the CRS data led to a lag in previous rounds of PRESS." width="688" />
+<p class="caption">
+Figure 4.1: How the lag in the CRS data led to a lag in previous rounds of PRESS.
+</p>
 </div>
-<div id="estimating-uptodate-support-to-statistics-using-crs" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Estimating up‐to‐date support to statistics using CRS<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#estimating-uptodate-support-to-statistics-using-crs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="nowcasting-using-commitments-to-predict-current-disbursements" class="section level3 hasAnchor" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Nowcasting: using commitments to predict current disbursements<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#nowcasting-using-commitments-to-predict-current-disbursements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This lag meant that in its previous format, PRESS could not provide timely information for partners in
+data and statistics, including:</p>
+<ul>
+<li><p>Nowcasting the funding to statistics</p></li>
+<li><p>Forecasting funding to statistics</p></li>
+</ul>
+<p>Hence, despite the many improvements in PRESS over the years, the lack of timely aid reporting is a
+persistent concern among its primary users, especially development aid providers. With a growing
+interest in supporting data and statistics, there is an increasing demand for timely data to plan
+activities and projects and coordinate development co‐operation efforts. This issue has become
+particularly urgent in light of the coordinating efforts to fund the Cape Town Global Action Plan for
+Sustainable Development Data (CT‐GAP),<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> as well as in the context of a diverse data ecosystem comprising new actors.</p>
+<p>PARIS21 addressed this request in its 2019 annual meeting by introducing the concept of a
+methodology extension. While the PRESS methodology will still be used to report information until 18
+months before the publication, the methodology extension will provide stakeholders with PRESS‐like
+information on more recent periods, therefore reducing the reporting lag significantly. This concept
+became more relevant in 2020, when the development co‐operation community had to face the
+challenges that arose due to the COVID‐19 pandemic in national statistical systems (PARIS21, 2020a)
+and funding to data by domestic and external stakeholders (PARIS21, 2020b).</p>
 </div>
-<div id="forecasting-anticipating-future-funding" class="section level3 hasAnchor" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Forecasting: anticipating future funding<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#forecasting-anticipating-future-funding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="estimating-using-CRS" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Estimating up‐to‐date support to statistics using CRS<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#estimating-using-CRS" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While the previous PRESS (from 2008 to 2019) captured the support to data and statistics by looking
+at global <strong>commitments</strong><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>
+to statistics, the annual <strong>disbursements</strong><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>
+received by a certain country are also informative for donors and countries when planning their activities, especially those short‐term
+activities financed by a donor’s annual or biannual budget. Leveraging this additional variable allows
+for the estimation of funding to data and statistics received by countries in the current and coming
+years while still using the same base data, i.e., the CRS and PRESS surveys (and many other data
+sources on development aid, see section 3), which include both variables for each project.</p>
+<p>Looking at disbursements instead of commitments to estimate the support to data and statistics has
+two distinct advantages:</p>
+<ol style="list-style-type: decimal">
+<li><p>Disbursements capture the actual release of funds, so are more useful for donor planning purposes.</p></li>
+<li><p>It can take several years to disburse a commitment and some commitments are never
+disbursed. Hence, by design, there are more data points available on disbursements than
+commitments over the same time period. The additional data on disbursements allows for
+better understanding of financing patterns and donor behaviour, leading to more robust data analysis.</p></li>
+</ol>
+<p>This availability of more data points enables us to estimate support to statistics in the current year
+(nowcasting) through robust regression analysis. It also provides more substantial evidence of funding
+trends in the coming years (forecasting). The following sub‐sections will focus on how to arrive at
+these estimates.</p>
+<div id="nowcasting-using-commitments-to-predict-current-disbursements" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Nowcasting: using commitments to predict current disbursements<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#nowcasting-using-commitments-to-predict-current-disbursements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given that CRS has a lag of 12 months for reporting both disbursements and commitments, one way
+we can estimate support to statistics disbursed in the current year is by looking at the relationship
+between the two variables. The literature on aid predictability indicates that these two variables may
+be closely related over time. A 2013 study examining aid predictability based on CRS data also shows
+that commitments have a significant impact on disbursements five years after they were made
+(Hudson, 2013).</p>
+<p>For most development projects reported to the CRS and the PRESS survey, both commitment and
+disbursement data are reported. Even when these variables are not directly reported, however, the
+missing value can usually be imputed.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+<p>Using these two variables, PARIS21 has developed a simple linear regression model to estimate the
+funding from donors based on historical data at activity level. Regression analysis was conducted to
+predict current disbursements based on reported commitments, captured by
+<span class="math inline">\(Average\_Annual\_Spending\)</span>.</p>
+<p><span class="math display">\[\begin{align}
+Disbursement &amp;= Average\_annual\_spending \cdot k + d \\
+
+
+\text{where} ~~~~ Average\_annual\_spending &amp;= \text{Total Project Commitments}/number\_of\_years
+\end{align}\]</span></p>
+<p>k is the regression coefficient and d is the error term. The number of years is the difference between
+the start date and end date of a reported activity. Reported dates are used for activities with missing
+value in those two variables. The analysis used the most recently accessible data from the CRS<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>.</p>
+<p>This model shows a correlation between disbursements and average spending. Average annual
+spending is calculated based on the assumption that commitment without a detailed plan for
+disbursement will be distributed evenly by year, from the expected start year to the end year of the
+project.</p>
+<p>Table 1</p>
+<p>The analysis of CRS data shows a significant correlation (90%) between disbursements and
+commitments each year. The value of k and the predictability of the model vary depending on the
+reporting pattern of each donor. For example, while the commitment numbers reported by most
+donors each year are usually higher than disbursements (Fig. <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fig:commitments-CRS">4.2</a> on the left), this is reversed in the case
+of a few donors (Fig. <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fig:commitments-CRS">4.2</a> on the right)<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:commitments-CRS"></span>
+<img src="images/commitments_disbursements_CRS.png" alt="Disbursements vs commitments reported in CRS (all donors) on the left. On the right, disbursements vs commitments in the CRS reported by the UK." width="49%" height="20%" /><img src="images/commitments_disbursements_UK.png" alt="Disbursements vs commitments reported in CRS (all donors) on the left. On the right, disbursements vs commitments in the CRS reported by the UK." width="49%" height="20%" />
+<p class="caption">
+Figure 4.2: Disbursements vs commitments reported in CRS (all donors) on the left. On the right, disbursements vs commitments in the CRS reported by the UK.
+</p>
+</div>
+<p>Using the above method, PARIS21 was able to nowcast the funding to statistics in years that the most
+recent CRS data yet to cover. For instance, although the CRS data available in early 2020 only includes
+full coverage of official aid until 2018, the nowcast is able to provide information on aid to statistics
+including 2019 and 2020. This is because the stable relationship between average annual spending
+and commitments is leveraged, which allows us to estimate the 2019 and 2020 disbursement values,
+from the 2018 reported commitment values.</p>
+<p>As a result, for the first time, the 2020 edition of PRESS presented information on funding to data and
+statistics up to 2019, as opposed to two years prior as in editions including and before PRESS 2019.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
+</div>
+<div id="forecasting-anticipating-future-funding" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Forecasting: anticipating future funding<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#forecasting-anticipating-future-funding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The predictability of disbursements and commitments used for nowcasting funding to statistics
+decreases greatly after the current year, since, for example, many projects which commenced in 2017
+will end in 2020. However, this lack of predictability can be partially mitigated by the creation of a
+forecasting model based on a few well‐informed assumptions, leveraging past PRESS data and
+PARIS21’s institutional knowledge on support to statistics for over two decades. These assumptions,
+which can lead to better forecasting quality, are described below:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Continuation of certain long‐standing projects</strong>: We can assume that large projects such as
+the support to the Demographic Health Survey driven by USAID, IMF’s national and regional
+training on economic statistics, and the World Bank’s programme on statistical development
+will remain stable in the near future. Significant changes on these programmes are also easier
+to target and detectable. These projects are generally stable and attract similar spends each
+year. Likewise, the upcoming censuses or major surveys in low‐income countries are expected
+to be funded partially by donors.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> This information accounts for nearly half of the total
+amount for data and statistics. Confirmation from donors of the continuation of these projects
+can further improve the accuracy of this analysis.</p></li>
+<li><p><strong>Termination or reduction of funding for certain projects</strong>: We can also anticipate the
+termination or reduction for funding tied to a project based on its specific nature. For instance,
+the support for censuses is a one‐off disbursement and will not reoccur until the next census
+round. Similarly, if a country become no longer eligible for ODA, graduate from IDA’s borrower
+list or becomes an upper‐middle‐income country, it is then expected to receive a lower ODA
+grant and become ineligible for some loans. In those cases, support for statistics might be
+affected disproportionally, given its low priority.</p></li>
+</ol>
+<p>It is also crucial to state that these predictions can only be accurate if the following additional
+assumptions are met:</p>
+<ul>
+<li>Development aid providers maintain their current levels of effort</li>
+<li>Existing programmes continue to run</li>
+<li>Commitments are fully disbursed</li>
+<li>There is a response to prioritised needs such as censuses</li>
+</ul>
+<p>The estimation is also limited if donors agencies publishing the new initiatives with a lag. The
+predictability of both nowcast and forecast on funding to data and statistics also relies on aid providers
+committing to maintaining the transparency and timeliness of their aid data. The forecasting looks at
+contribution until <span class="math inline">\(n+2\)</span>, given most international organisations’ work plan don’t go beyond that
+horizon.</p>
+<p>Due to the uncertainty caused by the COVID‐19 pandemic, the forecasting results from this
+methodology were not presented in PRESS 2020. These will appear in the future PARIS21 publications
+once more evidence becomes available.</p>
+<p>In sum, the forecasting estimates should be interpreted with significant caution even if the above
+model indicates a relative increase in the coming years. According to many historical estimates, the
+funding gap for data and statistics (i.e. to find the entire CT‐GAP) is far from being closed. This gap is
+likely to be exacerbated by the effects of the ongoing COVID‐19 crisis in large parts of the globe</p>
 </div>
 </div>
-<div id="expanding-the-press-database" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Expanding the PRESS database<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#expanding-the-press-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="exploring-alternative-data-sources-for-aid-flows-on-statistics" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Exploring alternative data sources for aid flows on statistics<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#exploring-alternative-data-sources-for-aid-flows-on-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="expanding-the-press-database" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Expanding the PRESS database<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#expanding-the-press-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exploring-alternative-data-sources-for-aid-flows-on-statistics" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Exploring alternative data sources for aid flows on statistics<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#exploring-alternative-data-sources-for-aid-flows-on-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Apart from nowcasting and forecasting disbursements to statistics from PRESS data, another way to
+address the structural lag in aid‐flow reporting can be by attempting to remedy the root cause of the
+problem – the dependency on the CRS database – and searching for more timely information in
+alternative data sources. PARIS21 has identified three main (types) of alternative data sources,
+outlined below:</p>
+<div id="the-international-aid-transparency-initiative-iati" class="section level4 unnumbered hasAnchor">
+<h4>The International Aid Transparency Initiative (IATI)<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#the-international-aid-transparency-initiative-iati" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The IATI datastore is the largest alternative database outside of OECD‐DAC data for official
+development assistance. With more than 100 donors reporting to this database, IATI has a much
+shorter lag than CRS. It also covers more projects by philanthropic foundations. The COVID‐19
+pandemic and the rising need for coordination has also incentivised aid providers to report to IATI
+with less delay. However, IATI data suffer from a lack of quality assurance and inconsistency within
+the dataset. Although it uses a similar data structure as the CRS, the reported projects in IATI may not
+include important granular information, such as the project description. Furthermore, as many donors
+only committed to reporting to IATI after 2014, the lack of historical data for drawing time series also
+affects its ability to forecast.</p>
 </div>
-<div id="addressing-gaps-in-the-alternative-data-sources" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Addressing gaps in the alternative data sources<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#addressing-gaps-in-the-alternative-data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="donors-transparency-portals" class="section level4 unnumbered hasAnchor">
+<h4>Donors’ transparency portals<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#donors-transparency-portals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In recent years, global donors have strengthened their efforts in aid transparency. Many donors have
+developed online data portals or uploaded online datasets to share information on their aid projects,
+especially the major donors in statistics such as the World Bank, UNDP, USAID, FCDO, IDRC, etc. These
+datasets usually have a similar density of information as the CRS data and are usually updated more
+frequently than CRS. However, the majority of donors still lack appropriate portals and public datasets.
+Furthermore, merging these different datasets is possible, but time intensive.</p>
+<p>PARIS21 has been exploring these data sources since 2019 and has accumulated knowledge over this
+period. For example, the USAID dataset helped PRESS 2019 to identify the USA’s support to statistics
+for the first time; in particular, its effort with the Demographic Health Survey (DHS). PARIS21 has also
+established a methodology for merging and harmonising the aforementioned datasets. The
+methodology maps variables in different datasets against each other and uses internal project
+identifiers to avoid duplications.</p>
 </div>
-<div id="linking-the-alternative-sources-the-new-harmonised-database" class="section level3 hasAnchor" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> Linking the alternative sources: the new harmonised database<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#linking-the-alternative-sources-the-new-harmonised-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="multilateral-donors-prospective-reporting-to-the-press-surve" class="section level4 unnumbered hasAnchor">
+<h4>Multilateral donors’ prospective reporting to the PRESS surve<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#multilateral-donors-prospective-reporting-to-the-press-surve" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The online PRESS survey (introduced in Sec. <a href="monitoring-funding-to-statistics-with-accuracy.html#P21-online-survey">2.2</a>) includes a feature that allows donors to report on
+future projects. Since many donors have a biannual programme of work, in each year’s survey, they
+are encouraged to provide information on the project they have planned or committed to in the near
+future. In the survey, donors can verify, edit, and cancel future projects in the next round of reporting.
+However, previous editions of PRESS did not fully reflect future projects due to the report’s focus on
+accuracy. However, these future projects could still contain valuable information to assist in the
+projection of aid flows. The methodology developed by PARIS21 leverages these projects as an
+underutilised existing data source that may not reflect completely on the activities from donors.
+Nevertheless, it is useful for nowcasting funding.</p>
+<p>The comparison of the above data sources can be found in Table 2Table 1. As another important data
+source in the area of data and statistics, the Eurostat’s donor survey is analysed in Box 2Box 2.</p>
+<p>Table 2</p>
 </div>
 </div>
-<div id="bringing-them-together-nowcasting-and-forecasting-with-the-new-harmonised-database" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Bringing them together – nowcasting and forecasting with the new harmonised database<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#bringing-them-together-nowcasting-and-forecasting-with-the-new-harmonised-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="addressing-gaps-in-the-alternative-data-sources" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Addressing gaps in the alternative data sources<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#addressing-gaps-in-the-alternative-data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To take advantage of the alternative data sources, PARIS21 combined the information from CRS and
+online surveys with these alternative data sources to create a more up‐to‐date, harmonised database
+on funding for data and statistics. However, this means that two important problems must be
+addressed, described below:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>The completeness problem</strong>: A common weakness of the alternative data sources,
+compared with CRS, is their incomplete coverage. This is especially apparent in IATI where,
+unlike CRS, donors may not report their full portfolio, leading to a lack of comprehensive
+information (a “vertical” information gap i.e. multiple donors but incomplete project
+information for individual donor). Furthermore, the CRS uses a more “centralized” reporting
+system for each donor country, whereby information from different agencies providing ODA
+is gathered under one entity before reporting to CRS as a whole. The IATI, on the other hand,
+allows different agencies in a single donor country to report their data separately. This implies
+different reporting patterns for different agencies based on their capacity to do so regularly,
+and a lack of overall coordination.</p></li>
+<li><p><strong>The coverage problem</strong>: CRS contains information from over 100 donors. On the other
+hand, donor transparency portals suffer from a “horizontal” problem, i.e., they usually have
+complete coverage and contain the full portfolio, but fewer than ten major donors provide
+access to such open and easy‐to‐use databases.</p></li>
+</ol>
+<p>PARIS21 has mitigated the horizontal and vertical problems in alternative data sources by harmonising
+and linking these databases. The alternative sources provide a wider coverage, while the combination
+of CRS, IATI and donors’ databases enhance the completeness of the data. The final data set used in
+the analyses combines the alternative data sources and PRESS data using project IDs and other
+identifiers. As a caveat, however, the total number of projects included in the alternative sources still
+only represents 40% of all number of projects reported in the CRS.</p>
+<p>The advantage of using such data sources, such as the timeliness and inclusion of philanthropic
+foundations, makes them a useful extension of PRESS data, especially when trying to solve the lag
+issue. However, their weaknesses imply that they are not a substitute for CRS or, by extension,
+conventional PRESS analysis.</p>
+</div>
+<div id="linking-the-alternative-sources-the-new-harmonised-database" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Linking the alternative sources: the new harmonised database<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#linking-the-alternative-sources-the-new-harmonised-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The next step in leveraging the independent alternative data sources described above is to link them
+with PRESS data and create a new harmonised database of disbursements for data and statistics <strong>at
+project level.</strong></p>
+<p>Using disbursements as the primary variable to determine the support to statistics is even more
+beneficial at this stage, and data on annual disbursements is adequately available in most of the
+sources considered above. The activity‐based CRS data, for example, contain nowcasting/forecasting
+regressions on this new data set by Simon etc. to see value add and/or consistency of our findings!
+Should we present this? I think you did it and found little to no change right? disbursement information
+for more than 98% of the projects. Similarly, the PRESS survey for multilateral donors provides specific
+information on disbursement plans (though it is project‐based). The donors’ transparency portals are
+also expenditure/disbursement based.</p>
+<p>However, the IATI database is weaker in this regard: it contains an unusually high percentage of
+negative commitments or disbursements. For example, data downloaded from the IATI database in
+2018 contained negative value commitments or disbursements in 18% of projects reported<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>. In
+comparison, less that 1% of activities reported in CRS has negative value, mostly associated with loan
+repayments and correction of previous entries, i.e. not a database error.</p>
+<p>For the harmonised database, the missing disbursement values were imputed based on the
+assumption that the commitments were distributed evenly from the start date to the end date of the
+project. The negative projects in IATI were corrected or removed by cross‐validating against CRS. The
+duplicated projects were removed based on project identifiers. Consultations with several multilateral
+donors were conducted to ensure the validity of the final data.</p>
+<p>Fig. <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fig:ePRESS">4.3</a> presents an example of how the new harmonised dataset looks after linking the different
+sources. For the 15,312 projects in the new datasets, 54% of disbursement activities come from the
+CRS data, compared with over 73% in the earlier dataset used for PRESS. In the new dataset, the PRESS
+survey accounts for 27% of projects, while IATI data and donor databases account for 19% of projects.
+By filtering through the data using recipient country and year, donors can already observe the
+upcoming funding received by a country for statistical development. It is then easier for them to
+identify funding gaps in prioritised areas. Hence, the new harmonised database can achieve better
+diversification of data sources and reduce the dependence on CRS.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ePRESS"></span>
+<img src="images/ePRESS.png" alt="Comparison of PRESS and the new harmonised database for the share of projects in the final data sets, by sources of data, 2016‐2018." width="812" />
+<p class="caption">
+Figure 4.3: Comparison of PRESS and the new harmonised database for the share of projects in the final data sets, by sources of data, 2016‐2018.
+</p>
+</div>
+</div>
+</div>
+<div id="bringing-them-together-nowcasting-and-forecasting-with-the-new-harmonised-database" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Bringing them together – nowcasting and forecasting with the new harmonised database<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#bringing-them-together-nowcasting-and-forecasting-with-the-new-harmonised-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>PARIS21 applied the same model on nowcasting and forecasting support to statistics (disbursements)
+but based on the new harmonised database, linking PRESS data with the aforementioned alternative
+sources. The main findings of this approach were similar to those based on CRS estimations: there is
+no indication of a systematic increase in funding to statistics in the current or coming years.</p>
 
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>See <a href="https://unstats.un.org/sdgs/hlg/Cape‐Town‐Global‐Action‐Pl" class="uri">https://unstats.un.org/sdgs/hlg/Cape‐Town‐Global‐Action‐Pl</a><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>A firm obligation, expressed in writing and backed by the necessary funds, which is undertaken by an official
+donor. It provides specified assistance to a recipient country or a multilateral organisation. Bilateral
+commitments are recorded in the full amount of the expected transfer, irrespective of the time required for the
+completion of disbursements. Commitments to multilateral organisations are reported as the sum of (i) any
+disbursements in the year reported on, which have not previously been notified as commitments, and (ii)
+expected disbursements in the following year.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>The release of funds to or the purchase of goods or services for a recipient; by extension, the amount spent. Disbursements record the actual international transfer of financial resources, or of goods or services valued at
+the cost to the donor. In the case of activities conducted in donor countries, such as training, administration, or
+public awareness programmes, disbursement is assumed to have occurred when the funds have been
+transferred to the service provider or recipient. These may be recorded as gross (the total amount disbursed
+over a given accounting period) or net (the gross amount, less any repayments of loan principal or recoveries
+on grants received during the same period). It can take several years to disburse a commitment.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>For example, the amount for technical support projects that do not have direct monetary transfers can be
+replaced by a cost estimate by the provider. In cases where the disbursement information is missing, the
+estimated disbursement amount can be calculated by dividing the unspent commitment amount using the
+number of years left before the expected end date<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>See <a href="https://stats.oecd.org/DownloadFiles.aspx?DatasetCode=CRS" class="uri">https://stats.oecd.org/DownloadFiles.aspx?DatasetCode=CRS</a><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>This particular reverse correlation can be explained by different factors. Firstly, the financial crisis impacted the continuity of some donors’ ODA flow more than others. The significant variation of the exchange rate or inflation
+rate of a donor could also lead to a sudden change in the converted constant value of aid. In addition, some
+donors tend to make more long‐term commitments than others, resulting in a distribution of disbursements
+over a long period of time, even after the donors had significantly reduced their overall international aid
+package<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Due to the disruptive effect of the COVID‐19 pandemic on the predictability of the model, the nowcasting results for 2020, although produced, were not presented in the PRESS 2020 report.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>The COVID‐19 pandemic has brought great uncertainty to this assumption, especially for censuses planned
+to take place between 2020 and 2021. Although funding for most censuses has been secured, many countries
+have diverted their national budget to other, more urgent matters (CCSA, 2020) (UNFPA, 2020), resulting in
+the postponement of external funding<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Based on data collected in 2019, the future improvements of the IATI database have resolved this issue.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref15" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="monitoring-funding-to-statistics-with-accuracy.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="machine-learning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -186,7 +552,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/PARIS21-DATA/PRESS_methodology_note/edit/master/03-Monitoring-funding-to-statistics-with-reduced-reporting-lag.Rmd",
+"link": "https://github.com/PARIS21-DATA/PRESS_methodology_note/edit/master/04-Monitoring-funding-to-statistics-with-reduced-reporting-lag.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -194,10 +560,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/PARIS21-DATA/PRESS_methodology_note/blob/master/03-Monitoring-funding-to-statistics-with-reduced-reporting-lag.Rmd",
+"link": "https://github.com/PARIS21-DATA/PRESS_methodology_note/blob/master/04-Monitoring-funding-to-statistics-with-reduced-reporting-lag.Rmd",
 "text": null
 },
-"download": ["bookdownproj.pdf"],
+"download": [["PRESS_methodology_note.pdf", "PDF"]],
 "search": {
 "engine": "fuse",
 "options": null
@@ -211,6 +577,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

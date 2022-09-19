@@ -1,3 +1,5 @@
 # Background
 
-For most types of output formats, you can customize the syntax highlighting styles using the highlight option of the specific format. Currently, the possible styles are default, tango, pygments, kate, monochrome, espresso, zenburn, haddock, and breezedark. For example, you can choose the tango style for the gitbook format:
+PARIS21 produces the Partner Report on Support to Statistics (PRESS) annually to report on trends in 
+support  to  statistics.  The  methodology  is  applied  retrospectively  for  all  previous  years  to  ensure 
+comparability over time. This document presents the methodology.  
