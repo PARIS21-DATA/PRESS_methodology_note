@@ -102,7 +102,6 @@ $Average\_Annual\_Spending$.
 \begin{align}
 Disbursement &= Average\_annual\_spending \cdot k + d \\
 
-
 \text{where} ~~~~ Average\_annual\_spending &= \text{Total Project Commitments}/number\_of\_years
 \end{align}
 
@@ -116,7 +115,23 @@ spending is calculated based on the assumption that commitment without a detaile
 disbursement will be distributed evenly by year, from the expected start year to the end year of the
 project.
 
-Table 1
+
+```{=latex}
+\begin{tabular}{c|c c c c}
+ & Estimate & Std. Error & t value & Pr(>|t|) \\
+\hline
+(Intercept) & 38.455 & 8.04901 & ‐4.778 & 0.0139*\\
+$Average\_Annual\_Spending$ & 0.87461 & 0.05191 & 12.997 & 0.0456*\\
+\end{tabular}
+```
+          
+                               Estimate     Std. Error    t value     Pr(>|t|) 
+------                        -------       ---------      -------   ---------
+(Intercept)                    38.455          8.04901      ‐4.778     0.0139*
+$Average\_Annual\_Spending$   0.87461          0.05191      12.997     0.0456*
+
+Table: (\#tab:regression-table) Regression table from the analysis
+
 
 The analysis of CRS data shows a significant correlation (90%) between disbursements and
 commitments each year. The value of k and the predictability of the model vary depending on the
@@ -246,11 +261,47 @@ projection of aid flows. The methodology developed by PARIS21 leverages these pr
 underutilised existing data source that may not reflect completely on the activities from donors.
 Nevertheless, it is useful for nowcasting funding.
 
-The comparison of the above data sources can be found in Table 2Table 1. As another important data
-source in the area of data and statistics, the Eurostat’s donor survey is analysed in Box 2Box 2.
+The comparison of the above data sources can be found in \@ref(fig:data-sources). As another important data
+source in the area of data and statistics, the Eurostat’s donor survey is analysed in Box 2.
 
-Table 2
 
+```{r data-sources, echo=FALSE, fig.align="center", fig.cap = "Comparison of data sources.", out.width = "80%"}
+knitr::include_graphics("./images/data_sources.png")
+```
+
+:::: {.emphbox data-latex=""}
+::: {.center data-latex=""}
+**Box 2**
+:::
+
+The annual Donor Survey by Eurostat aims to provide an overview of statistical projects in the
+respective countries to allow for better planning of assistance in the field of statistics, to benefit
+from acquired experience, and to avoid overlap. The survey is distributed to donor countries,
+international organisations, and the recipients (mostly Eurostat member states or partner
+states) of support to data and statistics.
+
+According to the report of the 2020 round, the Donor Survey’s main objectives included:
+
+  - facilitating better planning and prioritisation of assistance, especially amongst the donors;
+      
+  - increasing transparency/visibility for donors and implementing agencies and potentially serving as an “audit” document for beneficiaries;
+      
+  - providing the beneficiaries with a broad overview of the areas in which they are receiving support, also at regional level, and prioritising their future needs;
+      
+  - benefitting and learning from the experiences, good practices, and shortcomings of other projects;
+      
+  - facilitating a dialogue between beneficiaries, donors, and implementing agencies.
+  
+At donor country level and on the donors’ side, respondents to the Donor Survey overlap with
+CRS. However, the CRS reporting is coordinated by one national focal point, while the Donor
+Survey questionnaire is distributed to both the aid agencies and national statistics offices who
+provide technical support. However, the Donor Survey data set does not have a good system to
+harmonise the data from the two sides, nor does it contain the program identifiers, which
+are essential to avoid duplication when combining information with other sources. Unlike the
+development of financing databases, the Donor Survey also lacks a mechanism to update
+previous years’ reported projects. Coverage of the survey is also not comprehensive enough to
+provide additional values to the alternative data sources identified in this document.
+:::::
 
 ### Addressing gaps in the alternative data sources
 

@@ -34,7 +34,7 @@ addressed while compiling support for data and statistics, such as: the cross‐
 with statistical components, limited reporter knowledge about the code, the assignment of some ODA
 for data and statistics under other codes, lack of granularity in reporting, etc. These issues are covered
 in detail in PARIS (2019). PARIS21 is seeking to reduce this usually downward bias using a text analysis
-methodology section \@ref(machine-learning).
+methodology (see section \@ref(machine-learning)).
 
 The CRS identifies a project donor by looking at the source of the funding. Countries are identified as
 donors if the flow is directly between them and the recipient country (type 1 in Fig. \@ref(fig:funding-flows)), or if

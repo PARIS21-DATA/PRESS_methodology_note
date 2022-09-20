@@ -1,7 +1,7 @@
 book_filename: "bookdownproj"
 output_dir: docs
 delete_merged_file: true
-edit: https://github.com/PARIS21-DATA/PRESS_methodology_note/edit/master/%s
+edit: null
 view: https://github.com/PARIS21-DATA/PRESS_methodology_note/blob/master/%s
 language:
   ui:

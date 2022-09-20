@@ -5,7 +5,7 @@
   object-fit: contain;
   margin: 0 auto;
   display: block;
-}
+}       
 
 .toc-logo img {
   max-width: 100%;
@@ -55,4 +55,17 @@
 
 .sourceCode {
   margin-bottom: 0.85em; /* adds same amount of margin as a <p> would */
+}
+
+/*_____ Boxes _____*/
+
+.emphbox {
+  padding: 1em;
+  background: #f1f6f7;
+  color: rgb(17, 17, 17);
+  border: 2px solid rgba(216, 237, 247, 0.984)
+  border-radius: 10px;
+}
+.center {
+  text-align: center;
 }

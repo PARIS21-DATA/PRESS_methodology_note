@@ -269,7 +269,6 @@ predict current disbursements based on reported commitments, captured by
 <p><span class="math display">\[\begin{align}
 Disbursement &amp;= Average\_annual\_spending \cdot k + d \\
 
-
 \text{where} ~~~~ Average\_annual\_spending &amp;= \text{Total Project Commitments}/number\_of\_years
 \end{align}\]</span></p>
 <p>k is the regression coefficient and d is the error term. The number of years is the difference between
@@ -279,7 +278,34 @@ value in those two variables. The analysis used the most recently accessible dat
 spending is calculated based on the assumption that commitment without a detailed plan for
 disbursement will be distributed evenly by year, from the expected start year to the end year of the
 project.</p>
-<p>Table 1</p>
+<table>
+<caption><span id="tab:regression-table">Table 4.1: </span> Regression table from the analysis</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Estimate</th>
+<th>Std. Error t</th>
+<th align="center">value</th>
+<th align="right">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td align="right">38.455</td>
+<td>8.04901</td>
+<td align="center">‐4.778</td>
+<td align="right">0.0139*</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Average\_Annual\_Spending\)</span></td>
+<td align="right">0.87461</td>
+<td>0.05191</td>
+<td align="center">12.997</td>
+<td align="right">0.0456*</td>
+</tr>
+</tbody>
+</table>
 <p>The analysis of CRS data shows a significant correlation (90%) between disbursements and
 commitments each year. The value of k and the predictability of the model vary depending on the
 reporting pattern of each donor. For example, while the commitment numbers reported by most
@@ -395,9 +421,41 @@ accuracy. However, these future projects could still contain valuable informatio
 projection of aid flows. The methodology developed by PARIS21 leverages these projects as an
 underutilised existing data source that may not reflect completely on the activities from donors.
 Nevertheless, it is useful for nowcasting funding.</p>
-<p>The comparison of the above data sources can be found in Table 2Table 1. As another important data
-source in the area of data and statistics, the Eurostat’s donor survey is analysed in Box 2Box 2.</p>
-<p>Table 2</p>
+<p>The comparison of the above data sources can be found in <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fig:data-sources">4.3</a>. As another important data
+source in the area of data and statistics, the Eurostat’s donor survey is analysed in Box 2.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:data-sources"></span>
+<img src="images/data_sources.png" alt="Comparison of data sources." width="80%" />
+<p class="caption">
+Figure 4.3: Comparison of data sources.
+</p>
+</div>
+<div class="emphbox">
+<div class="center">
+<p><strong>Box 2</strong></p>
+</div>
+<p>The annual Donor Survey by Eurostat aims to provide an overview of statistical projects in the
+respective countries to allow for better planning of assistance in the field of statistics, to benefit
+from acquired experience, and to avoid overlap. The survey is distributed to donor countries,
+international organisations, and the recipients (mostly Eurostat member states or partner
+states) of support to data and statistics.</p>
+<p>According to the report of the 2020 round, the Donor Survey’s main objectives included:</p>
+<ul>
+<li><p>facilitating better planning and prioritisation of assistance, especially amongst the donors;</p></li>
+<li><p>increasing transparency/visibility for donors and implementing agencies and potentially serving as an “audit” document for beneficiaries;</p></li>
+<li><p>providing the beneficiaries with a broad overview of the areas in which they are receiving support, also at regional level, and prioritising their future needs;</p></li>
+<li><p>benefitting and learning from the experiences, good practices, and shortcomings of other projects;</p></li>
+<li><p>facilitating a dialogue between beneficiaries, donors, and implementing agencies.</p></li>
+</ul>
+<p>At donor country level and on the donors’ side, respondents to the Donor Survey overlap with
+CRS. However, the CRS reporting is coordinated by one national focal point, while the Donor
+Survey questionnaire is distributed to both the aid agencies and national statistics offices who
+provide technical support. However, the Donor Survey data set does not have a good system to
+harmonise the data from the two sides, nor does it contain the program identifiers, which
+are essential to avoid duplication when combining information with other sources. Unlike the
+development of financing databases, the Donor Survey also lacks a mechanism to update
+previous years’ reported projects. Coverage of the survey is also not comprehensive enough to
+provide additional values to the alternative data sources identified in this document.</p>
+</div>
 </div>
 </div>
 <div id="addressing-gaps-in-the-alternative-data-sources" class="section level3 hasAnchor" number="4.3.2">
@@ -456,7 +514,7 @@ assumption that the commitments were distributed evenly from the start date to t
 project. The negative projects in IATI were corrected or removed by cross‐validating against CRS. The
 duplicated projects were removed based on project identifiers. Consultations with several multilateral
 donors were conducted to ensure the validity of the final data.</p>
-<p>Fig. <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fig:ePRESS">4.3</a> presents an example of how the new harmonised dataset looks after linking the different
+<p>Fig. <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fig:ePRESS">4.4</a> presents an example of how the new harmonised dataset looks after linking the different
 sources. For the 15,312 projects in the new datasets, 54% of disbursement activities come from the
 CRS data, compared with over 73% in the earlier dataset used for PRESS. In the new dataset, the PRESS
 survey accounts for 27% of projects, while IATI data and donor databases account for 19% of projects.
@@ -467,7 +525,7 @@ diversification of data sources and reduce the dependence on CRS.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ePRESS"></span>
 <img src="images/ePRESS.png" alt="Comparison of PRESS and the new harmonised database for the share of projects in the final data sets, by sources of data, 2016‐2018." width="812" />
 <p class="caption">
-Figure 4.3: Comparison of PRESS and the new harmonised database for the share of projects in the final data sets, by sources of data, 2016‐2018.
+Figure 4.4: Comparison of PRESS and the new harmonised database for the share of projects in the final data sets, by sources of data, 2016‐2018.
 </p>
 </div>
 </div>
@@ -552,8 +610,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/PARIS21-DATA/PRESS_methodology_note/edit/master/04-Monitoring-funding-to-statistics-with-reduced-reporting-lag.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,

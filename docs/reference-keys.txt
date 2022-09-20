@@ -4,7 +4,9 @@ fig:title-pattern-matching
 fig:text-mining
 fig:importance-matrix
 fig:reporting-lag
+tab:regression-table
 fig:commitments-CRS
+fig:data-sources
 fig:ePRESS
 background
 monitoring-funding-to-statistics-with-accuracy

@@ -6,6 +6,9 @@ author:
   - Archita Misra^[[PARIS21](https://www.paris21.org)]
 #date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+header-includes:
+  - \usepackage{caption}
+  - \usepackage{array}
 ---
 
 # Acknowledgements {-}
