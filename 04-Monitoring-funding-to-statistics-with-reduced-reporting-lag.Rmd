@@ -262,7 +262,7 @@ underutilised existing data source that may not reflect completely on the activi
 Nevertheless, it is useful for nowcasting funding.
 
 The comparison of the above data sources can be found in \@ref(fig:data-sources). As another important data
-source in the area of data and statistics, the Eurostat’s donor survey is analysed in Box 2.
+source in the area of data and statistics, the Eurostat’s donor survey is analysed in Box 1.
 
 
 ```{r data-sources, echo=FALSE, fig.align="center", fig.cap = "Comparison of data sources.", out.width = "80%"}
@@ -271,7 +271,7 @@ knitr::include_graphics("./images/data_sources.png")
 
 :::: {.emphbox data-latex=""}
 ::: {.center data-latex=""}
-**Box 2**
+**Box 1: The Eurostat’s Donor Survey – and why it is not included in the PRESS database**
 :::
 
 The annual Donor Survey by Eurostat aims to provide an overview of statistical projects in the
@@ -375,7 +375,7 @@ upcoming funding received by a country for statistical development. It is then e
 identify funding gaps in prioritised areas. Hence, the new harmonised database can achieve better
 diversification of data sources and reduce the dependence on CRS.
 
-```{r ePRESS, echo=FALSE, fig.align="center", fig.cap = "Comparison of PRESS and the new harmonised database for the share of projects in the final data sets, by sources of data, 2016‐2018.", }
+```{r ePRESS, echo=FALSE, fig.align="center", fig.cap = "Comparison of PRESS and the new harmonised database for the share of projects in the final data sets, by sources of data, 2016‐2018.", out.width= "80%" }
 knitr::include_graphics("./images/ePRESS.png")
 ```
 

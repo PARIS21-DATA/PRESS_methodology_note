@@ -42,7 +42,7 @@ the flow is earmarked for a certain project and channeled through multilateral o
 in Fig. \@ref(fig:funding-flows)). If a project is funded by un‐earmarked core contributions to multilateral
 organisations, the donors are marked as the multilateral organisations (types 2 and 4 in Fig. \@ref(fig:funding-flows)).
 
-```{r funding-flows, echo=FALSE, fig.align="center", fig.cap = "Flow of official aid in CRS.", }
+```{r funding-flows, echo=FALSE, fig.align="center", fig.cap = "Flow of official aid in CRS.", out.width="60%" }
 knitr::include_graphics("./images/CRS_funding_flow.png")
 ```
 
