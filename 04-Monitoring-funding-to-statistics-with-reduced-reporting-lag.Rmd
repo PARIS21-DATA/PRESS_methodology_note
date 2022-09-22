@@ -37,8 +37,8 @@ methodology extension. While the PRESS methodology will still be used to report 
 months before the publication, the methodology extension will provide stakeholders with PRESS‐like
 information on more recent periods, therefore reducing the reporting lag significantly. This concept
 became more relevant in 2020, when the development co‐operation community had to face the
-challenges that arose due to the COVID‐19 pandemic in national statistical systems (PARIS21, 2020a)
-and funding to data by domestic and external stakeholders (PARIS21, 2020b).
+challenges that arose due to the COVID‐19 pandemic in national statistical systems [@PARIS21-Covid]
+and funding to data by domestic and external stakeholders [@PRESS-2021].
 
 
 ## Estimating up‐to‐date support to statistics using CRS {#estimating-using-CRS}
@@ -85,7 +85,7 @@ we can estimate support to statistics disbursed in the current year is by lookin
 between the two variables. The literature on aid predictability indicates that these two variables may
 be closely related over time. A 2013 study examining aid predictability based on CRS data also shows
 that commitments have a significant impact on disbursements five years after they were made
-(Hudson, 2013).
+[@Hudson].
 
 For most development projects reported to the CRS and the PRESS survey, both commitment and
 disbursement data are reported. Even when these variables are not directly reported, however, the
@@ -125,10 +125,10 @@ $Average\_Annual\_Spending$ & 0.87461 & 0.05191 & 12.997 & 0.0456*\\
 \end{tabular}
 ```
           
-                               Estimate     Std. Error    t value     Pr(>|t|) 
-------                        -------       ---------      -------   ---------
-(Intercept)                    38.455          8.04901      ‐4.778     0.0139*
-$Average\_Annual\_Spending$   0.87461          0.05191      12.997     0.0456*
+                               Estimate       Std. Error       t value     Pr(>|t|) 
+------                        ---------     ------------      --------    ---------
+(Intercept)                      38.455          8.04901        ‐4.778      0.0139*
+$Average\_Annual\_Spending$     0.87461          0.05191        12.997      0.0456*
 
 Table: (\#tab:regression-table) Regression table from the analysis
 
@@ -175,7 +175,7 @@ to target and detectable. These projects are generally stable and attract simila
 year. Likewise, the upcoming censuses or major surveys in low‐income countries are expected
 to be funded partially by donors.^[The COVID‐19 pandemic has brought great uncertainty to this assumption, especially for censuses planned
 to take place between 2020 and 2021. Although funding for most censuses has been secured, many countries
-have diverted their national budget to other, more urgent matters (CCSA, 2020) (UNFPA, 2020), resulting in
+have diverted their national budget to other, more urgent matters [@CCSA; @UNFPA], resulting in
 the postponement of external funding] This information accounts for nearly half of the total
 amount for data and statistics. Confirmation from donors of the continuation of these projects
 can further improve the accuracy of this analysis.

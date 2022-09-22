@@ -9,6 +9,9 @@ site: bookdown::bookdown_site
 header-includes:
   - \usepackage{caption}
   - \usepackage{array}
+
+bibliography: Bibliography.bib
+link-citations: true
 ---
 
 # Acknowledgements {-}
@@ -16,7 +19,7 @@ header-includes:
 Draft  methodological  note  prepared  by  Yu  Tian  and  Archita  Misra  (PARIS21)  under  the  supervision  of  Rajiv 
 Ranjan (PARIS21). The authors are grateful to Eric Swanson and Lorenz Noe (Open Data Watch) and Simon Lange 
 (OECD)  for  their  valuable  review  and  feedback.  Further  comments  to  the  authors  (Yu.Tian@oecd.org; 
-Archita.misra@oecd.org) are welcome. 
+Archita.misra@oecd.org) are welcome.
 
 #### Code chunk example {-}
 

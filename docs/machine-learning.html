@@ -118,6 +118,28 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -254,7 +276,7 @@ Figure 3.2: Schematic diagram of the title pattern matching.
 <ol style="list-style-type: lower-roman">
 <li><p><em>Construct learning and prediction set</em>: For this machine learning approach, it is necessary to construct a balanced learning set which contains 50% negatively marked (NM) and 50% positively marked (PM) projects. The projects detected in Step <strong>A</strong> are used as the PM projects since it is reasonable to assume that if the title contains statistical keywords, also its description refers to statistics. The NM projects are chosen randomly because it can be assumed that only a small fraction of projects refer to statistics and therefore the probability to introduce error into the learning set is very small. The prediction data set contains simply the rest of the NM projects in the text mining data set.</p></li>
 <li><p><em>Clean and lemmatize descr2mine</em>: As previously discussed, only distinct long descriptions (distinct from title) are used to avoid analyzing the same text twice. These are then cleaned and lemmatized to reduce the text to the relevant information.</p></li>
-<li><p><em>Create DTM matrices</em>: After splitting the learning set into the training set and testing set in a ration of 80/20, the document term matrix (DTM) is created for the training set. It has all the words that are present in all descriptions of the training data set (terms) as columns and collects their weighted frequency for each project in the respective row. For creating the DTMs of the test data and prediction data, terms occurring in the training data DTM are used which means that the all DTMs share the same columns. This is important for the prediction step later on since the model is only trained on these terms and assigns a relative weight to each of them. Therefore, it can only predict on terms that is already “seen”.</p></li>
+<li><p><em>Create DTM matrices</em>: After splitting the learning set into the training set and testing set in a ration of 80/20, the document term matrix (DTM) is created for the training set. It has all the words that are present in all descriptions of the training data set (terms) as columns and collects their weighted frequency for each project in the respective row. For creating the DTMs of the test data and prediction data, terms occurring in the training data DTM are used which means that the all DTMs share the same columns. This is important for the prediction step later on since the model is only trained on these terms and assigns a relative weight to each of them. Therefore, it can only predict on terms that has already “seen”.</p></li>
 <li><p><em>Training the XGBoost model</em>: The model is obtained from the regularizing gradient boosting framework <a href="https://xgboost.readthedocs.io/en/stable/index.html">XGBoost</a> by fitting the training data. Due to the broad literature on this machine learning approach, a detailed discussion shall be refrained from here. It can be said however that by passing along the training data DTM alongside the correct classification labels, the XGBoost model identifies the most important words appearing in the TM projects and assigns a high importance to them (see Fig. <a href="machine-learning.html#fig:importance-matrix">3.4</a> below).</p></li>
 <li><p><em>Testing and prediction</em>: The model is then assessed using the test data. Since the model returns a score p_stat in the range from 0 to 1 whether a project’s description refers to statistics, different thresholds are tested to see how the model performs (more in Appendix 2). Finally, all projects in the prediction set are predicted using the fitted model. If a project receives a score of <span class="math inline">\(p_{stat} ≥ 0.9\)</span>, it is marked as statistical by the text mining (justification of threshold).</p></li>
 <li><p><em>Iteration of step 1.-5. for learning set robustness</em>: In step 1, the 50% NM projects were chosen at random since the probability that statistical project is in this set is very small. However, it could still be the case that the statistical projects are included by chance. This can be almost avoided by repeating steps 1. – 5. with a training set that is constructed using only projects that are predicted not to be statistical with <span class="math inline">\(p_{stat} ≤ 0.3\)</span>. This threshold is chosen because it makes sure that the training set is only constructed from true NM projects while not being too restrictive and potentially introducing a bias into the training set (e.g. if all projects with <span class="math inline">\(p_{stat} ≤ 0.05\)</span> stem from the agriculture sector). On average, this iterative procedure increases the accuracy by 5% - 10% depending on the size of the prediction set.</p></li>

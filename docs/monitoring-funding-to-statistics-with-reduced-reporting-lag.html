@@ -118,6 +118,28 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -225,8 +247,8 @@ methodology extension. While the PRESS methodology will still be used to report 
 months before the publication, the methodology extension will provide stakeholders with PRESS‐like
 information on more recent periods, therefore reducing the reporting lag significantly. This concept
 became more relevant in 2020, when the development co‐operation community had to face the
-challenges that arose due to the COVID‐19 pandemic in national statistical systems (PARIS21, 2020a)
-and funding to data by domestic and external stakeholders (PARIS21, 2020b).</p>
+challenges that arose due to the COVID‐19 pandemic in national statistical systems <span class="citation">(<a href="#ref-PARIS21-Covid" role="doc-biblioref">PARIS21 2020a</a>)</span>
+and funding to data by domestic and external stakeholders <span class="citation">(<a href="#ref-PRESS-2021" role="doc-biblioref">PARIS21 2020b</a>)</span>.</p>
 </div>
 <div id="estimating-using-CRS" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Estimating up‐to‐date support to statistics using CRS<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#estimating-using-CRS" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -258,7 +280,7 @@ we can estimate support to statistics disbursed in the current year is by lookin
 between the two variables. The literature on aid predictability indicates that these two variables may
 be closely related over time. A 2013 study examining aid predictability based on CRS data also shows
 that commitments have a significant impact on disbursements five years after they were made
-(Hudson, 2013).</p>
+<span class="citation">(<a href="#ref-Hudson" role="doc-biblioref">Hudson 2015</a>)</span>.</p>
 <p>For most development projects reported to the CRS and the PRESS survey, both commitment and
 disbursement data are reported. Even when these variables are not directly reported, however, the
 missing value can usually be imputed.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
@@ -284,8 +306,8 @@ project.</p>
 <tr class="header">
 <th></th>
 <th align="right">Estimate</th>
-<th>Std. Error t</th>
-<th align="center">value</th>
+<th align="right">Std. Error</th>
+<th align="right">t value</th>
 <th align="right">Pr(&gt;|t|)</th>
 </tr>
 </thead>
@@ -293,15 +315,15 @@ project.</p>
 <tr class="odd">
 <td>(Intercept)</td>
 <td align="right">38.455</td>
-<td>8.04901</td>
-<td align="center">‐4.778</td>
+<td align="right">8.04901</td>
+<td align="right">‐4.778</td>
 <td align="right">0.0139*</td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(Average\_Annual\_Spending\)</span></td>
 <td align="right">0.87461</td>
-<td>0.05191</td>
-<td align="center">12.997</td>
+<td align="right">0.05191</td>
+<td align="right">12.997</td>
 <td align="right">0.0456*</td>
 </tr>
 </tbody>
@@ -539,6 +561,24 @@ no indication of a systematic increase in funding to statistics in the current o
 
 </div>
 </div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-CCSA" class="csl-entry">
+CCSA. 2020. <span>“<span class="nocase">How COVID‐19 is changing the world: a statistical perspective</span>.”</span> taken from <a href="https://unstats.un.org/unsd/ccsa/documents/covid19-report-ccsa_vol2.pdf" class="uri">https://unstats.un.org/unsd/ccsa/documents/covid19-report-ccsa_vol2.pdf</a>.
+</div>
+<div id="ref-Hudson" class="csl-entry">
+Hudson, John. 2015. <span>“<span class="nocase">Promises kept, promises broken? The relationship between aid commitments and disbursements</span>.”</span> <em>Review of Development Finance</em> 3: 109–20. <a href="https://doi.org/10.1016/j.rdf.2013.08.001">https://doi.org/10.1016/j.rdf.2013.08.001</a>.
+</div>
+<div id="ref-PARIS21-Covid" class="csl-entry">
+PARIS21. 2020a. <span>“<span class="nocase">Combating COVID‐19 with data: what role for national statistical systems?</span>”</span> Paris: Taken from <a href="https://paris21.org/sites/default/files/inline‐files/COVID_Policybrief_Full.pdf?v=2.0" class="uri">https://paris21.org/sites/default/files/inline‐files/COVID_Policybrief_Full.pdf?v=2.0</a>.
+</div>
+<div id="ref-PRESS-2021" class="csl-entry">
+PARIS21. 2020b. <span>“<span class="nocase">Partner Report on Support to Statistics 2020</span>.”</span> Paris: <a href="https://paris21.org/sites/default/files/inline-files/PRESS2020%20Final.pdf" class="uri">https://paris21.org/sites/default/files/inline-files/PRESS2020%20Final.pdf</a>.
+</div>
+<div id="ref-UNFPA" class="csl-entry">
+UNFPA. 2020. <span>“<span class="nocase">Technical Brief on the Implications of COVID‐19 on Census</span>.”</span> Taken from <a href="https://www.unfpa.org/sites/default/files/resource‐pdf/Census_COVID19_digital.pdf" class="uri">https://www.unfpa.org/sites/default/files/resource‐pdf/Census_COVID19_digital.pdf</a>.
+</div>
+</div>
 <div class="footnotes">
 <hr />
 <ol start="7">
@@ -568,7 +608,7 @@ package<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html
 <li id="fn13"><p>Due to the disruptive effect of the COVID‐19 pandemic on the predictability of the model, the nowcasting results for 2020, although produced, were not presented in the PRESS 2020 report.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref13" class="footnote-back">↩︎</a></p></li>
 <li id="fn14"><p>The COVID‐19 pandemic has brought great uncertainty to this assumption, especially for censuses planned
 to take place between 2020 and 2021. Although funding for most censuses has been secured, many countries
-have diverted their national budget to other, more urgent matters (CCSA, 2020) (UNFPA, 2020), resulting in
+have diverted their national budget to other, more urgent matters <span class="citation">(<a href="#ref-CCSA" role="doc-biblioref">CCSA 2020</a>; <a href="#ref-UNFPA" role="doc-biblioref">UNFPA 2020</a>)</span>, resulting in
 the postponement of external funding<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref14" class="footnote-back">↩︎</a></p></li>
 <li id="fn15"><p>Based on data collected in 2019, the future improvements of the IATI database have resolved this issue.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref15" class="footnote-back">↩︎</a></p></li>
 </ol>

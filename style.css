@@ -69,3 +69,8 @@
 .center {
   text-align: center;
 }
+
+div.csl-entry {
+  clear: both;
+  margin-bottom: 15px;
+}
