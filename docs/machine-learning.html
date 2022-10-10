@@ -84,38 +84,39 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <style type="text/css">
@@ -225,10 +226,53 @@ div.csl-indent {
 <p>A known characteristic of Canadian reporting in the CRS data base is that both project titles and long descriptions<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> are reported in both official languages in the format “Englisch/French”. To avoid misclassification and misidentification due to the presence of both languages, the French part was dropped. Additionally, the full data set was reduced to 16 necessary variables to avoid heavy computational load of the full 96-variable data set.</p></li>
 <li><p><strong>Adding text identifiers</strong></p>
 <ol style="list-style-type: lower-roman">
-<li><p><em>Text cleaning</em>: First of all, the titles and descriptions were lowercased and cleaned by removing all numbers and punctuation signs in an effort to prepare the text for the creation of unique text identifiers. This is done to avoid unnecessary inclusion of projects that differ only slightly (e.g. by a number or comma).</p></li>
-<li><p><em>Id creation</em>: Each project title and description is given a specific id in order to be able to analyze only distinct titles and descriptions later on. These were created using a well-known hashing algorithm called “xxHash” that is reasonably fast and exhibits very good collision properties (see <a href="https://github.com/Cyan4973/xxHash" class="uri">https://github.com/Cyan4973/xxHash</a>).</p></li>
-<li><p><em>descr2mine</em>: Due to lazy reporting, frequently the descriptions differ only marginally from the project titles. This would pose a problem to the previously outlined twofold procedure since descriptions that are identical to the project titles would be analyzed twice. Therefore, only distinct descriptions are used which are identified using the Damerau-Levenshtein-Distance that counts how many alterations it would take to align both texts. The threshold for the maximal distance was set to 10 since this includes spelling mistakes, as well as one-word deviations (e.g. “Output: …”).</p></li>
-<li><p><em>Crating identifiers</em>: The CRS data set contains information about purpose of the funding flow in form of the purpose code, as well as other valuable information in other markers such as the gender marker (add link to resource) or the certain channel codes (41146 for UN Women). Table 1 lists all added identifiers.</p></li>
+<li><p><em>Text cleaning</em>: First of all, the titles and descriptions were lowercased and cleaned by removing all numbers and punctuation signs in an effort to prepare the text for the creation of unique text identifiers. This is done to avoid unnecessary inclusion of projects that differ only slightly (e.g. by a number or comma).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="machine-learning.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tm)</span>
+<span id="cb3-2"><a href="machine-learning.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="machine-learning.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function to clean titles</span></span>
+<span id="cb3-4"><a href="machine-learning.html#cb3-4" aria-hidden="true" tabindex="-1"></a>clean_titles <span class="ot">&lt;-</span> <span class="cf">function</span>(title){</span>
+<span id="cb3-5"><a href="machine-learning.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">&lt;-</span> title <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="machine-learning.html#cb3-6" aria-hidden="true" tabindex="-1"></a>    removeNumbers <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="machine-learning.html#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">removePunctuation</span>(<span class="at">preserve_intra_word_dashes =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="machine-learning.html#cb3-8" aria-hidden="true" tabindex="-1"></a>    tolower</span>
+<span id="cb3-9"><a href="machine-learning.html#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(title)</span>
+<span id="cb3-10"><a href="machine-learning.html#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-11"><a href="machine-learning.html#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="machine-learning.html#cb3-12" aria-hidden="true" tabindex="-1"></a>df_crs <span class="ot">&lt;-</span> df_crs_raw <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="machine-learning.html#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">projecttitle =</span> <span class="fu">clean_titles</span>(projecttitle),</span>
+<span id="cb3-14"><a href="machine-learning.html#cb3-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">shortdescription =</span> <span class="fu">clean_titles</span>(shortdescription),</span>
+<span id="cb3-15"><a href="machine-learning.html#cb3-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">longdescription =</span> <span class="fu">clean_titles</span>(longdescription))</span></code></pre></div>
+<p><br /></p></li>
+<li><p><em>Id creation</em>: Each project title and description is given a specific id in order to be able to analyze only distinct titles and descriptions later on. These were created using a well-known hashing algorithm called “xxHash” that is reasonably fast and exhibits very good collision properties (see <a href="https://github.com/Cyan4973/xxHash" class="uri">https://github.com/Cyan4973/xxHash</a>).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="machine-learning.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(digest)</span>
+<span id="cb4-2"><a href="machine-learning.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="machine-learning.html#cb4-3" aria-hidden="true" tabindex="-1"></a>df_crs <span class="ot">&lt;-</span> df_crs <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="machine-learning.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> <span class="co"># use rowwise operations since digest concatenates vector of strings</span></span>
+<span id="cb4-5"><a href="machine-learning.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">text_id =</span> digest<span class="sc">::</span><span class="fu">digest</span>(longdescription, <span class="at">algo =</span> <span class="st">&quot;xxhash32&quot;</span>)) <span class="sc">%&gt;%</span> <span class="co"># add text_id as hashed longdesription</span></span></code></pre></div>
+<p><br /></p></li>
+<li><p><em>descr2mine</em>: Due to lazy reporting, frequently the descriptions differ only marginally from the project titles. This would pose a problem to the previously outlined twofold procedure since descriptions that are identical to the project titles would be analyzed twice. Therefore, only distinct descriptions are used which are identified using the <a href="https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance">Damerau-Levenshtein-Distance</a> that counts how many alterations it would take to align both texts. The threshold for the maximal distance was set to 10 since this includes spelling mistakes, as well as one-word deviations (e.g. Output: …).</p></li>
+</ol>
+<pre><code>```r
+library(stringdist)
+
+# Max string distance underneath which strings can be considered the same/differing just by a word
+max_string_dist &lt;- 10 
+df_crs &lt;- df_crs %&gt;%
+  mutate(descr2mine = ifelse(stringdist(projecttitle, longdescription) &lt; max_string_dist | str_count(longdescription) &lt; 3, 
+                             NA, 
+                             longdescription))
+```</code></pre>
+<p><br /></p>
+<ol start="4" style="list-style-type: lower-roman">
+<li><p><em>Crating identifiers</em>: The CRS data set contains information about purpose of the funding flow in form of the purpose code, as well as other valuable information in other markers such as the gender marker (add link to resource) or the certain channel codes (41146 for UN Women). Table 1 lists all added identifiers.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="machine-learning.html#cb6-1" aria-hidden="true" tabindex="-1"></a>df_crs <span class="ot">&lt;-</span> df_crs <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="machine-learning.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">scb =</span> <span class="fu">ifelse</span>(purposecode <span class="sc">==</span> <span class="dv">16062</span>, <span class="dv">1</span>, <span class="dv">0</span>), <span class="co"># Statistical capcity building identifier</span></span>
+<span id="cb6-3"><a href="machine-learning.html#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">pop =</span> <span class="fu">ifelse</span>(purposecode <span class="sc">==</span> <span class="dv">13010</span>, <span class="dv">1</span>, <span class="dv">0</span>), <span class="co"># population policy identifier</span></span>
+<span id="cb6-4"><a href="machine-learning.html#cb6-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">gen_ppcode =</span> <span class="fu">ifelse</span>(purposecode <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">15170</span><span class="sc">:</span><span class="dv">15180</span>), <span class="dv">1</span>, <span class="dv">0</span>), <span class="co"># add gender purpose code identifier</span></span>
+<span id="cb6-5"><a href="machine-learning.html#cb6-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">gen_marker =</span> <span class="fu">ifelse</span>(gender <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(gender), <span class="dv">1</span>, <span class="dv">0</span>), <span class="co"># add gender marker (0 - no gender, 1 - primary purpose, 2 - secondary)</span></span>
+<span id="cb6-6"><a href="machine-learning.html#cb6-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">gen_donor =</span> <span class="fu">ifelse</span>(channelcode <span class="sc">==</span> <span class="dv">41146</span>, <span class="dv">1</span>, <span class="dv">0</span>), <span class="co"># all projects from UN Women</span></span>
+<span id="cb6-7"><a href="machine-learning.html#cb6-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">gen_sdg =</span> <span class="fu">str_detect</span>(sdgfocus, <span class="st">&quot;^5|,5&quot;</span>)) <span class="co"># SDG 5: Gender equality</span></span></code></pre></div>
+<p><br /></p></li>
 </ol></li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:data-preparation-CRS"></span>
@@ -244,14 +288,90 @@ Figure 3.1: Diagram of the data preparation process.
 <ol style="list-style-type: decimal">
 <li><p><strong>Preparing the data</strong></p>
 <p>In the first step, the language of both title and description is detected using <a href="https://github.com/CLD2Owners/cld2">Google’s Compact Language detector 2</a> (CLD2). It can detect 83 different languages and exceeds similar language detection engines by as much as 10x in speed. Analyzing the language distribution is crucial to a refined classification since text in every language has to be treated differently, using different keywords for the subsequent title pattern matching and fitting a different machine learning model later on. Therefore, the procedure was applied to projects in English, French, Spanish and German since these make up the majority of detected languages. This was implemented by selecting only projects with combinations of (title_language, long_language) in (en, fr, es, de, NA) x (en, fr, es, de, NA) while excluding the (NA, NA) combination. This combination was excluded since CLD2 in a vast majority of cases detects NA if the text is very short or nonsensical.</p>
-<p>To give an overview how many projects are analyzed using this method, this approach encompasses 3.145.387 (90.6%) projects while 23.4020 (6.7%) were excluded for being (NA, NA) projects. That leaves 90241 (2.6%) projects that were excluded because they were either wrongly detected or belonging to some minor reporting languages (e.g. Norwegian, Portuguese or Polish with a significant fraction within the 2.6% of excluded projects).</p>
-<p>In the second step, duplicated project titles were dropped to analyze these titles only once during the title pattern matching procedure which again reduced computation time.</p></li>
+<p>To give an overview how many projects are analyzed using this method, this approach encompasses 3.145.387 (90.6%) projects while 23.4020 (6.7%) were excluded for being (NA, NA) projects. That leaves 90241 (2.6%) projects that were excluded because they were either wrongly detected or belong to some minor reporting languages (e.g. Norwegian, Portuguese or Polish with a significant fraction within the 2.6% of excluded projects).</p>
+<p>In the second step, duplicated project titles were dropped to analyze these titles only once during the title pattern matching procedure which again reduced computation time.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="machine-learning.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All languages to include in classification - options: en, fr, es, de</span></span>
+<span id="cb7-2"><a href="machine-learning.html#cb7-2" aria-hidden="true" tabindex="-1"></a>languages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;en&quot;</span>, <span class="st">&quot;fr&quot;</span>, <span class="st">&quot;es&quot;</span>, <span class="st">&quot;de&quot;</span>)</span>
+<span id="cb7-3"><a href="machine-learning.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="machine-learning.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add unique title id and detect language of title and long description</span></span>
+<span id="cb7-5"><a href="machine-learning.html#cb7-5" aria-hidden="true" tabindex="-1"></a>df_crs <span class="ot">&lt;-</span> df_crs <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="machine-learning.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">projecttitle_lower =</span> <span class="fu">tolower</span>(projecttitle)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a href="machine-learning.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> <span class="co"># use rowwise operations since digest concatenates vector of strings</span></span>
+<span id="cb7-8"><a href="machine-learning.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title_id =</span> digest<span class="sc">::</span><span class="fu">digest</span>(projecttitle_lower, <span class="at">algo =</span> <span class="st">&quot;xxhash32&quot;</span>)) <span class="sc">%&gt;%</span> <span class="co"># create title id to drop duplicated titles later</span></span>
+<span id="cb7-9"><a href="machine-learning.html#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-10"><a href="machine-learning.html#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title_language =</span> cld2<span class="sc">::</span><span class="fu">detect_language</span>(projecttitle)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-11"><a href="machine-learning.html#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">long_language =</span> cld2<span class="sc">::</span><span class="fu">detect_language</span>(longdescription))</span>
+<span id="cb7-12"><a href="machine-learning.html#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="machine-learning.html#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Use only projects in en, fr, es and de</span></span>
+<span id="cb7-14"><a href="machine-learning.html#cb7-14" aria-hidden="true" tabindex="-1"></a>df_crs <span class="ot">&lt;-</span> df_crs <span class="sc">%&gt;%</span></span>
+<span id="cb7-15"><a href="machine-learning.html#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(title_language <span class="sc">%in%</span> <span class="fu">c</span>(languages, <span class="cn">NA</span>) <span class="sc">&amp;</span> long_language <span class="sc">%in%</span> <span class="fu">c</span>(languages,<span class="cn">NA</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-16"><a href="machine-learning.html#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(title_language) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(long_language)) <span class="co"># omit projects with both languages NA </span></span>
+<span id="cb7-17"><a href="machine-learning.html#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="machine-learning.html#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Select necessary columns and drop projects with duplicated title ids </span></span>
+<span id="cb7-19"><a href="machine-learning.html#cb7-19" aria-hidden="true" tabindex="-1"></a>df_crs <span class="ot">&lt;-</span> df_crs <span class="sc">%&gt;%</span></span>
+<span id="cb7-20"><a href="machine-learning.html#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title_id, projecttitle, projecttitle_lower, longdescription, title_language, long_language) <span class="sc">%&gt;%</span></span>
+<span id="cb7-21"><a href="machine-learning.html#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">duplicated</span>(title_id))</span></code></pre></div>
+<p><br /></p></li>
 <li><p><strong>Title pattern matching</strong></p>
 <ol style="list-style-type: lower-roman">
-<li><p><em>Clean and lemmatize keyword lists</em>: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix 1. The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles.</p></li>
-<li><p><em>Clean and lemmatize titles</em>: Cleaning of project titles was achieved by removing numbers, punctuation and so called “stopwords” (e.g. “and”, “the”, “for”) since they don’t contain information towards the classification. Subsequently, words were lemmatized meaning to reduce different forms of a word to its lemma (e.g. “women”, “woman’s”, “woman” -&gt; “woman”). This is very important to guarantee that all various versions are found during the title pattern search. For minority languages however, stemming is used instead of lemmatization since no good lemmatization implementation was available.</p></li>
-<li><p><em>Keyword detection</em>: For every language, the project title was analyzed whether it contains one of the statistical keywords or acronyms.</p></li>
-<li><p><em>Merging classes for final filter</em>: The reason to detect also mining projects was to exclude those projects from the statistics filter since expressions like “small arms survey”, “survey of landmine situation” make frequent appearances in project titles but are not related to statistics. Hence, only projects for which a statistical keyword was detected but no mining keyword are marked as a statistical project in the pattern matching step.</p></li>
+<li><p><em>Clean and lemmatize keyword lists</em>: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix 1. The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="machine-learning.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list_keywords_stat, list_acronyms and demining_small_arms previously loaded</span></span>
+<span id="cb8-2"><a href="machine-learning.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="machine-learning.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define lemmatization function</span></span>
+<span id="cb8-4"><a href="machine-learning.html#cb8-4" aria-hidden="true" tabindex="-1"></a>clean_and_lemmatize <span class="ot">&lt;-</span> <span class="cf">function</span> (string, <span class="at">language =</span> <span class="st">&quot;en&quot;</span>){</span>
+<span id="cb8-5"><a href="machine-learning.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  string <span class="ot">&lt;-</span> string <span class="sc">%&gt;%</span> </span>
+<span id="cb8-6"><a href="machine-learning.html#cb8-6" aria-hidden="true" tabindex="-1"></a>    tolower <span class="sc">%&gt;%</span> </span>
+<span id="cb8-7"><a href="machine-learning.html#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">removeWords</span>(<span class="st">&quot;&#39;s&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># remove possesive s so that plural nouns get lemmatized correctly, e.g. &quot;women&#39;s&quot;</span></span>
+<span id="cb8-8"><a href="machine-learning.html#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">removeNumbers</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a href="machine-learning.html#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">removePunctuation</span>(<span class="at">preserve_intra_word_dashes =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-10"><a href="machine-learning.html#cb8-10" aria-hidden="true" tabindex="-1"></a>    stripWhitespace <span class="sc">%&gt;%</span> </span>
+<span id="cb8-11"><a href="machine-learning.html#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">removeWords</span>(<span class="fu">c</span>(<span class="fu">stopwords</span>(<span class="st">&#39;english&#39;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-12"><a href="machine-learning.html#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">removeWords</span>(<span class="fu">c</span>(<span class="fu">stopwords</span>(<span class="at">source =</span> <span class="st">&quot;smart&quot;</span>)[<span class="sc">!</span><span class="fu">stopwords</span>(<span class="at">source =</span> <span class="st">&quot;smart&quot;</span>) <span class="sc">%in%</span> <span class="st">&quot;use&quot;</span>])) <span class="sc">%&gt;%</span> <span class="co"># exclude &quot;use&quot; from smart stopwords </span></span>
+<span id="cb8-13"><a href="machine-learning.html#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lemmatize_strings</span>()</span>
+<span id="cb8-14"><a href="machine-learning.html#cb8-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-15"><a href="machine-learning.html#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="machine-learning.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Lemmatization for &quot;en&quot;</span></span>
+<span id="cb8-17"><a href="machine-learning.html#cb8-17" aria-hidden="true" tabindex="-1"></a>list_keywords_stat <span class="ot">&lt;-</span> <span class="fu">clean_and_lemmatize</span>(list_keywords_stat, <span class="at">language =</span> lang)</span>
+<span id="cb8-18"><a href="machine-learning.html#cb8-18" aria-hidden="true" tabindex="-1"></a>demining_small_arms <span class="ot">&lt;-</span> <span class="fu">clean_and_lemmatize</span>(demining_small_arms, <span class="at">language =</span> lang)</span>
+<span id="cb8-19"><a href="machine-learning.html#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="machine-learning.html#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Stemming for minority languages &quot;fr&quot;, &quot;es&quot; and &quot;de&quot;</span></span>
+<span id="cb8-21"><a href="machine-learning.html#cb8-21" aria-hidden="true" tabindex="-1"></a>list_keywords_stat <span class="ot">&lt;-</span> <span class="fu">stem_and_concatenate</span>(list_keywords_stat, <span class="at">language =</span> lang)</span>
+<span id="cb8-22"><a href="machine-learning.html#cb8-22" aria-hidden="true" tabindex="-1"></a>demining_small_arms <span class="ot">&lt;-</span> <span class="fu">stem_and_concatenate</span>(demining_small_arms, <span class="at">language =</span> lang)</span></code></pre></div>
+<p><br /></p></li>
+<li><p><em>Clean and lemmatize titles</em>: Cleaning of project titles was achieved by removing numbers, punctuation and so called “stopwords” (e.g. “and”, “the”, “for”) since they don’t contain information towards the classification. Subsequently, words were lemmatized meaning to reduce different forms of a word to its lemma (e.g. “women”, “woman’s”, “woman” -&gt; “woman”). This is very important to guarantee that all various versions are found during the title pattern search. For minority languages however, stemming is used instead of lemmatization since no good lemmatization implementation was available.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="machine-learning.html#cb9-1" aria-hidden="true" tabindex="-1"></a>df_crs <span class="ot">&lt;-</span> df_crs <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="machine-learning.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">projecttitle_clean =</span> <span class="fu">ifelse</span>(title_language <span class="sc">==</span> lang <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(title_language), </span>
+<span id="cb9-3"><a href="machine-learning.html#cb9-3" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">clean_and_lemmatize</span>(projecttitle_lower, <span class="at">language =</span> lang),</span>
+<span id="cb9-4"><a href="machine-learning.html#cb9-4" aria-hidden="true" tabindex="-1"></a>                                     projecttitle_clean)) <span class="sc">%&gt;%</span>        </span></code></pre></div>
+<p><br /></p></li>
+<li><p><em>Keyword detection</em>: For every language, the project title was analyzed whether it contains one of the statistical keywords or acronyms.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="machine-learning.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create regex for searching titles </span></span>
+<span id="cb10-2"><a href="machine-learning.html#cb10-2" aria-hidden="true" tabindex="-1"></a>list_keywords_stat <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot; &quot;</span>, <span class="fu">paste</span>(list_keywords_stat, <span class="at">collapse =</span> <span class="st">&quot; | &quot;</span>),<span class="st">&quot; |^&quot;</span>, <span class="co"># words with whitespaces</span></span>
+<span id="cb10-3"><a href="machine-learning.html#cb10-3" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">paste</span>(list_keywords_stat, <span class="at">collapse =</span> <span class="st">&quot; |^&quot;</span>),<span class="st">&quot; | &quot;</span>, <span class="co"># beginning of string</span></span>
+<span id="cb10-4"><a href="machine-learning.html#cb10-4" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">paste</span>(list_keywords_stat, <span class="at">collapse =</span> <span class="st">&quot;$| &quot;</span>), <span class="st">&quot;$&quot;</span>) <span class="co"># end of string</span></span>
+<span id="cb10-5"><a href="machine-learning.html#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="machine-learning.html#cb10-6" aria-hidden="true" tabindex="-1"></a>demining_small_arms <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot; &quot;</span>, <span class="fu">paste</span>(demining_small_arms, <span class="at">collapse =</span> <span class="st">&quot; | &quot;</span>),<span class="st">&quot; |^&quot;</span>, </span>
+<span id="cb10-7"><a href="machine-learning.html#cb10-7" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">paste</span>(demining_small_arms, <span class="at">collapse =</span> <span class="st">&quot; |^&quot;</span>),<span class="st">&quot; | &quot;</span>, <span class="co"># beginning of string</span></span>
+<span id="cb10-8"><a href="machine-learning.html#cb10-8" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">paste</span>(demining_small_arms, <span class="at">collapse =</span> <span class="st">&quot;$| &quot;</span>), <span class="st">&quot;$&quot;</span>) <span class="co"># end of string</span></span>
+<span id="cb10-9"><a href="machine-learning.html#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="machine-learning.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Detect stat, acronyms and mining </span></span>
+<span id="cb10-11"><a href="machine-learning.html#cb10-11" aria-hidden="true" tabindex="-1"></a>df_crs <span class="ot">&lt;-</span> df_crs <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="machine-learning.html#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">match_stat =</span> <span class="fu">ifelse</span>(title_language <span class="sc">==</span> lang <span class="sc">|</span> <span class="fu">is.na</span>(title_language), </span>
+<span id="cb10-13"><a href="machine-learning.html#cb10-13" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">str_detect</span>(projecttitle_clean, list_keywords_stat), </span>
+<span id="cb10-14"><a href="machine-learning.html#cb10-14" aria-hidden="true" tabindex="-1"></a>                             match_stat),</span>
+<span id="cb10-15"><a href="machine-learning.html#cb10-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">mining =</span> <span class="fu">ifelse</span>(title_language <span class="sc">==</span> lang <span class="sc">|</span> <span class="fu">is.na</span>(title_language),</span>
+<span id="cb10-16"><a href="machine-learning.html#cb10-16" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">str_detect</span>(projecttitle_clean, demining_small_arms),</span>
+<span id="cb10-17"><a href="machine-learning.html#cb10-17" aria-hidden="true" tabindex="-1"></a>                         mining)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-18"><a href="machine-learning.html#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">match_stat =</span> <span class="fu">ifelse</span>(title_language <span class="sc">==</span> lang <span class="sc">|</span> <span class="fu">is.na</span>(title_language),</span>
+<span id="cb10-19"><a href="machine-learning.html#cb10-19" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">str_detect</span>(projecttitle_lower, list_acronyms) <span class="sc">|</span> match_stat,</span>
+<span id="cb10-20"><a href="machine-learning.html#cb10-20" aria-hidden="true" tabindex="-1"></a>                             match_stat))</span></code></pre></div>
+<p><br /></p></li>
+<li><p><em>Merging classes for final filter</em>: The reason to detect also mining projects was to exclude those projects from the statistics filter since expressions like “small arms survey”, “survey of landmine situation” make frequent appearances in project titles but are not related to statistics. Hence, only projects for which a statistical keyword was detected but no mining keyword are marked as a statistical project in the pattern matching step.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="machine-learning.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude mining projects, since they contain survey -&gt; not statistical project</span></span>
+<span id="cb11-2"><a href="machine-learning.html#cb11-2" aria-hidden="true" tabindex="-1"></a>df_crs <span class="ot">&lt;-</span> df_crs <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="machine-learning.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">text_detection_wo_mining =</span> match_stat <span class="sc">&amp;</span> <span class="sc">!</span>mining) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="machine-learning.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">text_detection_wo_mining_w_scb =</span> match_stat <span class="sc">|</span> scb)</span></code></pre></div>
+<p><br /></p></li>
 </ol></li>
 </ol>
 <p>Lastly, the statistics filter is added back to the reduced data set according to the title id. This ensures that all projects with the same title in the reduced data set are marked as statistical by the title pattern matching.</p>

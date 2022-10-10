@@ -1,5 +1,6 @@
 bookdown::gitbook:
-  highlight: tango
+  # Options: tango, pygments, kate, monochrome, espresso, zenburn, haddock, breezedark
+  highlight: pygments
   css: style.css
   #theme: sandstone
   edit: no

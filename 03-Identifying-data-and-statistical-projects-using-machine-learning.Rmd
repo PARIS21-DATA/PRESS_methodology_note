@@ -17,13 +17,65 @@ Here, the process of preparing the data is outlined (see Fig. \@ref(fig:data-pre
 
 2.	**Adding text identifiers**
 
-    i. *Text cleaning*: First of all, the titles and descriptions were lowercased and cleaned by removing all numbers and punctuation signs in an effort to prepare the text for the creation of unique text identifiers. This is done to avoid unnecessary inclusion of projects that differ only slightly (e.g. by a number or comma).
-  
+    i. *Text cleaning*: First of all, the titles and descriptions were lowercased and cleaned by removing all numbers and punctuation signs in an effort to prepare the text for the creation of unique text identifiers. This is done to avoid unnecessary inclusion of projects that differ only slightly (e.g. by a number or comma).  
+    
+        ```{r title-cleaning, results="asis", eval = FALSE}
+        library(tm)
+        
+        # Define function to clean titles
+        clean_titles <- function(title){
+          title <- title %>% 
+            removeNumbers %>%
+            removePunctuation(preserve_intra_word_dashes = TRUE) %>%
+            tolower
+          return(title)
+        }
+        
+        df_crs <- df_crs_raw %>%
+          mutate(projecttitle = clean_titles(projecttitle),
+                 shortdescription = clean_titles(shortdescription),
+                 longdescription = clean_titles(longdescription))
+        ```
+    <br />
+    
     ii.	*Id creation*: Each project title and description is given a specific id in order to be able to analyze only distinct titles and descriptions later on. These were created using a well-known hashing algorithm called “xxHash” that is reasonably fast and exhibits very good collision properties (see https://github.com/Cyan4973/xxHash). 
+    
+        ```{r id-creation, results="asis", eval = FALSE}
+        library(digest)
+          
+        df_crs <- df_crs %>%
+          rowwise() %>% # use rowwise operations since digest concatenates vector of strings
+          mutate(text_id = digest::digest(longdescription, algo = "xxhash32")) %>% # add text_id as hashed longdesription
+        ```
+      <br />
   
-    iii.	*descr2mine*: Due to lazy reporting, frequently the descriptions differ only marginally from the project titles. This would pose a problem to the previously outlined twofold procedure since descriptions that are identical to the project titles would be analyzed twice. Therefore, only distinct descriptions are used which are identified using the Damerau-Levenshtein-Distance that counts how many alterations it would take to align both texts. The threshold for the maximal distance was set to 10 since this includes spelling mistakes, as well as one-word deviations (e.g. “Output: …”).
+    iii. *descr2mine*: Due to lazy reporting, frequently the descriptions differ only marginally from the project titles. This would pose a problem to the previously outlined twofold procedure since descriptions that are identical to the project titles would be analyzed twice. Therefore, only distinct descriptions are used which are identified using the [Damerau-Levenshtein-Distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) that counts how many alterations it would take to align both texts. The threshold for the maximal distance was set to 10 since this includes spelling mistakes, as well as one-word deviations (e.g. Output: …). 
+    
+        ```{r descr2mine, results="asis", eval = FALSE}
+        library(stringdist)
+                
+        # Max string distance underneath which strings can be considered the same/differing just by a word
+        max_string_dist <- 10 
+        df_crs <- df_crs %>%
+          mutate(descr2mine = ifelse(stringdist(projecttitle, longdescription) < max_string_dist | str_count(longdescription) < 3, 
+                                     NA, 
+                                     longdescription))
+        ```
+      <br />
   
     iv. *Crating identifiers*: The CRS data set contains information about purpose of the funding flow in form of the purpose code, as well as other valuable information in other markers such as the gender marker (add link to resource) or the certain channel codes (41146 for UN Women). Table 1 lists all added identifiers. 
+    
+        ```{r identifier, results="asis", eval = FALSE}
+        df_crs <- df_crs %>%
+          mutate(scb = ifelse(purposecode == 16062, 1, 0), # Statistical capcity building identifier
+                 pop = ifelse(purposecode == 13010, 1, 0), # population policy identifier
+                 gen_ppcode = ifelse(purposecode %in% c(15170:15180), 1, 0), # add gender purpose code identifier
+                 gen_marker = ifelse(gender == 1 & !is.na(gender), 1, 0), # add gender marker (0 - no gender, 1 - primary purpose, 2 - secondary)
+                 gen_donor = ifelse(channelcode == 41146, 1, 0), # all projects from UN Women
+                 gen_sdg = str_detect(sdgfocus, "^5|,5")) # SDG 5: Gender equality
+        ```
+      <br />
+    
   
 ```{r data-preparation-CRS, echo=FALSE, fig.align="center", fig.cap = "Diagram of the data preparation process.", }
 knitr::include_graphics("./images/data_preparation_CRS.png")
@@ -37,19 +89,112 @@ In the following, the process of matching pertinent keywords in project titles i
 
     In the first step, the language of both title and description is detected using [Google’s Compact Language detector 2](https://github.com/CLD2Owners/cld2) (CLD2). It can detect 83 different languages and exceeds similar language detection engines by as much as 10x in speed. Analyzing the language distribution is crucial to a refined classification since text in every language has to be treated differently, using different keywords for the subsequent title pattern matching and fitting a different machine learning model later on. Therefore, the procedure was applied to projects in English, French, Spanish and German since these make up the majority of detected languages. This was implemented by selecting only projects with combinations of (title_language, long_language) in (en, fr, es, de, NA) x (en, fr, es, de, NA) while excluding the (NA, NA) combination. This combination was excluded since CLD2 in a vast majority of cases detects NA if the text is very short or nonsensical.
 
-    To give an overview how many projects are analyzed using this method, this approach encompasses 3.145.387 (90.6%) projects while 23.4020 	(6.7%) were excluded for being (NA, NA) projects. That leaves 90241 (2.6%) projects that were excluded because they were either wrongly detected or belonging to some minor reporting languages (e.g. Norwegian, Portuguese or Polish with a significant fraction within the 2.6% of excluded projects).  
+    To give an overview how many projects are analyzed using this method, this approach encompasses 3.145.387 (90.6%) projects while 23.4020 	(6.7%) were excluded for being (NA, NA) projects. That leaves 90241 (2.6%) projects that were excluded because they were either wrongly detected or belong to some minor reporting languages (e.g. Norwegian, Portuguese or Polish with a significant fraction within the 2.6% of excluded projects).  
 
-    In the second step, duplicated project titles were dropped to analyze these titles only once during the title pattern matching procedure which again reduced computation time. 
+    In the second step, duplicated project titles were dropped to analyze these titles only once during the title pattern matching procedure which again reduced computation time.
+
+```{r title-matching-language, results="asis", eval = FALSE, indent = '    '}
+# All languages to include in classification - options: en, fr, es, de
+languages <- c("en", "fr", "es", "de")
+        
+# Add unique title id and detect language of title and long description
+df_crs <- df_crs %>%
+  mutate(projecttitle_lower = tolower(projecttitle)) %>%
+  rowwise() %>% # use rowwise operations since digest concatenates vector of strings
+  mutate(title_id = digest::digest(projecttitle_lower, algo = "xxhash32")) %>% # create title id to drop duplicated titles later
+  ungroup() %>%
+  mutate(title_language = cld2::detect_language(projecttitle)) %>%
+  mutate(long_language = cld2::detect_language(longdescription))
+        
+# Use only projects in en, fr, es and de
+df_crs <- df_crs %>%
+  filter(title_language %in% c(languages, NA) & long_language %in% c(languages,NA)) %>%
+  filter(!is.na(title_language) | !is.na(long_language)) # omit projects with both languages NA 
+        
+# Select necessary columns and drop projects with duplicated title ids 
+df_crs <- df_crs %>%
+  select(title_id, projecttitle, projecttitle_lower, longdescription, title_language, long_language) %>%
+  filter(!duplicated(title_id))
+```
+        
+      <br />
 
 2. **Title pattern matching**
 
-    i. *Clean and lemmatize keyword lists*: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix 1. The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles.
+    i. *Clean and lemmatize keyword lists*: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix 1. The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles. 
+    
+        ```{r clean-lemmatize-keywords, results="asis", eval = FALSE}
+        # list_keywords_stat, list_acronyms and demining_small_arms previously loaded
+        
+        # Define lemmatization function
+        clean_and_lemmatize <- function (string, language = "en"){
+          string <- string %>% 
+            tolower %>% 
+            removeWords("'s") %>% # remove possesive s so that plural nouns get lemmatized correctly, e.g. "women's"
+            removeNumbers() %>%
+            removePunctuation(preserve_intra_word_dashes = TRUE) %>%
+            stripWhitespace %>% 
+            removeWords(c(stopwords('english'))) %>% 
+            removeWords(c(stopwords(source = "smart")[!stopwords(source = "smart") %in% "use"])) %>% # exclude "use" from smart stopwords 
+            lemmatize_strings()
+        }
+        
+        # Lemmatization for "en"
+        list_keywords_stat <- clean_and_lemmatize(list_keywords_stat, language = lang)
+        demining_small_arms <- clean_and_lemmatize(demining_small_arms, language = lang)
+        
+        # Stemming for minority languages "fr", "es" and "de"
+        list_keywords_stat <- stem_and_concatenate(list_keywords_stat, language = lang)
+        demining_small_arms <- stem_and_concatenate(demining_small_arms, language = lang)
+        ```
+      <br />
     
     ii.	*Clean and lemmatize titles*: Cleaning of project titles was achieved by removing numbers, punctuation and so called “stopwords” (e.g. “and”, “the”, “for”) since they don’t contain information towards the classification. Subsequently, words were lemmatized meaning to reduce different forms of a word to its lemma (e.g. “women”, “woman’s”, “woman” -> “woman”). This is very important to guarantee that all various versions are found during the title pattern search. For minority languages however, stemming is used instead of lemmatization since no good lemmatization implementation was available.
     
+        ```{r cl-lemma-titles, results="asis", eval = FALSE}
+        df_crs <- df_crs %>%
+          mutate(projecttitle_clean = ifelse(title_language == lang & !is.na(title_language), 
+                                             clean_and_lemmatize(projecttitle_lower, language = lang),
+                                             projecttitle_clean)) %>%        
+        ```
+      <br />
+
     iii. *Keyword detection*: For every language, the project title was analyzed whether it contains one of the statistical keywords or acronyms. 
     
-    iv. *Merging classes for final filter*: The reason to detect also mining projects was to exclude those projects from the statistics filter since expressions like “small arms survey”, “survey of landmine situation” make frequent appearances in project titles but are not related to statistics. Hence, only projects for which a statistical keyword was detected but no mining keyword are marked as a statistical project in the pattern matching step. 
+          ```{r keyword-detection, results="asis", eval = FALSE}
+          # Create regex for searching titles 
+          list_keywords_stat <- paste0(" ", paste(list_keywords_stat, collapse = " | ")," |^", # words with whitespaces
+                                      paste(list_keywords_stat, collapse = " |^")," | ", # beginning of string
+                                      paste(list_keywords_stat, collapse = "$| "), "$") # end of string
+          
+          demining_small_arms <- paste0(" ", paste(demining_small_arms, collapse = " | ")," |^", 
+                                    paste(demining_small_arms, collapse = " |^")," | ", # beginning of string
+                                    paste(demining_small_arms, collapse = "$| "), "$") # end of string
+                                
+          # Detect stat, acronyms and mining 
+          df_crs <- df_crs %>%
+            mutate(match_stat = ifelse(title_language == lang | is.na(title_language), 
+                                       str_detect(projecttitle_clean, list_keywords_stat), 
+                                       match_stat),
+                   mining = ifelse(title_language == lang | is.na(title_language),
+                                   str_detect(projecttitle_clean, demining_small_arms),
+                                   mining)) %>%
+            mutate(match_stat = ifelse(title_language == lang | is.na(title_language),
+                                       str_detect(projecttitle_lower, list_acronyms) | match_stat,
+                                       match_stat))
+          ```
+      <br />
+ 
+    iv. *Merging classes for final filter*: The reason to detect also mining projects was to exclude those projects from the statistics filter since expressions like “small arms survey”, “survey of landmine situation” make frequent appearances in project titles but are not related to statistics. Hence, only projects for which a statistical keyword was detected but no mining keyword are marked as a statistical project in the pattern matching step.
+    
+        ```{r class-merging, results="asis", eval = FALSE}
+        # Exclude mining projects, since they contain survey -> not statistical project
+        df_crs <- df_crs %>%
+          mutate(text_detection_wo_mining = match_stat & !mining) %>% 
+          mutate(text_detection_wo_mining_w_scb = match_stat | scb)
+        ```
+      <br />
+
     
 Lastly, the statistics filter is added back to the reduced data set according to the title id. This ensures that all projects with the same title in the reduced data set are marked as statistical by the title pattern matching.
 
