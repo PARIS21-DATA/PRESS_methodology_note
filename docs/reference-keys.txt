@@ -8,6 +8,9 @@ tab:regression-table
 fig:commitments-CRS
 fig:data-sources
 fig:ePRESS
+fig:Appendix-B-precision
+fig:Appendix-B-es-donor-learning
+fig:Appendix-B-es-donor-pred
 background
 monitoring-funding-to-statistics-with-accuracy
 oecds-creditor-reporting-system-crs
@@ -28,3 +31,5 @@ addressing-gaps-in-the-alternative-data-sources
 linking-the-alternative-sources-the-new-harmonised-database
 bringing-them-together-nowcasting-and-forecasting-with-the-new-harmonised-database
 conclusion
+Appendix-A
+appendix---performance-tests

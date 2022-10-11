@@ -51,16 +51,16 @@ Here, the process of preparing the data is outlined (see Fig. \@ref(fig:data-pre
   
     iii. *descr2mine*: Due to lazy reporting, frequently the descriptions differ only marginally from the project titles. This would pose a problem to the previously outlined twofold procedure since descriptions that are identical to the project titles would be analyzed twice. Therefore, only distinct descriptions are used which are identified using the [Damerau-Levenshtein-Distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) that counts how many alterations it would take to align both texts. The threshold for the maximal distance was set to 10 since this includes spelling mistakes, as well as one-word deviations (e.g. Output: …). 
     
-        ```{r descr2mine, results="asis", eval = FALSE}
-        library(stringdist)
-                
-        # Max string distance underneath which strings can be considered the same/differing just by a word
-        max_string_dist <- 10 
-        df_crs <- df_crs %>%
-          mutate(descr2mine = ifelse(stringdist(projecttitle, longdescription) < max_string_dist | str_count(longdescription) < 3, 
-                                     NA, 
-                                     longdescription))
-        ```
+          ```{r descr2mine, results="asis", eval = FALSE}
+          library(stringdist)
+                  
+          # Max string distance underneath which strings can be considered the same/differing just by a word
+          max_string_dist <- 10 
+          df_crs <- df_crs %>%
+            mutate(descr2mine = ifelse(stringdist(projecttitle, longdescription) < max_string_dist | str_count(longdescription) < 3, 
+                                       NA, 
+                                       longdescription))
+          ```
       <br />
   
     iv. *Crating identifiers*: The CRS data set contains information about purpose of the funding flow in form of the purpose code, as well as other valuable information in other markers such as the gender marker (add link to resource) or the certain channel codes (41146 for UN Women). Table 1 lists all added identifiers. 
@@ -121,13 +121,13 @@ df_crs <- df_crs %>%
 
 2. **Title pattern matching**
 
-    i. *Clean and lemmatize keyword lists*: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix 1. The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles. 
+    i. *Clean and lemmatize keyword lists*: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix \@ref(Appendix-A). The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles. 
     
         ```{r clean-lemmatize-keywords, results="asis", eval = FALSE}
         # list_keywords_stat, list_acronyms and demining_small_arms previously loaded
         
         # Define lemmatization function
-        clean_and_lemmatize <- function (string, language = "en"){
+        clean_and_lemmatize <- function (string){
           string <- string %>% 
             tolower %>% 
             removeWords("'s") %>% # remove possesive s so that plural nouns get lemmatized correctly, e.g. "women's"
@@ -140,8 +140,8 @@ df_crs <- df_crs %>%
         }
         
         # Lemmatization for "en"
-        list_keywords_stat <- clean_and_lemmatize(list_keywords_stat, language = lang)
-        demining_small_arms <- clean_and_lemmatize(demining_small_arms, language = lang)
+        list_keywords_stat <- clean_and_lemmatize(list_keywords_stat)
+        demining_small_arms <- clean_and_lemmatize(demining_small_arms)
         
         # Stemming for minority languages "fr", "es" and "de"
         list_keywords_stat <- stem_and_concatenate(list_keywords_stat, language = lang)
@@ -154,18 +154,22 @@ df_crs <- df_crs %>%
         ```{r cl-lemma-titles, results="asis", eval = FALSE}
         df_crs <- df_crs %>%
           mutate(projecttitle_clean = ifelse(title_language == lang & !is.na(title_language), 
-                                             clean_and_lemmatize(projecttitle_lower, language = lang),
+                                             clean_and_lemmatize(projecttitle_lower),
                                              projecttitle_clean)) %>%        
         ```
       <br />
 
-    iii. *Keyword detection*: For every language, the project title was analyzed whether it contains one of the statistical keywords or acronyms. 
+    iii. *Keyword detection*: For every language, the project title was analyzed whether it contains one of the statistical keywords or acronyms. Note that statistical keywords were detected within cleaned and lemmatized titles whereas for acronyms, the original title was used since the lemmatization and stemming algorithms were found to change acronyms. 
     
           ```{r keyword-detection, results="asis", eval = FALSE}
           # Create regex for searching titles 
           list_keywords_stat <- paste0(" ", paste(list_keywords_stat, collapse = " | ")," |^", # words with whitespaces
                                       paste(list_keywords_stat, collapse = " |^")," | ", # beginning of string
                                       paste(list_keywords_stat, collapse = "$| "), "$") # end of string
+                                      
+          list_acronyms <- paste0(" ", paste(list_acronyms, collapse = " | ")," |^", 
+                            paste(list_acronyms, collapse = " |^")," | ", # beginning of string
+                            paste(list_acronyms, collapse = "$| "), "$") # end of string
           
           demining_small_arms <- paste0(" ", paste(demining_small_arms, collapse = " | ")," |^", 
                                     paste(demining_small_arms, collapse = " |^")," | ", # beginning of string
@@ -210,24 +214,179 @@ Lastly, the process of applying a machine learning approach to classify the proj
 
     i. *Language filtering*: For the preparation of the data, the reduced data set with the additional statistics filter from the pattern matching is filtered according to the description language to ensure that the text mining is applied only to text in one language. Note that there are projects with differing title and description language (frequently English title, minority language description) which is however no problem, since a project’s description can be assumed to be statistical even when its title is in another language. 
     
-    ii. *Drop duplicated text ids*: As for the title ids, duplicated text ids are dropped to reduce the computational load during the text mining.
-    
-    iii. *Manual filter correction*: For 200 English projects, the description of projects, which were detected as statistical projects by the title pattern matching, were verified manually by experts. It can be the case that a projects title refers to statistics (e.g. "census aid") while its description contains no relevant information towards a classification (“Material and equipment for on the ground operations”). This additional step makes sure that the learning set contains less errors and hence increases the accuracy. 
-    
+        ```{r B-lang-filtering, results="asis", eval = FALSE}
+        lang <- "en"
+        
+        # Filter only projects with description language lang
+        df_crs <- df_crs_reduced %>%
+          filter(long_language == lang)
+        ```
+      <br />
 
+    ii. *Manual filter correction*: For 200 English projects, the description of projects, which were detected as statistical projects by the title pattern matching, were verified manually by experts. It can be the case that a projects title refers to statistics (e.g. "census aid") while its description contains no relevant information towards a classification (“Material and equipment for on the ground operations”). This additional step makes sure that the learning set contains less errors and hence increases the accuracy. 
+    
+        ```{r B-manual-correction, results="asis", eval = FALSE}
+        # Read manually verified projects 
+        man_verified <- readRDS("./Data/Manually verified/stat_projects_verified.rds")
+        
+        df_crs <- df_crs %>%
+          filter(!is.na(descr2mine)) %>%
+          select(text_id, description = descr2mine, longdescription, class_filter = text_detection_wo_mining_w_scb) %>%
+          left_join(man_verified %>% select(longdescription, match_stat), by = "longdescription") %>% # add manually verified
+          mutate(class_filter = ifelse(!is.na(match_stat), match_stat, class_filter)) %>% # replace class filter with manually verified filter
+          select(-longdescription, -match_stat)
+        ```
+      <br />
+ 
+    
+    iii. *Drop duplicated text ids*: As for the title ids, duplicated text ids are dropped to reduce the computational load during the text mining. In addition, some projects shared a discription but differed in their title. If one of the projects was detected as `TRUE` and one as `FLASE` in step **A**, both of them were discarded to reduce errors in the training set later on.  
+    
+          ```{r B-drop-duplications, results="asis", eval = FALSE}
+          df_crs <- df_crs_reduced %>%
+            filter(!is.na(descr2mine)) %>%
+            distinct() %>%
+            group_by(text_id) %>% # remove all ambiguous projects (same description, one FALSE one TRUE)
+            filter(n() == 1) %>% 
+            ungroup() %>%
+            as.data.frame
+          ```
+      <br />
+
+    
 2. **Text mining of long description**
 
-    i. *Construct learning and prediction set*: For this machine learning approach, it is necessary to construct a balanced learning set which contains 50% negatively marked (NM) and 50% positively marked (PM) projects. The projects detected in Step **A** are used as the PM projects since it is reasonable to assume that if the title contains statistical keywords, also its description refers to statistics. The NM projects are chosen randomly because it can be assumed that only a small fraction of projects refer to statistics and therefore the probability to introduce error into the learning set is very small. The prediction data set contains simply the rest of the NM projects in the text mining data set.
+    i. *Construct learning and prediction set*: For this machine learning approach, it is necessary to construct a balanced learning set which contains 50% negatively marked (NM) and 50% positively marked (PM) projects. The projects detected in Step **A** are used as the PM projects since it is reasonable to assume that if the title contains statistical keywords, also its description refers to statistics. The NM projects are chosen randomly because it can be assumed that only a small fraction of projects refer to statistics and therefore the probability to introduce error into the learning set is very small. The prediction data set contains simply the rest of the NM projects in the text mining data set. 
+    
+        ```{r B-learning-set, results="asis", eval = FALSE}
+        # Define parameters 
+        frac_pred_set <- 1             # use only x% of full prediction set to speed up for testing
+        full_learning_percent <- 1     # take only x% of full learning set size if too large for RAM
+        neg_sample_fraction <- 1       # fraction of NM to PM in learning set
+        
+        # Get size of PM projects in learning set
+        size_positive_train <- neg_sample_fraction * full_learning_percent * df_crs %>% filter(class_filter == TRUE) %>% nrow
+        
+        # Construct prediction set
+        pred <- df_crs %>%
+          filter(class_filter == FALSE | is.na(class_filter)) %>%
+          sample_n(size = frac_pred_set * n())
+        
+        # Error: if size of pred smaller than size of PM projects, not possible to construct training set
+        if(pred %>% filter(!is.na(class_filter)) %>% nrow < size_positive_train) stop("Pred not large enough to create learning set! Choose a larger frac_pred_set")
+        
+        # Construct training set
+        learning <- df_crs %>%
+          filter(class_filter == TRUE) %>%
+          sample_n(size = n()*full_learning_percent) %>%
+          rbind(pred %>% filter(!is.na(class_filter)) %>% sample_n(size = size_positive_train)) # add same amount of NM project from pred
+        
+        # Exclude NM projects in training set from pred
+        pred <- pred %>%
+          filter(!text_id %in% train$text_id)
+        ```
+      <br />
+
     
     ii. *Clean and lemmatize descr2mine*: As previously discussed, only distinct long descriptions (distinct from title) are used to avoid analyzing the same text twice. These are then cleaned and lemmatized to reduce the text to the relevant information. 
     
-    iii. *Create DTM matrices*: After splitting the learning set into the training set and testing set in a ration of 80/20, the document term matrix (DTM) is created for the training set. It has all the words that are present in all descriptions of the training data set (terms) as columns and collects their weighted frequency for each project in the respective row. For creating the DTMs of the test data and prediction data, terms occurring in the training data DTM are used which means that the all DTMs share the same columns. This is important for the prediction step later on since the model is only trained on these terms and assigns a relative weight to each of them. Therefore, it can only predict on terms that has already “seen”.
+        ```{r B-clean-descr2mine, results="asis", eval = FALSE}
+        # Set languages for stemming and lemmatization
+        stem_languages <- c("de", "fr", "es")
+        lemma_languages <- c("en")
+        
+        # Change original description with cleaned description
+        if (lang %in% lemma_languages) {
+          learning$text_cleaned <- clean_and_lemmatize(learning$description)
+          print("Start lemmatize pred")
+          pred$text_cleaned <- clean_and_lemmatize(pred$description)
+          print("Finished lemmatization pred")
+        } else if (lang %in% stem_languages) {
+          learning$text_cleaned <- stem_and_concatenate(learning$description, language = lang)
+          pred$text_cleaned <- stem_and_concatenate(pred$description, language = lang)
+        }
+        ```
+      <br />
+ 
     
-    iv. *Training the XGBoost model*: The model is obtained from the regularizing gradient boosting framework [XGBoost](https://xgboost.readthedocs.io/en/stable/index.html) by fitting the training data. Due to the broad literature on this machine learning approach, a detailed discussion shall be refrained from here. It can be said however that by passing along the training data DTM alongside the correct classification labels, the XGBoost model identifies the most important words appearing in the PM projects and assigns a high importance to them (see Fig. \@ref(fig:importance-matrix) below).
+    iii. *Create DTM matrices*: After splitting the learning set into the training set and testing set in a ration of 80/20, the document term matrix (DTM) is created for the training set. It has all the words that are present in all descriptions of the training data set (terms) as columns and collects their weighted frequency for each project in the respective row. For creating the DTMs of the test data and prediction data, terms occurring in the training data DTM are used which means that the all DTMs share the same columns. This is important for the prediction step later on since the model is only trained on these terms and assigns a relative weight to each of them. Therefore, it can only predict on terms that has already “seen”. 
     
-    v. *Testing and prediction*: The model is then assessed using the test data. Since the model returns a score p_stat in the range from 0 to 1 whether a project’s description refers to statistics, different thresholds are tested to see how the model performs (more in Appendix 2). Finally, all projects in the prediction set are predicted using the fitted model. If a project receives a score of $p_{stat} ≥ 0.9$, it is marked as statistical by the text mining (justification of threshold).
+          ```{r B-DTM-matrices, results="asis", eval = FALSE}
+          # Take 80% training data, 20% testing data
+          dt <- sort(sample(nrow(learning), nrow(learning)*0.8))
+          train_data <- learning[dt,]
+          test_data <- learning[-dt,]
+          
+          # Construct DTMs 
+          train_data_dtm <- train_data$text_cleaned %>% VectorSource() %>% VCorpus() %>% DocumentTermMatrix(control = list(weighting = weightTf))
+          dictionary_dtm <- Terms(train_data_dtm) # use only terms appearing in training data to construct test and pred DTM
+          test_data_dtm <- test_data$text_cleaned %>% VectorSource() %>% VCorpus() %>% DocumentTermMatrix(control = list(weighting = weightTf, dictionary = dictionary_dtm))
+          prediction_data_dtm <- pred$text_cleaned %>% VectorSource() %>% VCorpus() %>% DocumentTermMatrix(control = list(weighting = weightTf, dictionary = dictionary_dtm))
+          
+          ```
+      <br />
+
+    
+    iv. *Training the XGBoost model*: The model is obtained from the regularizing gradient boosting framework [XGBoost](https://xgboost.readthedocs.io/en/stable/index.html) by fitting the training data. Due to the broad literature on this machine learning approach, a detailed discussion shall be refrained from here. It can be said however that by passing along the training data DTM alongside the correct classification labels, the XGBoost model identifies the most important words appearing in the PM projects and assigns a high importance to them (see Fig. \@ref(fig:importance-matrix) below). 
+    
+        ```{r B-XGBoost, results="asis", eval = FALSE}
+        # Set the labels for class_filter
+        label.train <- as.numeric(train_data$class_filter)
+
+        # Training parameters
+        eta_par <- 0.1
+        nrounds_par <- 5 / eta_par
+        
+        # Train the model
+        fit.xgb <- xgboost(data = as.matrix(train_data_dtm), label = label.train, max.depth = 17, eta = eta_par, nthread = 2, 
+                           nrounds = nrounds_par, objective = "binary:logistic", verbose = 1)
+        ```
+      <br />
+
+    
+    v. *Testing and prediction*: The model is then assessed using the test data. Since the model returns a score p_stat in the range from 0 to 1 whether a project’s description refers to statistics, different thresholds are tested to see how the model performs (more in Appendix 2). Finally, all projects in the prediction set are predicted using the fitted model. If a project receives a score of $p_{stat} ≥ 0.9$, it is marked as statistical by the text mining (justification of threshold). 
+    
+        ```{r B-testing, results="asis", eval = FALSE}
+        # Predict test and pred data
+        test.xgb <- predict(fit.xgb, as.matrix(test_data_dtm))
+        pred.xgb <- predict(fit.xgb, as.matrix(prediction_data_dtm))
+        
+        # Set all projects to 1 for a score higher than 0.9
+        threshold <- 0.90
+        test_data <- mutate(test_data, predictions = ifelse(predictions_raw > threshold, 1, 0))
+        pred <- mutate(pred, predictions = ifelse(predictions_raw > threshold, 1, 0))
+        
+        # Show accuracy
+        accurracy <- mean(test_data$predictions == test_data$class_filter)
+        print(accurracy)
+        ```
+      <br />
+
   
-    vi. *Iteration of step 1.-5. for learning set robustness*: In step 1, the 50% NM projects were chosen at random since the probability that statistical project is in this set is very small. However, it could still be the case that the statistical projects are included by chance. This can be almost avoided by repeating steps 1. – 5. with a training set that is constructed using only projects that are predicted not to be statistical with $p_{stat} ≤ 0.3$. This threshold is chosen because it makes sure that the training set is only constructed from true NM projects while not being too restrictive and potentially introducing a bias into the training set (e.g. if all projects with $p_{stat} ≤ 0.05$ stem from the agriculture sector). On average, this iterative procedure increases the accuracy by 5% - 10% depending on the size of the prediction set. 
+    vi. *Iteration of step i.-v. for learning set robustness*: In step 1, the 50% NM projects were chosen at random since the probability that statistical project is in this set is very small. However, it could still be the case that the statistical projects are included by chance. This can be almost avoided by repeating steps 1. – 5. with a training set that is constructed using only projects that are predicted not to be statistical with $p_{stat} ≤ 0.3$. This threshold is chosen because it makes sure that the training set is only constructed from true NM projects while not being too restrictive and potentially introducing a bias into the training set (e.g. if all projects with $p_{stat} ≤ 0.05$ stem from the agriculture sector). On average, this iterative procedure increases the accuracy by 5% - 10% depending on the size of the prediction set. 
+    
+        ```{r B-iteration, results="asis", eval = FALSE}
+        # Filter projects with low score 
+        pred_negative <- pred %>% 
+          filter(predictions_raw <= 0.3) %>%
+          sample_n(size = size_positive_train) %>% 
+          select(text_id, description, class_filter) 
+        
+        # Construct new learning set with low-score projects as NM
+        learning <- df_crs %>%
+          filter(class_filter == TRUE) %>%
+          sample_n(size = n()*full_learning_percent) %>%
+          rbind(pred_negative) %>%
+          filter(!is.na(class_filter))
+        
+        # Construct pred from all NM projects that are not in the training set
+        pred <- df_crs %>%
+          filter((class_filter == FALSE | is.na(class_filter)) & !(text_id %in% pred_negative$text_id)) %>%
+          sample_n(size = frac_pred_set * n()) #use only frac_pred_set% to speed up for testing
+          
+        # Repeat step i. - v.
+        ```
+      <br />
+ 
     
 Finally, the text mining filter is added back to the reduced data set according to the text id. This ensures that all projects with the same description in the reduced data set are marked as statistical by the text mining methodology.
     

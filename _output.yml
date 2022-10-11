@@ -19,6 +19,8 @@ bookdown::gitbook:
     fontsettings:
       size: 2
   url: https\://methodology.note.smartdatafinance.org/
+  includes: 
+    in_header: hide_code.html
 
 
   #fontsettings:
