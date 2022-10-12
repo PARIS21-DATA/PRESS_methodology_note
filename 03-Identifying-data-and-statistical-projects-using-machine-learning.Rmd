@@ -343,7 +343,7 @@ Lastly, the process of applying a machine learning approach to classify the proj
       <br />
 
     
-    v. *Testing and prediction*: The model is then assessed using the test data. Since the model returns a score p_stat in the range from 0 to 1 whether a project’s description refers to statistics, different thresholds are tested to see how the model performs (more in Appendix 2). Finally, all projects in the prediction set are predicted using the fitted model. If a project receives a score of $p_{stat} ≥ 0.9$, it is marked as statistical by the text mining (justification of threshold). 
+    v. *Testing and prediction*: The model is then assessed using the test data. Since the model returns a score p_stat in the range from 0 to 1 whether a project’s description refers to statistics, different thresholds are tested to see how the model performs (more in Appendix \@ref(Appendix-B)). Finally, all projects in the prediction set are predicted using the fitted model. If a project receives a score of $p_{stat} ≥ 0.9$, it is marked as statistical by the text mining (justification of threshold). 
     
         ```{r B-testing, results="asis", eval = FALSE}
         # Predict test and pred data

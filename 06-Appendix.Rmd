@@ -61,7 +61,7 @@ keywords <- data.frame(statistical_keywords = c(list_keywords_stat, rep("", max 
 knitr::kable(keywords)
 ```
 
-# Appendix - Performance tests
+# Appendix - Performance tests {#Appendix-B}
 
 ```{r Appendix-B-precision, echo = FALSE, message=FALSE, fig.align='center', fig.cap='Precision, accuracy, recall and F1 score for the English classification', out.width='100%'}
 knitr::include_graphics("./images/en_threshold_precision_accuracy_it1_1_n9482learning.png")
