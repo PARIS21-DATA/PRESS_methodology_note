@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Identifying data and statistical projects using machine learning | Methodology for measuring and estimating funding to data and statistics</title>
   <meta name="description" content="Technical note for the Partner Report on Support to Statistics" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Identifying data and statistical projects using machine learning | Methodology for measuring and estimating funding to data and statistics" />
   <meta property="og:type" content="book" />
@@ -20,8 +20,8 @@
   <meta name="twitter:description" content="Technical note for the Partner Report on Support to Statistics" />
   
 
-<meta name="author" content="Yu Tian" />
-<meta name="author" content="Archita Misra" />
+<meta name="author" content="Yu Tian, PARIS21" />
+<meta name="author" content="Archita Misra, PARIS21" />
 
 
 
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="P21_icon.ico" type="image/x-icon" />
 <link rel="prev" href="monitoring-funding-to-statistics-with-accuracy.html"/>
 <link rel="next" href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -969,7 +969,7 @@ div.csl-indent {
 <p>Here, the process of preparing the data is outlined (see Fig. <a href="machine-learning.html#fig:data-preparation-CRS">3.1</a> for a comprehensive overview).</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Reducing the full CRS data set</strong></p>
-<p>A known characteristic of Canadian reporting in the CRS data base is that both project titles and long descriptions<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> are reported in both official languages in the format “Englisch/French”. To avoid misclassification and misidentification due to the presence of both languages, the French part was dropped. Additionally, the full data set was reduced to 16 necessary variables to avoid heavy computational load of the full 96-variable data set.</p></li>
+<p>A known characteristic of Canadian reporting in the CRS data base is that both project titles and long descriptions<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> are reported in both official languages in the format “Englisch/French”. To avoid misclassification and misidentification due to the presence of both languages, the French part was dropped. Additionally, the full data set was reduced to 16 necessary variables to avoid heavy computational load of the full 96-variable data set.</p></li>
 <li><p><strong>Adding text identifiers</strong></p>
 <ol style="list-style-type: lower-roman">
 <li><p><em>Text cleaning</em>: First of all, the titles and descriptions were lowercased and cleaned by removing all numbers and punctuation signs in an effort to prepare the text for the creation of unique text identifiers. This is done to avoid unnecessary inclusion of projects that differ only slightly (e.g. by a number or comma).</p>
@@ -1286,8 +1286,8 @@ Figure 3.4: Relative importance assigned to terms appearing in long descriptions
 </div>
 <div class="footnotes">
 <hr />
-<ol start="6">
-<li id="fn6"><p>Originally both short and long description present in CRS data; from now one referred to as description<a href="machine-learning.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<ol start="4">
+<li id="fn4"><p>Originally both short and long description present in CRS data; from now one referred to as description<a href="machine-learning.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

@@ -4,7 +4,7 @@
 
 ## English {-}
 
-```{r Appendix-A-en, echo=FALSE}
+```{r Appendix-A-en, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 lang <- "en"
 list_keywords_stat <- read_lines(paste0("./Data/Final keyword lists/statistics_reduced_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
@@ -19,7 +19,6 @@ knitr::kable(keywords)
 ## French {-}
 
 ```{r Appendix-A-fr, echo=FALSE}
-library(tidyverse)
 lang <- "fr"
 list_keywords_stat <- read_lines(paste0("./Data/Final keyword lists/statistics_reduced_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
 demining_small_arms <- read_lines(paste0("./Data/Final keyword lists/demining_small_arms_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
@@ -34,7 +33,6 @@ knitr::kable(keywords)
 ## Spanish {-}
 
 ```{r Appendix-A-es, echo=FALSE}
-library(tidyverse)
 lang <- "es"
 list_keywords_stat <- read_lines(paste0("./Data/Final keyword lists/statistics_reduced_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
 demining_small_arms <- read_lines(paste0("./Data/Final keyword lists/demining_small_arms_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
@@ -49,7 +47,6 @@ knitr::kable(keywords)
 ## German {-}
 
 ```{r Appendix-A-de, echo=FALSE}
-library(tidyverse)
 lang <- "de"
 list_keywords_stat <- read_lines(paste0("./Data/Final keyword lists/statistics_reduced_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
 demining_small_arms <- read_lines(paste0("./Data/Final keyword lists/demining_small_arms_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()

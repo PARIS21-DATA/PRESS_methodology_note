@@ -2,14 +2,15 @@
 title: "Methodology for measuring and estimating funding to data and statistics"
 description: "Technical note for the Partner Report on Support to Statistics"
 author: 
-  - Yu Tian^[[PARIS21](https://www.paris21.org)]
-  - Archita Misra^[[PARIS21](https://www.paris21.org)]
+  - Yu Tian, [PARIS21](https://paris21.org/about-paris21/our-team/yu-tian)
+  - Archita Misra, [PARIS21](https://www.paris21.org)
 #date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 header-includes:
   - \usepackage{caption}
   - \usepackage{array}
 
+favicon: "P21_icon.ico"
 bibliography: Bibliography.bib
 link-citations: true
 keywords:

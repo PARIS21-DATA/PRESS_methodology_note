@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Monitoring funding to statistics with reduced reporting lag | Methodology for measuring and estimating funding to data and statistics</title>
   <meta name="description" content="Technical note for the Partner Report on Support to Statistics" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Monitoring funding to statistics with reduced reporting lag | Methodology for measuring and estimating funding to data and statistics" />
   <meta property="og:type" content="book" />
@@ -20,8 +20,8 @@
   <meta name="twitter:description" content="Technical note for the Partner Report on Support to Statistics" />
   
 
-<meta name="author" content="Yu Tian" />
-<meta name="author" content="Archita Misra" />
+<meta name="author" content="Yu Tian, PARIS21" />
+<meta name="author" content="Archita Misra, PARIS21" />
 
 
 
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="P21_icon.ico" type="image/x-icon" />
 <link rel="prev" href="machine-learning.html"/>
 <link rel="next" href="conclusion.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -988,7 +988,7 @@ persistent concern among its primary users, especially development aid providers
 interest in supporting data and statistics, there is an increasing demand for timely data to plan
 activities and projects and coordinate development co‐operation efforts. This issue has become
 particularly urgent in light of the coordinating efforts to fund the Cape Town Global Action Plan for
-Sustainable Development Data (CT‐GAP),<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> as well as in the context of a diverse data ecosystem comprising new actors.</p>
+Sustainable Development Data (CT‐GAP),<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> as well as in the context of a diverse data ecosystem comprising new actors.</p>
 <p>PARIS21 addressed this request in its 2019 annual meeting by introducing the concept of a
 methodology extension. While the PRESS methodology will still be used to report information until 18
 months before the publication, the methodology extension will provide stakeholders with PRESS‐like
@@ -1000,8 +1000,8 @@ and funding to data by domestic and external stakeholders <span class="citation"
 <div id="estimating-using-CRS" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Estimating up‐to‐date support to statistics using CRS<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#estimating-using-CRS" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>While the previous PRESS (from 2008 to 2019) captured the support to data and statistics by looking
-at global <strong>commitments</strong><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>
-to statistics, the annual <strong>disbursements</strong><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>
+at global <strong>commitments</strong><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
+to statistics, the annual <strong>disbursements</strong><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>
 received by a certain country are also informative for donors and countries when planning their activities, especially those short‐term
 activities financed by a donor’s annual or biannual budget. Leveraging this additional variable allows
 for the estimation of funding to data and statistics received by countries in the current and coming
@@ -1030,7 +1030,7 @@ that commitments have a significant impact on disbursements five years after the
 <span class="citation">(<a href="#ref-Hudson" role="doc-biblioref">Hudson 2015</a>)</span>.</p>
 <p>For most development projects reported to the CRS and the PRESS survey, both commitment and
 disbursement data are reported. Even when these variables are not directly reported, however, the
-missing value can usually be imputed.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+missing value can usually be imputed.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
 <p>Using these two variables, PARIS21 has developed a simple linear regression model to estimate the
 funding from donors based on historical data at activity level. Regression analysis was conducted to
 predict current disbursements based on reported commitments, captured by
@@ -1042,7 +1042,7 @@ Disbursement &amp;= Average\_annual\_spending \cdot k + d \\
 \end{align}\]</span></p>
 <p>k is the regression coefficient and d is the error term. The number of years is the difference between
 the start date and end date of a reported activity. Reported dates are used for activities with missing
-value in those two variables. The analysis used the most recently accessible data from the CRS<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>.</p>
+value in those two variables. The analysis used the most recently accessible data from the CRS<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
 <p>This model shows a correlation between disbursements and average spending. Average annual
 spending is calculated based on the assumption that commitment without a detailed plan for
 disbursement will be distributed evenly by year, from the expected start year to the end year of the
@@ -1079,7 +1079,7 @@ project.</p>
 commitments each year. The value of k and the predictability of the model vary depending on the
 reporting pattern of each donor. For example, while the commitment numbers reported by most
 donors each year are usually higher than disbursements (Fig. <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fig:commitments-CRS">4.2</a> on the left), this is reversed in the case
-of a few donors (Fig. <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fig:commitments-CRS">4.2</a> on the right)<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>.</p>
+of a few donors (Fig. <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fig:commitments-CRS">4.2</a> on the right)<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:commitments-CRS"></span>
 <img src="images/commitments_disbursements_CRS.png" alt="Disbursements vs commitments reported in CRS (all donors) on the left. On the right, disbursements vs commitments in the CRS reported by the UK." width="49%" height="20%" /><img src="images/commitments_disbursements_UK.png" alt="Disbursements vs commitments reported in CRS (all donors) on the left. On the right, disbursements vs commitments in the CRS reported by the UK." width="49%" height="20%" />
 <p class="caption">
@@ -1093,7 +1093,7 @@ including 2019 and 2020. This is because the stable relationship between average
 and commitments is leveraged, which allows us to estimate the 2019 and 2020 disbursement values,
 from the 2018 reported commitment values.</p>
 <p>As a result, for the first time, the 2020 edition of PRESS presented information on funding to data and
-statistics up to 2019, as opposed to two years prior as in editions including and before PRESS 2019.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
+statistics up to 2019, as opposed to two years prior as in editions including and before PRESS 2019.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
 </div>
 <div id="forecasting-anticipating-future-funding" class="section level3 hasAnchor" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Forecasting: anticipating future funding<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#forecasting-anticipating-future-funding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1110,7 +1110,7 @@ training on economic statistics, and the World Bank’s programme on statistical
 will remain stable in the near future. Significant changes on these programmes are also easier
 to target and detectable. These projects are generally stable and attract similar spends each
 year. Likewise, the upcoming censuses or major surveys in low‐income countries are expected
-to be funded partially by donors.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> This information accounts for nearly half of the total
+to be funded partially by donors.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> This information accounts for nearly half of the total
 amount for data and statistics. Confirmation from donors of the continuation of these projects
 can further improve the accuracy of this analysis.</p></li>
 <li><p><strong>Termination or reduction of funding for certain projects</strong>: We can also anticipate the
@@ -1275,7 +1275,7 @@ information on disbursement plans (though it is project‐based). The donors’ 
 also expenditure/disbursement based.</p>
 <p>However, the IATI database is weaker in this regard: it contains an unusually high percentage of
 negative commitments or disbursements. For example, data downloaded from the IATI database in
-2018 contained negative value commitments or disbursements in 18% of projects reported<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>. In
+2018 contained negative value commitments or disbursements in 18% of projects reported<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>. In
 comparison, less that 1% of activities reported in CRS has negative value, mostly associated with loan
 repayments and correction of previous entries, i.e. not a database error.</p>
 <p>For the harmonised database, the missing disbursement values were imputed based on the
@@ -1328,36 +1328,36 @@ UNFPA. 2020. <span>“<span class="nocase">Technical Brief on the Implications o
 </div>
 <div class="footnotes">
 <hr />
-<ol start="7">
-<li id="fn7"><p>See <a href="https://unstats.un.org/sdgs/hlg/Cape‐Town‐Global‐Action‐Pl" class="uri">https://unstats.un.org/sdgs/hlg/Cape‐Town‐Global‐Action‐Pl</a><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>A firm obligation, expressed in writing and backed by the necessary funds, which is undertaken by an official
+<ol start="5">
+<li id="fn5"><p>See <a href="https://unstats.un.org/sdgs/hlg/Cape‐Town‐Global‐Action‐Pl" class="uri">https://unstats.un.org/sdgs/hlg/Cape‐Town‐Global‐Action‐Pl</a><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>A firm obligation, expressed in writing and backed by the necessary funds, which is undertaken by an official
 donor. It provides specified assistance to a recipient country or a multilateral organisation. Bilateral
 commitments are recorded in the full amount of the expected transfer, irrespective of the time required for the
 completion of disbursements. Commitments to multilateral organisations are reported as the sum of (i) any
 disbursements in the year reported on, which have not previously been notified as commitments, and (ii)
-expected disbursements in the following year.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>The release of funds to or the purchase of goods or services for a recipient; by extension, the amount spent. Disbursements record the actual international transfer of financial resources, or of goods or services valued at
+expected disbursements in the following year.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>The release of funds to or the purchase of goods or services for a recipient; by extension, the amount spent. Disbursements record the actual international transfer of financial resources, or of goods or services valued at
 the cost to the donor. In the case of activities conducted in donor countries, such as training, administration, or
 public awareness programmes, disbursement is assumed to have occurred when the funds have been
 transferred to the service provider or recipient. These may be recorded as gross (the total amount disbursed
 over a given accounting period) or net (the gross amount, less any repayments of loan principal or recoveries
-on grants received during the same period). It can take several years to disburse a commitment.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>For example, the amount for technical support projects that do not have direct monetary transfers can be
+on grants received during the same period). It can take several years to disburse a commitment.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>For example, the amount for technical support projects that do not have direct monetary transfers can be
 replaced by a cost estimate by the provider. In cases where the disbursement information is missing, the
 estimated disbursement amount can be calculated by dividing the unspent commitment amount using the
-number of years left before the expected end date<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>See <a href="https://stats.oecd.org/DownloadFiles.aspx?DatasetCode=CRS" class="uri">https://stats.oecd.org/DownloadFiles.aspx?DatasetCode=CRS</a><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>This particular reverse correlation can be explained by different factors. Firstly, the financial crisis impacted the continuity of some donors’ ODA flow more than others. The significant variation of the exchange rate or inflation
+number of years left before the expected end date<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>See <a href="https://stats.oecd.org/DownloadFiles.aspx?DatasetCode=CRS" class="uri">https://stats.oecd.org/DownloadFiles.aspx?DatasetCode=CRS</a><a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>This particular reverse correlation can be explained by different factors. Firstly, the financial crisis impacted the continuity of some donors’ ODA flow more than others. The significant variation of the exchange rate or inflation
 rate of a donor could also lead to a sudden change in the converted constant value of aid. In addition, some
 donors tend to make more long‐term commitments than others, resulting in a distribution of disbursements
 over a long period of time, even after the donors had significantly reduced their overall international aid
-package<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>Due to the disruptive effect of the COVID‐19 pandemic on the predictability of the model, the nowcasting results for 2020, although produced, were not presented in the PRESS 2020 report.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>The COVID‐19 pandemic has brought great uncertainty to this assumption, especially for censuses planned
+package<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>Due to the disruptive effect of the COVID‐19 pandemic on the predictability of the model, the nowcasting results for 2020, although produced, were not presented in the PRESS 2020 report.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>The COVID‐19 pandemic has brought great uncertainty to this assumption, especially for censuses planned
 to take place between 2020 and 2021. Although funding for most censuses has been secured, many countries
 have diverted their national budget to other, more urgent matters <span class="citation">(<a href="#ref-CCSA" role="doc-biblioref">CCSA 2020</a>; <a href="#ref-UNFPA" role="doc-biblioref">UNFPA 2020</a>)</span>, resulting in
-the postponement of external funding<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>Based on data collected in 2019, the future improvements of the IATI database have resolved this issue.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref15" class="footnote-back">↩︎</a></p></li>
+the postponement of external funding<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Based on data collected in 2019, the future improvements of the IATI database have resolved this issue.<a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#fnref13" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
