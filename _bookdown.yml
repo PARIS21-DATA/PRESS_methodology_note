@@ -1,4 +1,4 @@
-book_filename: "bookdownproj"
+book_filename: "PRESS_methodology_note"
 output_dir: docs
 delete_merged_file: true
 edit: null
@@ -6,4 +6,13 @@ view: https://github.com/PARIS21-DATA/PRESS_methodology_note/blob/master/%s
 language:
   ui:
     chapter_name: ""
-
+rmd_files: [
+  "index.Rmd",
+  "01-Background.Rmd",
+  "02-Monitoring-funding-to-statistics-with-accuracy.Rmd",
+  "03-Identifying-data-and-statistical-projects-using-machine-learning.Rmd",
+  "04-Monitoring-funding-to-statistics-with-reduced-reporting-lag.Rmd",
+  "05-Conclusion.Rmd", 
+  "06-references.Rmd",
+  "07-Appendix.Rmd"
+  ]

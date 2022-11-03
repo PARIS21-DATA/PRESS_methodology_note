@@ -21,6 +21,8 @@ bookdown::gitbook:
   url: https\://methodology.note.smartdatafinance.org/
   includes: 
     in_header: hide_code.html
+bookdown::pdf_book:
+    keep_tex: true
 
 
   #fontsettings:

@@ -9,6 +9,8 @@ site: bookdown::bookdown_site
 header-includes:
   - \usepackage{caption}
   - \usepackage{array}
+  - \usepackage{float}
+  - \hypersetup{colorlinks = true, urlcolor = cyan, citecolor = black, menucolor = black, anchorcolor = black, linkcolor=black}
 
 favicon: "P21_icon.ico"
 bibliography: Bibliography.bib

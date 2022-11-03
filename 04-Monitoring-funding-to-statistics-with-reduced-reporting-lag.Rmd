@@ -14,7 +14,7 @@ As the data and final report of PRESS depend in large part on the CRS database, 
 lag in coverage, the previous editions of PRESS did not capture timely donor financial flows to
 statistics, leading to a structural lag in reporting.
 
-```{r reporting-lag, echo=FALSE, fig.align="center", fig.cap = "How the lag in the CRS data led to a lag in previous rounds of PRESS.", }
+```{r reporting-lag, echo=FALSE, fig.align="center", fig.cap = "How the lag in the CRS data led to a lag in previous rounds of PRESS.", out.width="100%" }
 knitr::include_graphics("./images/reporting_lag.png")
 ```
 
@@ -30,7 +30,7 @@ persistent concern among its primary users, especially development aid providers
 interest in supporting data and statistics, there is an increasing demand for timely data to plan
 activities and projects and coordinate development co‐operation efforts. This issue has become
 particularly urgent in light of the coordinating efforts to fund the Cape Town Global Action Plan for
-Sustainable Development Data (CT‐GAP),^[See https://unstats.un.org/sdgs/hlg/Cape‐Town‐Global‐Action‐Pl] as well as in the context of a diverse data ecosystem comprising new actors.
+Sustainable Development Data (CT‐GAP),^[See https://unstats.un.org/sdgs/hlg/cape-town-global-action-plan/] as well as in the context of a diverse data ecosystem comprising new actors.
 
 PARIS21 addressed this request in its 2019 annual meeting by introducing the concept of a
 methodology extension. While the PRESS methodology will still be used to report information until 18
@@ -99,11 +99,10 @@ funding from donors based on historical data at activity level. Regression analy
 predict current disbursements based on reported commitments, captured by
 $Average\_Annual\_Spending$.
 
-\begin{align}
+\begin{align*}
 Disbursement &= Average\_annual\_spending \cdot k + d \\
-
 \text{where} ~~~~ Average\_annual\_spending &= \text{Total Project Commitments}/number\_of\_years
-\end{align}
+\end{align*}
 
 
 k is the regression coefficient and d is the error term. The number of years is the difference between
@@ -114,16 +113,6 @@ This model shows a correlation between disbursements and average spending. Avera
 spending is calculated based on the assumption that commitment without a detailed plan for
 disbursement will be distributed evenly by year, from the expected start year to the end year of the
 project.
-
-
-```{=latex}
-\begin{tabular}{c|c c c c}
- & Estimate & Std. Error & t value & Pr(>|t|) \\
-\hline
-(Intercept) & 38.455 & 8.04901 & ‐4.778 & 0.0139*\\
-$Average\_Annual\_Spending$ & 0.87461 & 0.05191 & 12.997 & 0.0456*\\
-\end{tabular}
-```
           
                                Estimate       Std. Error       t value     Pr(>|t|) 
 ------                        ---------     ------------      --------    ---------
@@ -268,6 +257,7 @@ source in the area of data and statistics, the Eurostat’s donor survey is anal
 ```{r data-sources, echo=FALSE, fig.align="center", fig.cap = "Comparison of data sources.", out.width = "80%"}
 knitr::include_graphics("./images/data_sources.png")
 ```
+
 
 :::: {.emphbox data-latex=""}
 ::: {.center data-latex=""}

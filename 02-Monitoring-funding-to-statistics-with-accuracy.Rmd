@@ -8,7 +8,7 @@ Prior to PRESS 2018, the PRESS only focused on borrowing countries of the Intern
 Association.^[Eligibility for IDA support depends first and foremost on a country’s relative poverty, which is defined as GNI per capita 
 below an established threshold and updated annually ($1,185 in the fiscal year 2021). IDA also supports some countries, 
 including several small island economies, that are above the operational cut‐off but lack the required creditworthiness to 
-borrow from the International Bank for Reconstruction and Development (IBRD). For more information, see: http://ida.worldbank.org/about/borrowing‐countries]
+borrow from the International Bank for Reconstruction and Development (IBRD). For more information, see: https://ida.worldbank.org/en/about/borrowing-countries]
 Since 2018, the PRESS covers the commitments received by all countries throughout the 
 report  to  align  the  findings  with  the  SDG  indicator  17.19.1:  "Dollar  value  of  all  resources  made 
 available to strengthen statistical capacity in developing countries". Commitments were used as the 
@@ -28,7 +28,7 @@ Donors report to the CRS using specific codes for the sectors targeted by their 
 Capacity Building (SCB) is designated by the sector code 16062.^[Until 2019, this purpose was vaguely defined as "Both in national statistical offices and any other government ministries". However, after a successful campaign to improve the description, this purpose is now defined as “All statistical activities, such as data collection, processing, dissemination and analysis; support to development and management of official statistics
 including demographic, social, economic, environmental, and multi‐sectoral statistics; statistical quality frameworks;
 development of human and technological resources for statistics, investments in data innovation."]
-Each activity reported in CRS can only be assigned with one of the over 100 purpose codes.^[In recent years, CRS reporters can also assign multiple voluntary purpose codes to the same project. Code 16062 is not a voluntary code. See the CRS code list for more information: https://www.oecd.org/dac/financing‐sustainable‐development/development‐finance‐standards/dacandcrscodelists.h] 
+Each activity reported in CRS can only be assigned with one of the over 100 purpose codes.^[In recent years, CRS reporters can also assign multiple voluntary purpose codes to the same project. Code 16062 is not a voluntary code. See the CRS code list for more information: https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/dacandcrscodelists.htm] 
 While CRS is one of the most reliable and comprehensive databases that accounts for aid flows, there are some concerns that need to be
 addressed while compiling support for data and statistics, such as: the cross‐cutting nature of projects
 with statistical components, limited reporter knowledge about the code, the assignment of some ODA

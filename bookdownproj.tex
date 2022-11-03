@@ -1,0 +1,1942 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Methodology for measuring and estimating funding to data and statistics},
+  pdfauthor={Yu Tian, PARIS21; Archita Misra, PARIS21},
+  pdfkeywords={PRESS, Statistics, 2022},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{float}
+\hypersetup{colorlinks = true, urlcolor = cyan, citecolor = black, menucolor = black, anchorcolor = black, linkcolor=black}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Methodology for measuring and estimating funding to data and statistics}
+\author{Yu Tian, \href{https://paris21.org/about-paris21/our-team/yu-tian}{PARIS21} \and Archita Misra, \href{https://www.paris21.org}{PARIS21}}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{acknowledgements}{%
+\section*{Acknowledgements}\label{acknowledgements}}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+Draft methodological note prepared by Yu Tian and Archita Misra (PARIS21) under the supervision of Rajiv
+Ranjan (PARIS21). The authors are grateful to Eric Swanson and Lorenz Noe (Open Data Watch) and Simon Lange
+(OECD) for their valuable review and feedback. Further comments to the authors (\href{mailto:Yu.Tian@oecd.org}{\nolinkurl{Yu.Tian@oecd.org}};
+\href{mailto:Archita.misra@oecd.org}{\nolinkurl{Archita.misra@oecd.org}}) are welcome.
+
+\hypertarget{background}{%
+\section{Background}\label{background}}
+
+PARIS21 produces the Partner Report on Support to Statistics (PRESS) annually to report on trends in
+support to statistics. The methodology is applied retrospectively for all previous years to ensure
+comparability over time. This document presents the methodology.
+
+\hypertarget{monitoring-funding-to-statistics-with-accuracy}{%
+\section{Monitoring funding to statistics with accuracy}\label{monitoring-funding-to-statistics-with-accuracy}}
+
+This section provides information on how to monitor support to statistics and how the data of the
+PRESS, which is also used for reporting SDG indicator 17.19.1 (``Dollar Value of all resources made
+available to strengthen statistical capacity in developing countries''), is generated.
+
+Prior to PRESS 2018, the PRESS only focused on borrowing countries of the International Development
+Association.\footnote{Eligibility for IDA support depends first and foremost on a country's relative poverty, which is defined as GNI per capita
+  below an established threshold and updated annually (\$1,185 in the fiscal year 2021). IDA also supports some countries,
+  including several small island economies, that are above the operational cut‐off but lack the required creditworthiness to
+  borrow from the International Bank for Reconstruction and Development (IBRD). For more information, see: \url{https://ida.worldbank.org/en/about/borrowing-countries}}
+Since 2018, the PRESS covers the commitments received by all countries throughout the
+report to align the findings with the SDG indicator 17.19.1: ``Dollar value of all resources made
+available to strengthen statistical capacity in developing countries''. Commitments were used as the
+main measurement instead of disbursements from the beginning of PRESS in 2006, when commitment
+data entries were made available more consistently. See section \ref{estimating-using-CRS} for a discussion on using commitments vs disbursements in detail.
+
+The PRESS aims to provide a full picture of international support to statistics. To achieve this goal, it
+mainly takes advantage of two data sources:
+
+\hypertarget{oecds-creditor-reporting-system-crs}{%
+\subsection{OECD's Creditor Reporting System (CRS)}\label{oecds-creditor-reporting-system-crs}}
+
+The Organisation for Economic Co‐operation and Development (OECD)'s Creditor Reporting System
+(CRS) records data from OECD Development Assistance Committee (DAC) members (donors) and some
+non‐DAC donors. This provides a comprehensive account of Official Development Assistance (ODA).
+Donors report to the CRS using specific codes for the sectors targeted by their aid activity. Statistical
+Capacity Building (SCB) is designated by the sector code 16062.\footnote{Until 2019, this purpose was vaguely defined as ``Both in national statistical offices and any other government ministries''. However, after a successful campaign to improve the description, this purpose is now defined as ``All statistical activities, such as data collection, processing, dissemination and analysis; support to development and management of official statistics
+  including demographic, social, economic, environmental, and multi‐sectoral statistics; statistical quality frameworks;
+  development of human and technological resources for statistics, investments in data innovation.''}
+Each activity reported in CRS can only be assigned with one of the over 100 purpose codes.\footnote{In recent years, CRS reporters can also assign multiple voluntary purpose codes to the same project. Code 16062 is not a voluntary code. See the CRS code list for more information: \url{https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/dacandcrscodelists.htm}}
+While CRS is one of the most reliable and comprehensive databases that accounts for aid flows, there are some concerns that need to be
+addressed while compiling support for data and statistics, such as: the cross‐cutting nature of projects
+with statistical components, limited reporter knowledge about the code, the assignment of some ODA
+for data and statistics under other codes, lack of granularity in reporting, etc. These issues are covered
+in detail in PARIS (2019). PARIS21 is seeking to reduce this usually downward bias using a text analysis
+methodology (see section \ref{machine-learning}).
+
+The CRS identifies a project donor by looking at the source of the funding. Countries are identified as
+donors if the flow is directly between them and the recipient country (type 1 in Fig. \ref{fig:funding-flows}), or if
+the flow is earmarked for a certain project and channeled through multilateral organisations (type 3
+in Fig. \ref{fig:funding-flows}). If a project is funded by un‐earmarked core contributions to multilateral
+organisations, the donors are marked as the multilateral organisations (types 2 and 4 in Fig. \ref{fig:funding-flows}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{./images/CRS_funding_flow} 
+
+}
+
+\caption{Flow of official aid in CRS.}\label{fig:funding-flows}
+\end{figure}
+
+\hypertarget{P21-online-survey}{%
+\subsection{PARIS21's annual online survey}\label{P21-online-survey}}
+
+The PARIS21 Secretariat supplements the data from the CRS with an annual online survey that is
+completed by a global network of respondents, mostly non‐DAC donors. The survey covers a subset
+of the variables collected in the CRS, as well as some additional variables specific to data and statistics.
+Responding to the online survey is voluntary and offers an opportunity for respondents to share
+information about their statistical activities. Respondents include non‐DAC members, including non‐
+DAC donor countries, multilateral organisations, regional statistical training institutes, and other
+philanthropic organisations. The percentage of these projects in the final PRESS database has
+decreased in recent years, as many multilateral organisations have improved the granularity of their
+reporting to the CRS, making these data equally useful as data collected from the PRESS survey. To
+reduce the burden on donors, these multilateral organisations are no longer required to fill in the
+PRESS survey.
+
+\hypertarget{machine-learning}{%
+\section{Identifying data and statistical projects using machine learning}\label{machine-learning}}
+
+The developed method to identify data and statistical projects is based on a two-step procedure that analyzes project titles in the first step by detecting pertinent keyword (\textbf{A}) and evaluates project's detailed descriptions using a machine learning approach (\textbf{B}).
+
+\hypertarget{reading-the-crs-data}{%
+\subsection{Reading the CRS data}\label{reading-the-crs-data}}
+
+After downloading all .txt files for the years 2006 - 2020 from the official OECD \href{https://stats.oecd.org/DownloadFiles.aspx?DatasetCode=CRS1}{data base}, the fully merged data set is stored.
+
+\hypertarget{preparing-the-data}{%
+\subsection{Preparing the data}\label{preparing-the-data}}
+
+Here, the process of preparing the data is outlined (see Fig. \ref{fig:data-preparation-CRS} for a comprehensive overview).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Reducing the full CRS data set}
+
+  A known characteristic of Canadian reporting in the CRS data base is that both project titles and long descriptions\footnote{Originally both short and long description present in CRS data; from now one referred to as description} are reported in both official languages in the format ``Englisch/French''. To avoid misclassification and misidentification due to the presence of both languages, the French part was dropped. Additionally, the full data set was reduced to 16 necessary variables to avoid heavy computational load of the full 96-variable data set.
+\item
+  \textbf{Adding text identifiers}
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \item
+    \emph{Text cleaning}: First of all, the titles and descriptions were lowercased and cleaned by removing all numbers and punctuation signs in an effort to prepare the text for the creation of unique text identifiers. This is done to avoid unnecessary inclusion of projects that differ only slightly (e.g.~by a number or comma).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tm)}
+
+\CommentTok{\# Define function to clean titles}
+\NormalTok{clean\_titles }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(title)\{}
+\NormalTok{  title }\OtherTok{\textless{}{-}}\NormalTok{ title }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{    removeNumbers }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{removePunctuation}\NormalTok{(}\AttributeTok{preserve\_intra\_word\_dashes =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{    tolower}
+  \FunctionTok{return}\NormalTok{(title)}
+\NormalTok{\}}
+
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs\_raw }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{projecttitle =} \FunctionTok{clean\_titles}\NormalTok{(projecttitle),}
+         \AttributeTok{shortdescription =} \FunctionTok{clean\_titles}\NormalTok{(shortdescription),}
+         \AttributeTok{longdescription =} \FunctionTok{clean\_titles}\NormalTok{(longdescription))}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Id creation}: Each project title and description is given a specific id in order to be able to analyze only distinct titles and descriptions later on. These were created using a well-known hashing algorithm called ``xxHash'' that is reasonably fast and exhibits very good collision properties (see \url{https://github.com/Cyan4973/xxHash}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(digest)}
+
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rowwise}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# use rowwise operations since digest concatenates vector of strings}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{text\_id =}\NormalTok{ digest}\SpecialCharTok{::}\FunctionTok{digest}\NormalTok{(longdescription, }\AttributeTok{algo =} \StringTok{"xxhash32"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# add text\_id as hashed longdesription}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{descr2mine}: Due to lazy reporting, frequently the descriptions differ only marginally from the project titles. This would pose a problem to the previously outlined twofold procedure since descriptions that are identical to the project titles would be analyzed twice. Therefore, only distinct descriptions are used which are identified using the \href{https://en.wikipedia.org/wiki/Damerau\%E2\%80\%93Levenshtein_distance}{Damerau-Levenshtein-Distance} that counts how many alterations it would take to align both texts. The threshold for the maximal distance was set to 10 since this includes spelling mistakes, as well as one-word deviations (e.g.~Output: \ldots).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(stringdist)}
+
+\CommentTok{\# Max string distance underneath which strings can be considered the same/differing just by a word}
+\NormalTok{max\_string\_dist }\OtherTok{\textless{}{-}} \DecValTok{10} 
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{descr2mine =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{stringdist}\NormalTok{(projecttitle, longdescription) }\SpecialCharTok{\textless{}}\NormalTok{ max\_string\_dist }\SpecialCharTok{|} \FunctionTok{str\_count}\NormalTok{(longdescription) }\SpecialCharTok{\textless{}} \DecValTok{3}\NormalTok{, }
+                             \ConstantTok{NA}\NormalTok{, }
+\NormalTok{                             longdescription))}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Crating identifiers}: The CRS data set contains information about purpose of the funding flow in form of the purpose code, as well as other valuable information in other markers such as the gender marker (add link to resource) or the certain channel codes (41146 for UN Women). Table 1 lists all added identifiers.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{scb =} \FunctionTok{ifelse}\NormalTok{(purposecode }\SpecialCharTok{==} \DecValTok{16062}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }\CommentTok{\# Statistical capcity building identifier}
+         \AttributeTok{pop =} \FunctionTok{ifelse}\NormalTok{(purposecode }\SpecialCharTok{==} \DecValTok{13010}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }\CommentTok{\# population policy identifier}
+         \AttributeTok{gen\_ppcode =} \FunctionTok{ifelse}\NormalTok{(purposecode }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{15170}\SpecialCharTok{:}\DecValTok{15180}\NormalTok{), }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }\CommentTok{\# add gender purpose code identifier}
+         \AttributeTok{gen\_marker =} \FunctionTok{ifelse}\NormalTok{(gender }\SpecialCharTok{==} \DecValTok{1} \SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(gender), }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }\CommentTok{\# add gender marker (0 {-} no gender, 1 {-} primary purpose, 2 {-} secondary)}
+         \AttributeTok{gen\_donor =} \FunctionTok{ifelse}\NormalTok{(channelcode }\SpecialCharTok{==} \DecValTok{41146}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }\CommentTok{\# all projects from UN Women}
+         \AttributeTok{gen\_sdg =} \FunctionTok{str\_detect}\NormalTok{(sdgfocus, }\StringTok{"\^{}5|,5"}\NormalTok{)) }\CommentTok{\# SDG 5: Gender equality}
+\end{Highlighting}
+\end{Shaded}
+  \end{enumerate}
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./images/data_preparation_CRS} 
+
+}
+
+\caption{Diagram of the data preparation process.}\label{fig:data-preparation-CRS}
+\end{figure}
+
+\hypertarget{a-title-pattern-matching}{%
+\subsection{\texorpdfstring{\textbf{A}: Title pattern matching}{A: Title pattern matching}}\label{a-title-pattern-matching}}
+
+In the following, the process of matching pertinent keywords in project titles is outlined (see Fig. \ref{fig:title-pattern-matching} for a comprehensive overview).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Preparing the data}
+
+  In the first step, the language of both title and description is detected using \href{https://github.com/CLD2Owners/cld2}{Google's Compact Language detector 2} (CLD2). It can detect 83 different languages and exceeds similar language detection engines by as much as 10x in speed. Analyzing the language distribution is crucial to a refined classification since text in every language has to be treated differently, using different keywords for the subsequent title pattern matching and fitting a different machine learning model later on. Therefore, the procedure was applied to projects in English, French, Spanish and German since these make up the majority of detected languages. This was implemented by selecting only projects with combinations of (title\_language, long\_language) in (en, fr, es, de, NA) x (en, fr, es, de, NA) while excluding the (NA, NA) combination. This combination was excluded since CLD2 in a vast majority of cases detects NA if the text is very short or nonsensical.
+
+  To give an overview how many projects are analyzed using this method, this approach encompasses 3.145.387 (90.6\%) projects while 23.4020 (6.7\%) were excluded for being (NA, NA) projects. That leaves 90241 (2.6\%) projects that were excluded because they were either wrongly detected or belong to some minor reporting languages (e.g.~Norwegian, Portuguese or Polish with a significant fraction within the 2.6\% of excluded projects).
+
+  In the second step, duplicated project titles were dropped to analyze these titles only once during the title pattern matching procedure which again reduced computation time.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# All languages to include in classification {-} options: en, fr, es, de}
+\NormalTok{languages }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"en"}\NormalTok{, }\StringTok{"fr"}\NormalTok{, }\StringTok{"es"}\NormalTok{, }\StringTok{"de"}\NormalTok{)}
+
+\CommentTok{\# Add unique title id and detect language of title and long description}
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{projecttitle\_lower =} \FunctionTok{tolower}\NormalTok{(projecttitle)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rowwise}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# use rowwise operations since digest concatenates vector of strings}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{title\_id =}\NormalTok{ digest}\SpecialCharTok{::}\FunctionTok{digest}\NormalTok{(projecttitle\_lower, }\AttributeTok{algo =} \StringTok{"xxhash32"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# create title id to drop duplicated titles later}
+  \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{title\_language =}\NormalTok{ cld2}\SpecialCharTok{::}\FunctionTok{detect\_language}\NormalTok{(projecttitle)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{long\_language =}\NormalTok{ cld2}\SpecialCharTok{::}\FunctionTok{detect\_language}\NormalTok{(longdescription))}
+
+\CommentTok{\# Use only projects in en, fr, es and de}
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(title\_language }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(languages, }\ConstantTok{NA}\NormalTok{) }\SpecialCharTok{\&}\NormalTok{ long\_language }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(languages,}\ConstantTok{NA}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(title\_language) }\SpecialCharTok{|} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(long\_language)) }\CommentTok{\# omit projects with both languages NA }
+
+\CommentTok{\# Select necessary columns and drop projects with duplicated title ids }
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(title\_id, projecttitle, projecttitle\_lower, longdescription, title\_language, long\_language) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{duplicated}\NormalTok{(title\_id))}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Title pattern matching}
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \item
+    \emph{Clean and lemmatize keyword lists}: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix \ref{Appendix-A}. The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# list\_keywords\_stat, list\_acronyms and demining\_small\_arms previously loaded}
+
+\CommentTok{\# Define lemmatization function}
+\NormalTok{clean\_and\_lemmatize }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{ (string)\{}
+\NormalTok{  string }\OtherTok{\textless{}{-}}\NormalTok{ string }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{    tolower }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{removeWords}\NormalTok{(}\StringTok{"\textquotesingle{}s"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# remove possesive s so that plural nouns get lemmatized correctly, e.g. "women\textquotesingle{}s"}
+    \FunctionTok{removeNumbers}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{removePunctuation}\NormalTok{(}\AttributeTok{preserve\_intra\_word\_dashes =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{    stripWhitespace }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{removeWords}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FunctionTok{stopwords}\NormalTok{(}\StringTok{\textquotesingle{}english\textquotesingle{}}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{removeWords}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FunctionTok{stopwords}\NormalTok{(}\AttributeTok{source =} \StringTok{"smart"}\NormalTok{)[}\SpecialCharTok{!}\FunctionTok{stopwords}\NormalTok{(}\AttributeTok{source =} \StringTok{"smart"}\NormalTok{) }\SpecialCharTok{\%in\%} \StringTok{"use"}\NormalTok{])) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# exclude "use" from smart stopwords }
+    \FunctionTok{lemmatize\_strings}\NormalTok{()}
+\NormalTok{\}}
+
+\CommentTok{\# Lemmatization for "en"}
+\NormalTok{list\_keywords\_stat }\OtherTok{\textless{}{-}} \FunctionTok{clean\_and\_lemmatize}\NormalTok{(list\_keywords\_stat)}
+\NormalTok{demining\_small\_arms }\OtherTok{\textless{}{-}} \FunctionTok{clean\_and\_lemmatize}\NormalTok{(demining\_small\_arms)}
+
+\CommentTok{\# Stemming for minority languages "fr", "es" and "de"}
+\NormalTok{list\_keywords\_stat }\OtherTok{\textless{}{-}} \FunctionTok{stem\_and\_concatenate}\NormalTok{(list\_keywords\_stat, }\AttributeTok{language =}\NormalTok{ lang)}
+\NormalTok{demining\_small\_arms }\OtherTok{\textless{}{-}} \FunctionTok{stem\_and\_concatenate}\NormalTok{(demining\_small\_arms, }\AttributeTok{language =}\NormalTok{ lang)}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Clean and lemmatize titles}: Cleaning of project titles was achieved by removing numbers, punctuation and so called ``stopwords'' (e.g.~``and'', ``the'', ``for'') since they don't contain information towards the classification. Subsequently, words were lemmatized meaning to reduce different forms of a word to its lemma (e.g.~``women'', ``woman's'', ``woman'' -\textgreater{} ``woman''). This is very important to guarantee that all various versions are found during the title pattern search. For minority languages however, stemming is used instead of lemmatization since no good lemmatization implementation was available.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{projecttitle\_clean =} \FunctionTok{ifelse}\NormalTok{(title\_language }\SpecialCharTok{==}\NormalTok{ lang }\SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(title\_language), }
+                                     \FunctionTok{clean\_and\_lemmatize}\NormalTok{(projecttitle\_lower),}
+\NormalTok{                                     projecttitle\_clean)) }\SpecialCharTok{\%\textgreater{}\%}        
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Keyword detection}: For every language, the project title was analyzed whether it contains one of the statistical keywords or acronyms. Note that statistical keywords were detected within cleaned and lemmatized titles whereas for acronyms, the original title was used since the lemmatization and stemming algorithms were found to change acronyms.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create regex for searching titles }
+\NormalTok{list\_keywords\_stat }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{" "}\NormalTok{, }\FunctionTok{paste}\NormalTok{(list\_keywords\_stat, }\AttributeTok{collapse =} \StringTok{" | "}\NormalTok{),}\StringTok{" |\^{}"}\NormalTok{, }\CommentTok{\# words with whitespaces}
+                            \FunctionTok{paste}\NormalTok{(list\_keywords\_stat, }\AttributeTok{collapse =} \StringTok{" |\^{}"}\NormalTok{),}\StringTok{" | "}\NormalTok{, }\CommentTok{\# beginning of string}
+                            \FunctionTok{paste}\NormalTok{(list\_keywords\_stat, }\AttributeTok{collapse =} \StringTok{"$| "}\NormalTok{), }\StringTok{"$"}\NormalTok{) }\CommentTok{\# end of string}
+
+\NormalTok{list\_acronyms }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{" "}\NormalTok{, }\FunctionTok{paste}\NormalTok{(list\_acronyms, }\AttributeTok{collapse =} \StringTok{" | "}\NormalTok{),}\StringTok{" |\^{}"}\NormalTok{, }
+                  \FunctionTok{paste}\NormalTok{(list\_acronyms, }\AttributeTok{collapse =} \StringTok{" |\^{}"}\NormalTok{),}\StringTok{" | "}\NormalTok{, }\CommentTok{\# beginning of string}
+                  \FunctionTok{paste}\NormalTok{(list\_acronyms, }\AttributeTok{collapse =} \StringTok{"$| "}\NormalTok{), }\StringTok{"$"}\NormalTok{) }\CommentTok{\# end of string}
+
+\NormalTok{demining\_small\_arms }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{" "}\NormalTok{, }\FunctionTok{paste}\NormalTok{(demining\_small\_arms, }\AttributeTok{collapse =} \StringTok{" | "}\NormalTok{),}\StringTok{" |\^{}"}\NormalTok{, }
+                          \FunctionTok{paste}\NormalTok{(demining\_small\_arms, }\AttributeTok{collapse =} \StringTok{" |\^{}"}\NormalTok{),}\StringTok{" | "}\NormalTok{, }\CommentTok{\# beginning of string}
+                          \FunctionTok{paste}\NormalTok{(demining\_small\_arms, }\AttributeTok{collapse =} \StringTok{"$| "}\NormalTok{), }\StringTok{"$"}\NormalTok{) }\CommentTok{\# end of string}
+
+\CommentTok{\# Detect stat, acronyms and mining }
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{match\_stat =} \FunctionTok{ifelse}\NormalTok{(title\_language }\SpecialCharTok{==}\NormalTok{ lang }\SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(title\_language), }
+                             \FunctionTok{str\_detect}\NormalTok{(projecttitle\_clean, list\_keywords\_stat), }
+\NormalTok{                             match\_stat),}
+         \AttributeTok{mining =} \FunctionTok{ifelse}\NormalTok{(title\_language }\SpecialCharTok{==}\NormalTok{ lang }\SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(title\_language),}
+                         \FunctionTok{str\_detect}\NormalTok{(projecttitle\_clean, demining\_small\_arms),}
+\NormalTok{                         mining)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{match\_stat =} \FunctionTok{ifelse}\NormalTok{(title\_language }\SpecialCharTok{==}\NormalTok{ lang }\SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(title\_language),}
+                             \FunctionTok{str\_detect}\NormalTok{(projecttitle\_lower, list\_acronyms) }\SpecialCharTok{|}\NormalTok{ match\_stat,}
+\NormalTok{                             match\_stat))}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Merging classes for final filter}: The reason to detect also mining projects was to exclude those projects from the statistics filter since expressions like ``small arms survey'', ``survey of landmine situation'' make frequent appearances in project titles but are not related to statistics. Hence, only projects for which a statistical keyword was detected but no mining keyword are marked as a statistical project in the pattern matching step.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Exclude mining projects, since they contain survey {-}\textgreater{} not statistical project}
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{text\_detection\_wo\_mining =}\NormalTok{ match\_stat }\SpecialCharTok{\&} \SpecialCharTok{!}\NormalTok{mining) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{text\_detection\_wo\_mining\_w\_scb =}\NormalTok{ match\_stat }\SpecialCharTok{|}\NormalTok{ scb)}
+\end{Highlighting}
+\end{Shaded}
+  \end{enumerate}
+\end{enumerate}
+
+Lastly, the statistics filter is added back to the reduced data set according to the title id. This ensures that all projects with the same title in the reduced data set are marked as statistical by the title pattern matching.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./images/title_pattern_matching} 
+
+}
+
+\caption{Schematic diagram of the title pattern matching.}\label{fig:title-pattern-matching}
+\end{figure}
+
+\hypertarget{b-text-mining-of-long-descriptions}{%
+\subsection{\texorpdfstring{\textbf{B}: Text mining of long descriptions}{B: Text mining of long descriptions}}\label{b-text-mining-of-long-descriptions}}
+
+Lastly, the process of applying a machine learning approach to classify the projects' long descriptions will be explained in detail (see Fig. \ref{fig:text-mining} for a comprehensive overview).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Preparing the data}
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \item
+    \emph{Language filtering}: For the preparation of the data, the reduced data set with the additional statistics filter from the pattern matching is filtered according to the description language to ensure that the text mining is applied only to text in one language. Note that there are projects with differing title and description language (frequently English title, minority language description) which is however no problem, since a project's description can be assumed to be statistical even when its title is in another language.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lang }\OtherTok{\textless{}{-}} \StringTok{"en"}
+
+\CommentTok{\# Filter only projects with description language lang}
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs\_reduced }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(long\_language }\SpecialCharTok{==}\NormalTok{ lang)}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Manual filter correction}: For 200 English projects, the description of projects, which were detected as statistical projects by the title pattern matching, were verified manually by experts. It can be the case that a projects title refers to statistics (e.g.~``census aid'') while its description contains no relevant information towards a classification (``Material and equipment for on the ground operations''). This additional step makes sure that the learning set contains less errors and hence increases the accuracy.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Read manually verified projects }
+\NormalTok{man\_verified }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"./Data/Manually verified/stat\_projects\_verified.rds"}\NormalTok{)}
+
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(descr2mine)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(text\_id, }\AttributeTok{description =}\NormalTok{ descr2mine, longdescription, }\AttributeTok{class\_filter =}\NormalTok{ text\_detection\_wo\_mining\_w\_scb) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(man\_verified }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(longdescription, match\_stat), }\AttributeTok{by =} \StringTok{"longdescription"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# add manually verified}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{class\_filter =} \FunctionTok{ifelse}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(match\_stat), match\_stat, class\_filter)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# replace class filter with manually verified filter}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{longdescription, }\SpecialCharTok{{-}}\NormalTok{match\_stat)}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Drop duplicated text ids}: As for the title ids, duplicated text ids are dropped to reduce the computational load during the text mining. In addition, some projects shared a discription but differed in their title. If one of the projects was detected as \texttt{TRUE} and one as \texttt{FLASE} in step \textbf{A}, both of them were discarded to reduce errors in the training set later on.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs\_reduced }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(descr2mine)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{distinct}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(text\_id) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# remove all ambiguous projects (same description, one FALSE one TRUE)}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{n}\NormalTok{() }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  as.data.frame}
+\end{Highlighting}
+\end{Shaded}
+  \end{enumerate}
+\item
+  \textbf{Text mining of long description}
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \item
+    \emph{Construct learning and prediction set}: For this machine learning approach, it is necessary to construct a balanced learning set which contains 50\% negatively marked (NM) and 50\% positively marked (PM) projects. The projects detected in Step \textbf{A} are used as the PM projects since it is reasonable to assume that if the title contains statistical keywords, also its description refers to statistics. The NM projects are chosen randomly because it can be assumed that only a small fraction of projects refer to statistics and therefore the probability to introduce error into the learning set is very small. The prediction data set contains simply the rest of the NM projects in the text mining data set.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Define parameters }
+\NormalTok{frac\_pred\_set }\OtherTok{\textless{}{-}} \DecValTok{1}             \CommentTok{\# use only x\% of full prediction set to speed up for testing}
+\NormalTok{full\_learning\_percent }\OtherTok{\textless{}{-}} \DecValTok{1}     \CommentTok{\# take only x\% of full learning set size if too large for RAM}
+\NormalTok{neg\_sample\_fraction }\OtherTok{\textless{}{-}} \DecValTok{1}       \CommentTok{\# fraction of NM to PM in learning set}
+
+\CommentTok{\# Get size of PM projects in learning set}
+\NormalTok{size\_positive\_train }\OtherTok{\textless{}{-}}\NormalTok{ neg\_sample\_fraction }\SpecialCharTok{*}\NormalTok{ full\_learning\_percent }\SpecialCharTok{*}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(class\_filter }\SpecialCharTok{==} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ nrow}
+
+\CommentTok{\# Construct prediction set}
+\NormalTok{pred }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(class\_filter }\SpecialCharTok{==} \ConstantTok{FALSE} \SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(class\_filter)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =}\NormalTok{ frac\_pred\_set }\SpecialCharTok{*} \FunctionTok{n}\NormalTok{())}
+
+\CommentTok{\# Error: if size of pred smaller than size of PM projects, not possible to construct training set}
+\ControlFlowTok{if}\NormalTok{(pred }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(class\_filter)) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ nrow }\SpecialCharTok{\textless{}}\NormalTok{ size\_positive\_train) }\FunctionTok{stop}\NormalTok{(}\StringTok{"Pred not large enough to create learning set! Choose a larger frac\_pred\_set"}\NormalTok{)}
+
+\CommentTok{\# Construct training set}
+\NormalTok{learning }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(class\_filter }\SpecialCharTok{==} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =} \FunctionTok{n}\NormalTok{()}\SpecialCharTok{*}\NormalTok{full\_learning\_percent) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rbind}\NormalTok{(pred }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(class\_filter)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =}\NormalTok{ size\_positive\_train)) }\CommentTok{\# add same amount of NM project from pred}
+
+\CommentTok{\# Exclude NM projects in training set from pred}
+\NormalTok{pred }\OtherTok{\textless{}{-}}\NormalTok{ pred }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{text\_id }\SpecialCharTok{\%in\%}\NormalTok{ train}\SpecialCharTok{$}\NormalTok{text\_id)}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Clean and lemmatize descr2mine}: As previously discussed, only distinct long descriptions (distinct from title) are used to avoid analyzing the same text twice. These are then cleaned and lemmatized to reduce the text to the relevant information.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Set languages for stemming and lemmatization}
+\NormalTok{stem\_languages }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"de"}\NormalTok{, }\StringTok{"fr"}\NormalTok{, }\StringTok{"es"}\NormalTok{)}
+\NormalTok{lemma\_languages }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"en"}\NormalTok{)}
+
+\CommentTok{\# Change original description with cleaned description}
+\ControlFlowTok{if}\NormalTok{ (lang }\SpecialCharTok{\%in\%}\NormalTok{ lemma\_languages) \{}
+\NormalTok{  learning}\SpecialCharTok{$}\NormalTok{text\_cleaned }\OtherTok{\textless{}{-}} \FunctionTok{clean\_and\_lemmatize}\NormalTok{(learning}\SpecialCharTok{$}\NormalTok{description)}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Start lemmatize pred"}\NormalTok{)}
+\NormalTok{  pred}\SpecialCharTok{$}\NormalTok{text\_cleaned }\OtherTok{\textless{}{-}} \FunctionTok{clean\_and\_lemmatize}\NormalTok{(pred}\SpecialCharTok{$}\NormalTok{description)}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Finished lemmatization pred"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (lang }\SpecialCharTok{\%in\%}\NormalTok{ stem\_languages) \{}
+\NormalTok{  learning}\SpecialCharTok{$}\NormalTok{text\_cleaned }\OtherTok{\textless{}{-}} \FunctionTok{stem\_and\_concatenate}\NormalTok{(learning}\SpecialCharTok{$}\NormalTok{description, }\AttributeTok{language =}\NormalTok{ lang)}
+\NormalTok{  pred}\SpecialCharTok{$}\NormalTok{text\_cleaned }\OtherTok{\textless{}{-}} \FunctionTok{stem\_and\_concatenate}\NormalTok{(pred}\SpecialCharTok{$}\NormalTok{description, }\AttributeTok{language =}\NormalTok{ lang)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Create DTM matrices}: After splitting the learning set into the training set and testing set in a ration of 80/20, the document term matrix (DTM) is created for the training set. It has all the words that are present in all descriptions of the training data set (terms) as columns and collects their weighted frequency for each project in the respective row. For creating the DTMs of the test data and prediction data, terms occurring in the training data DTM are used which means that the all DTMs share the same columns. This is important for the prediction step later on since the model is only trained on these terms and assigns a relative weight to each of them. Therefore, it can only predict on terms that has already ``seen''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Take 80\% training data, 20\% testing data}
+\NormalTok{dt }\OtherTok{\textless{}{-}} \FunctionTok{sort}\NormalTok{(}\FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(learning), }\FunctionTok{nrow}\NormalTok{(learning)}\SpecialCharTok{*}\FloatTok{0.8}\NormalTok{))}
+\NormalTok{train\_data }\OtherTok{\textless{}{-}}\NormalTok{ learning[dt,]}
+\NormalTok{test\_data }\OtherTok{\textless{}{-}}\NormalTok{ learning[}\SpecialCharTok{{-}}\NormalTok{dt,]}
+
+\CommentTok{\# Construct DTMs }
+\NormalTok{train\_data\_dtm }\OtherTok{\textless{}{-}}\NormalTok{ train\_data}\SpecialCharTok{$}\NormalTok{text\_cleaned }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VectorSource}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VCorpus}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{DocumentTermMatrix}\NormalTok{(}\AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{weighting =}\NormalTok{ weightTf))}
+\NormalTok{dictionary\_dtm }\OtherTok{\textless{}{-}} \FunctionTok{Terms}\NormalTok{(train\_data\_dtm) }\CommentTok{\# use only terms appearing in training data to construct test and pred DTM}
+\NormalTok{test\_data\_dtm }\OtherTok{\textless{}{-}}\NormalTok{ test\_data}\SpecialCharTok{$}\NormalTok{text\_cleaned }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VectorSource}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VCorpus}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{DocumentTermMatrix}\NormalTok{(}\AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{weighting =}\NormalTok{ weightTf, }\AttributeTok{dictionary =}\NormalTok{ dictionary\_dtm))}
+\NormalTok{prediction\_data\_dtm }\OtherTok{\textless{}{-}}\NormalTok{ pred}\SpecialCharTok{$}\NormalTok{text\_cleaned }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VectorSource}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VCorpus}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{DocumentTermMatrix}\NormalTok{(}\AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{weighting =}\NormalTok{ weightTf, }\AttributeTok{dictionary =}\NormalTok{ dictionary\_dtm))}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Training the XGBoost model}: The model is obtained from the regularizing gradient boosting framework \href{https://xgboost.readthedocs.io/en/stable/index.html}{XGBoost} by fitting the training data. Due to the broad literature on this machine learning approach, a detailed discussion shall be refrained from here. It can be said however that by passing along the training data DTM alongside the correct classification labels, the XGBoost model identifies the most important words appearing in the PM projects and assigns a high importance to them (see Fig. \ref{fig:importance-matrix} below).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Set the labels for class\_filter}
+\NormalTok{label.train }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(train\_data}\SpecialCharTok{$}\NormalTok{class\_filter)}
+
+\CommentTok{\# Training parameters}
+\NormalTok{eta\_par }\OtherTok{\textless{}{-}} \FloatTok{0.1}
+\NormalTok{nrounds\_par }\OtherTok{\textless{}{-}} \DecValTok{5} \SpecialCharTok{/}\NormalTok{ eta\_par}
+
+\CommentTok{\# Train the model}
+\NormalTok{fit.xgb }\OtherTok{\textless{}{-}} \FunctionTok{xgboost}\NormalTok{(}\AttributeTok{data =} \FunctionTok{as.matrix}\NormalTok{(train\_data\_dtm), }\AttributeTok{label =}\NormalTok{ label.train, }\AttributeTok{max.depth =} \DecValTok{17}\NormalTok{, }\AttributeTok{eta =}\NormalTok{ eta\_par, }\AttributeTok{nthread =} \DecValTok{2}\NormalTok{, }
+                   \AttributeTok{nrounds =}\NormalTok{ nrounds\_par, }\AttributeTok{objective =} \StringTok{"binary:logistic"}\NormalTok{, }\AttributeTok{verbose =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Testing and prediction}: The model is then assessed using the test data. Since the model returns a score p\_stat in the range from 0 to 1 whether a project's description refers to statistics, different thresholds are tested to see how the model performs (more in Appendix \ref{Appendix-B}). Finally, all projects in the prediction set are predicted using the fitted model. If a project receives a score of \(p_{stat} \geq 0.9\), it is marked as statistical by the text mining (justification of threshold).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Predict test and pred data}
+\NormalTok{test.xgb }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(fit.xgb, }\FunctionTok{as.matrix}\NormalTok{(test\_data\_dtm))}
+\NormalTok{pred.xgb }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(fit.xgb, }\FunctionTok{as.matrix}\NormalTok{(prediction\_data\_dtm))}
+
+\CommentTok{\# Set all projects to 1 for a score higher than 0.9}
+\NormalTok{threshold }\OtherTok{\textless{}{-}} \FloatTok{0.90}
+\NormalTok{test\_data }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(test\_data, }\AttributeTok{predictions =} \FunctionTok{ifelse}\NormalTok{(predictions\_raw }\SpecialCharTok{\textgreater{}}\NormalTok{ threshold, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+\NormalTok{pred }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(pred, }\AttributeTok{predictions =} \FunctionTok{ifelse}\NormalTok{(predictions\_raw }\SpecialCharTok{\textgreater{}}\NormalTok{ threshold, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+
+\CommentTok{\# Show accuracy}
+\NormalTok{accurracy }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(test\_data}\SpecialCharTok{$}\NormalTok{predictions }\SpecialCharTok{==}\NormalTok{ test\_data}\SpecialCharTok{$}\NormalTok{class\_filter)}
+\FunctionTok{print}\NormalTok{(accurracy)}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    \emph{Iteration of step i.-v. for learning set robustness}: In step 1, the 50\% NM projects were chosen at random since the probability that statistical project is in this set is very small. However, it could still be the case that the statistical projects are included by chance. This can be almost avoided by repeating steps 1. -- 5. with a training set that is constructed using only projects that are predicted not to be statistical with \(p_{stat} \leq 0.3\). This threshold is chosen because it makes sure that the training set is only constructed from true NM projects while not being too restrictive and potentially introducing a bias into the training set (e.g.~if all projects with \(p_{stat} \leq 0.05\) stem from the agriculture sector). On average, this iterative procedure increases the accuracy by 5\% - 10\% depending on the size of the prediction set.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Filter projects with low score }
+\NormalTok{pred\_negative }\OtherTok{\textless{}{-}}\NormalTok{ pred }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(predictions\_raw }\SpecialCharTok{\textless{}=} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =}\NormalTok{ size\_positive\_train) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(text\_id, description, class\_filter) }
+
+\CommentTok{\# Construct new learning set with low{-}score projects as NM}
+\NormalTok{learning }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(class\_filter }\SpecialCharTok{==} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =} \FunctionTok{n}\NormalTok{()}\SpecialCharTok{*}\NormalTok{full\_learning\_percent) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rbind}\NormalTok{(pred\_negative) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(class\_filter))}
+
+\CommentTok{\# Construct pred from all NM projects that are not in the training set}
+\NormalTok{pred }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{((class\_filter }\SpecialCharTok{==} \ConstantTok{FALSE} \SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(class\_filter)) }\SpecialCharTok{\&} \SpecialCharTok{!}\NormalTok{(text\_id }\SpecialCharTok{\%in\%}\NormalTok{ pred\_negative}\SpecialCharTok{$}\NormalTok{text\_id)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =}\NormalTok{ frac\_pred\_set }\SpecialCharTok{*} \FunctionTok{n}\NormalTok{()) }\CommentTok{\#use only frac\_pred\_set\% to speed up for testing}
+
+\CommentTok{\# Repeat step i. {-} v.}
+\end{Highlighting}
+\end{Shaded}
+  \end{enumerate}
+\end{enumerate}
+
+Finally, the text mining filter is added back to the reduced data set according to the text id. This ensures that all projects with the same description in the reduced data set are marked as statistical by the text mining methodology.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./images/text_mining} 
+
+}
+
+\caption{Schematic diagram of the text mining.}\label{fig:text-mining}
+\end{figure}
+
+\begin{figure}[!H]
+
+{\centering \includegraphics[width=0.7\linewidth]{./images/importance_matrix} 
+
+}
+
+\caption{Relative importance assigned to terms appearing in long descriptions.}\label{fig:importance-matrix}
+\end{figure}
+
+\hypertarget{monitoring-funding-to-statistics-with-reduced-reporting-lag}{%
+\section{Monitoring funding to statistics with reduced reporting lag}\label{monitoring-funding-to-statistics-with-reduced-reporting-lag}}
+
+\hypertarget{what-is-the-reporting-lag}{%
+\subsection{What is the reporting lag?}\label{what-is-the-reporting-lag}}
+
+The workflows for combining the two main data sources of PRESS are described in Fig. \ref{fig:reporting-lag}.
+
+One key step when merging the PRESS data, reported by both donors and implementors, with the CRS
+data is avoiding duplication in a donor‐implementor‐recipient funding flow. To achieve this, the
+projects are examined against their unique identifier in both sources. The projects reported by
+implementers (mostly from the PRESS survey) are not counted as contribution of the reporting
+agencies. These projects are counted as projects by the donor agencies, after duplication checks were
+applied when merging the projects reported by implementers and the projects reported by donors.
+As the data and final report of PRESS depend in large part on the CRS database, which has a 12‐months
+lag in coverage, the previous editions of PRESS did not capture timely donor financial flows to
+statistics, leading to a structural lag in reporting.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./images/reporting_lag} 
+
+}
+
+\caption{How the lag in the CRS data led to a lag in previous rounds of PRESS.}\label{fig:reporting-lag}
+\end{figure}
+
+This lag meant that in its previous format, PRESS could not provide timely information for partners in
+data and statistics, including:
+
+\begin{itemize}
+\item
+  Nowcasting the funding to statistics
+\item
+  Forecasting funding to statistics
+\end{itemize}
+
+Hence, despite the many improvements in PRESS over the years, the lack of timely aid reporting is a
+persistent concern among its primary users, especially development aid providers. With a growing
+interest in supporting data and statistics, there is an increasing demand for timely data to plan
+activities and projects and coordinate development co‐operation efforts. This issue has become
+particularly urgent in light of the coordinating efforts to fund the Cape Town Global Action Plan for
+Sustainable Development Data (CT‐GAP),\footnote{See \url{https://unstats.un.org/sdgs/hlg/cape-town-global-action-plan/}} as well as in the context of a diverse data ecosystem comprising new actors.
+
+PARIS21 addressed this request in its 2019 annual meeting by introducing the concept of a
+methodology extension. While the PRESS methodology will still be used to report information until 18
+months before the publication, the methodology extension will provide stakeholders with PRESS‐like
+information on more recent periods, therefore reducing the reporting lag significantly. This concept
+became more relevant in 2020, when the development co‐operation community had to face the
+challenges that arose due to the COVID‐19 pandemic in national statistical systems (\protect\hyperlink{ref-PARIS21-Covid}{PARIS21 2020a})
+and funding to data by domestic and external stakeholders (\protect\hyperlink{ref-PRESS-2021}{PARIS21 2020b}).
+
+\hypertarget{estimating-using-CRS}{%
+\subsection{Estimating up‐to‐date support to statistics using CRS}\label{estimating-using-CRS}}
+
+While the previous PRESS (from 2008 to 2019) captured the support to data and statistics by looking
+at global \textbf{commitments}\footnote{A firm obligation, expressed in writing and backed by the necessary funds, which is undertaken by an official
+  donor. It provides specified assistance to a recipient country or a multilateral organisation. Bilateral
+  commitments are recorded in the full amount of the expected transfer, irrespective of the time required for the
+  completion of disbursements. Commitments to multilateral organisations are reported as the sum of (i) any
+  disbursements in the year reported on, which have not previously been notified as commitments, and (ii)
+  expected disbursements in the following year.}
+to statistics, the annual \textbf{disbursements}\footnote{The release of funds to or the purchase of goods or services for a recipient; by extension, the amount spent. Disbursements record the actual international transfer of financial resources, or of goods or services valued at
+  the cost to the donor. In the case of activities conducted in donor countries, such as training, administration, or
+  public awareness programmes, disbursement is assumed to have occurred when the funds have been
+  transferred to the service provider or recipient. These may be recorded as gross (the total amount disbursed
+  over a given accounting period) or net (the gross amount, less any repayments of loan principal or recoveries
+  on grants received during the same period). It can take several years to disburse a commitment.}
+received by a certain country are also informative for donors and countries when planning their activities, especially those short‐term
+activities financed by a donor's annual or biannual budget. Leveraging this additional variable allows
+for the estimation of funding to data and statistics received by countries in the current and coming
+years while still using the same base data, i.e., the CRS and PRESS surveys (and many other data
+sources on development aid, see section 3), which include both variables for each project.
+
+Looking at disbursements instead of commitments to estimate the support to data and statistics has
+two distinct advantages:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Disbursements capture the actual release of funds, so are more useful for donor planning purposes.
+\item
+  It can take several years to disburse a commitment and some commitments are never
+  disbursed. Hence, by design, there are more data points available on disbursements than
+  commitments over the same time period. The additional data on disbursements allows for
+  better understanding of financing patterns and donor behaviour, leading to more robust data analysis.
+\end{enumerate}
+
+This availability of more data points enables us to estimate support to statistics in the current year
+(nowcasting) through robust regression analysis. It also provides more substantial evidence of funding
+trends in the coming years (forecasting). The following sub‐sections will focus on how to arrive at
+these estimates.
+
+\hypertarget{nowcasting-using-commitments-to-predict-current-disbursements}{%
+\subsubsection{Nowcasting: using commitments to predict current disbursements}\label{nowcasting-using-commitments-to-predict-current-disbursements}}
+
+Given that CRS has a lag of 12 months for reporting both disbursements and commitments, one way
+we can estimate support to statistics disbursed in the current year is by looking at the relationship
+between the two variables. The literature on aid predictability indicates that these two variables may
+be closely related over time. A 2013 study examining aid predictability based on CRS data also shows
+that commitments have a significant impact on disbursements five years after they were made
+(\protect\hyperlink{ref-Hudson}{Hudson 2015}).
+
+For most development projects reported to the CRS and the PRESS survey, both commitment and
+disbursement data are reported. Even when these variables are not directly reported, however, the
+missing value can usually be imputed.\footnote{For example, the amount for technical support projects that do not have direct monetary transfers can be
+  replaced by a cost estimate by the provider. In cases where the disbursement information is missing, the
+  estimated disbursement amount can be calculated by dividing the unspent commitment amount using the
+  number of years left before the expected end date}
+
+Using these two variables, PARIS21 has developed a simple linear regression model to estimate the
+funding from donors based on historical data at activity level. Regression analysis was conducted to
+predict current disbursements based on reported commitments, captured by
+\(Average\_Annual\_Spending\).
+
+\begin{align*}
+Disbursement &= Average\_annual\_spending \cdot k + d \\
+\text{where} ~~~~ Average\_annual\_spending &= \text{Total Project Commitments}/number\_of\_years
+\end{align*}
+
+k is the regression coefficient and d is the error term. The number of years is the difference between
+the start date and end date of a reported activity. Reported dates are used for activities with missing
+value in those two variables. The analysis used the most recently accessible data from the CRS\footnote{See \url{https://stats.oecd.org/DownloadFiles.aspx?DatasetCode=CRS}}.
+
+This model shows a correlation between disbursements and average spending. Average annual
+spending is calculated based on the assumption that commitment without a detailed plan for
+disbursement will be distributed evenly by year, from the expected start year to the end year of the
+project.
+
+\begin{longtable}[]{@{}lrrrr@{}}
+\caption{\label{tab:regression-table} Regression table from the analysis}\tabularnewline
+\toprule
+& Estimate & Std. Error & t value & Pr(\textgreater\textbar t\textbar) \\
+\midrule
+\endfirsthead
+\toprule
+& Estimate & Std. Error & t value & Pr(\textgreater\textbar t\textbar) \\
+\midrule
+\endhead
+(Intercept) & 38.455 & 8.04901 & ‐4.778 & 0.0139* \\
+\(Average\_Annual\_Spending\) & 0.87461 & 0.05191 & 12.997 & 0.0456* \\
+\bottomrule
+\end{longtable}
+
+The analysis of CRS data shows a significant correlation (90\%) between disbursements and
+commitments each year. The value of k and the predictability of the model vary depending on the
+reporting pattern of each donor. For example, while the commitment numbers reported by most
+donors each year are usually higher than disbursements (Fig. \ref{fig:commitments-CRS} on the left), this is reversed in the case
+of a few donors (Fig. \ref{fig:commitments-CRS} on the right)\footnote{This particular reverse correlation can be explained by different factors. Firstly, the financial crisis impacted the continuity of some donors' ODA flow more than others. The significant variation of the exchange rate or inflation
+  rate of a donor could also lead to a sudden change in the converted constant value of aid. In addition, some
+  donors tend to make more long‐term commitments than others, resulting in a distribution of disbursements
+  over a long period of time, even after the donors had significantly reduced their overall international aid
+  package}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.49\linewidth,height=0.2\textheight]{./images/commitments_disbursements_CRS} \includegraphics[width=0.49\linewidth,height=0.2\textheight]{./images/commitments_disbursements_UK} 
+
+}
+
+\caption{Disbursements vs commitments reported in CRS (all donors) on the left. On the right, disbursements vs commitments in the CRS reported by the UK.}\label{fig:commitments-CRS}
+\end{figure}
+
+Using the above method, PARIS21 was able to nowcast the funding to statistics in years that the most
+recent CRS data yet to cover. For instance, although the CRS data available in early 2020 only includes
+full coverage of official aid until 2018, the nowcast is able to provide information on aid to statistics
+including 2019 and 2020. This is because the stable relationship between average annual spending
+and commitments is leveraged, which allows us to estimate the 2019 and 2020 disbursement values,
+from the 2018 reported commitment values.
+
+As a result, for the first time, the 2020 edition of PRESS presented information on funding to data and
+statistics up to 2019, as opposed to two years prior as in editions including and before PRESS 2019.\footnote{Due to the disruptive effect of the COVID‐19 pandemic on the predictability of the model, the nowcasting results for 2020, although produced, were not presented in the PRESS 2020 report.}
+
+\hypertarget{forecasting-anticipating-future-funding}{%
+\subsubsection{Forecasting: anticipating future funding}\label{forecasting-anticipating-future-funding}}
+
+The predictability of disbursements and commitments used for nowcasting funding to statistics
+decreases greatly after the current year, since, for example, many projects which commenced in 2017
+will end in 2020. However, this lack of predictability can be partially mitigated by the creation of a
+forecasting model based on a few well‐informed assumptions, leveraging past PRESS data and
+PARIS21's institutional knowledge on support to statistics for over two decades. These assumptions,
+which can lead to better forecasting quality, are described below:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Continuation of certain long‐standing projects}: We can assume that large projects such as
+  the support to the Demographic Health Survey driven by USAID, IMF's national and regional
+  training on economic statistics, and the World Bank's programme on statistical development
+  will remain stable in the near future. Significant changes on these programmes are also easier
+  to target and detectable. These projects are generally stable and attract similar spends each
+  year. Likewise, the upcoming censuses or major surveys in low‐income countries are expected
+  to be funded partially by donors.\footnote{The COVID‐19 pandemic has brought great uncertainty to this assumption, especially for censuses planned
+    to take place between 2020 and 2021. Although funding for most censuses has been secured, many countries
+    have diverted their national budget to other, more urgent matters (\protect\hyperlink{ref-CCSA}{CCSA 2020}; \protect\hyperlink{ref-UNFPA}{UNFPA 2020}), resulting in
+    the postponement of external funding} This information accounts for nearly half of the total
+  amount for data and statistics. Confirmation from donors of the continuation of these projects
+  can further improve the accuracy of this analysis.
+\item
+  \textbf{Termination or reduction of funding for certain projects}: We can also anticipate the
+  termination or reduction for funding tied to a project based on its specific nature. For instance,
+  the support for censuses is a one‐off disbursement and will not reoccur until the next census
+  round. Similarly, if a country become no longer eligible for ODA, graduate from IDA's borrower
+  list or becomes an upper‐middle‐income country, it is then expected to receive a lower ODA
+  grant and become ineligible for some loans. In those cases, support for statistics might be
+  affected disproportionally, given its low priority.
+\end{enumerate}
+
+It is also crucial to state that these predictions can only be accurate if the following additional
+assumptions are met:
+
+\begin{itemize}
+\tightlist
+\item
+  Development aid providers maintain their current levels of effort
+\item
+  Existing programmes continue to run
+\item
+  Commitments are fully disbursed
+\item
+  There is a response to prioritised needs such as censuses
+\end{itemize}
+
+The estimation is also limited if donors agencies publishing the new initiatives with a lag. The
+predictability of both nowcast and forecast on funding to data and statistics also relies on aid providers
+committing to maintaining the transparency and timeliness of their aid data. The forecasting looks at
+contribution until \(n+2\), given most international organisations' work plan don't go beyond that
+horizon.
+
+Due to the uncertainty caused by the COVID‐19 pandemic, the forecasting results from this
+methodology were not presented in PRESS 2020. These will appear in the future PARIS21 publications
+once more evidence becomes available.
+
+In sum, the forecasting estimates should be interpreted with significant caution even if the above
+model indicates a relative increase in the coming years. According to many historical estimates, the
+funding gap for data and statistics (i.e.~to find the entire CT‐GAP) is far from being closed. This gap is
+likely to be exacerbated by the effects of the ongoing COVID‐19 crisis in large parts of the globe
+
+\hypertarget{expanding-the-press-database}{%
+\subsection{Expanding the PRESS database}\label{expanding-the-press-database}}
+
+\hypertarget{exploring-alternative-data-sources-for-aid-flows-on-statistics}{%
+\subsubsection{Exploring alternative data sources for aid flows on statistics}\label{exploring-alternative-data-sources-for-aid-flows-on-statistics}}
+
+Apart from nowcasting and forecasting disbursements to statistics from PRESS data, another way to
+address the structural lag in aid‐flow reporting can be by attempting to remedy the root cause of the
+problem -- the dependency on the CRS database -- and searching for more timely information in
+alternative data sources. PARIS21 has identified three main (types) of alternative data sources,
+outlined below:
+
+\hypertarget{the-international-aid-transparency-initiative-iati}{%
+\paragraph*{The International Aid Transparency Initiative (IATI)}\label{the-international-aid-transparency-initiative-iati}}
+\addcontentsline{toc}{paragraph}{The International Aid Transparency Initiative (IATI)}
+
+The IATI datastore is the largest alternative database outside of OECD‐DAC data for official
+development assistance. With more than 100 donors reporting to this database, IATI has a much
+shorter lag than CRS. It also covers more projects by philanthropic foundations. The COVID‐19
+pandemic and the rising need for coordination has also incentivised aid providers to report to IATI
+with less delay. However, IATI data suffer from a lack of quality assurance and inconsistency within
+the dataset. Although it uses a similar data structure as the CRS, the reported projects in IATI may not
+include important granular information, such as the project description. Furthermore, as many donors
+only committed to reporting to IATI after 2014, the lack of historical data for drawing time series also
+affects its ability to forecast.
+
+\hypertarget{donors-transparency-portals}{%
+\paragraph*{Donors' transparency portals}\label{donors-transparency-portals}}
+\addcontentsline{toc}{paragraph}{Donors' transparency portals}
+
+In recent years, global donors have strengthened their efforts in aid transparency. Many donors have
+developed online data portals or uploaded online datasets to share information on their aid projects,
+especially the major donors in statistics such as the World Bank, UNDP, USAID, FCDO, IDRC, etc. These
+datasets usually have a similar density of information as the CRS data and are usually updated more
+frequently than CRS. However, the majority of donors still lack appropriate portals and public datasets.
+Furthermore, merging these different datasets is possible, but time intensive.
+
+PARIS21 has been exploring these data sources since 2019 and has accumulated knowledge over this
+period. For example, the USAID dataset helped PRESS 2019 to identify the USA's support to statistics
+for the first time; in particular, its effort with the Demographic Health Survey (DHS). PARIS21 has also
+established a methodology for merging and harmonising the aforementioned datasets. The
+methodology maps variables in different datasets against each other and uses internal project
+identifiers to avoid duplications.
+
+\hypertarget{multilateral-donors-prospective-reporting-to-the-press-surve}{%
+\paragraph*{Multilateral donors' prospective reporting to the PRESS surve}\label{multilateral-donors-prospective-reporting-to-the-press-surve}}
+\addcontentsline{toc}{paragraph}{Multilateral donors' prospective reporting to the PRESS surve}
+
+The online PRESS survey (introduced in Sec. \ref{P21-online-survey}) includes a feature that allows donors to report on
+future projects. Since many donors have a biannual programme of work, in each year's survey, they
+are encouraged to provide information on the project they have planned or committed to in the near
+future. In the survey, donors can verify, edit, and cancel future projects in the next round of reporting.
+However, previous editions of PRESS did not fully reflect future projects due to the report's focus on
+accuracy. However, these future projects could still contain valuable information to assist in the
+projection of aid flows. The methodology developed by PARIS21 leverages these projects as an
+underutilised existing data source that may not reflect completely on the activities from donors.
+Nevertheless, it is useful for nowcasting funding.
+
+The comparison of the above data sources can be found in \ref{fig:data-sources}. As another important data
+source in the area of data and statistics, the Eurostat's donor survey is analysed in Box 1.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{./images/data_sources} 
+
+}
+
+\caption{Comparison of data sources.}\label{fig:data-sources}
+\end{figure}
+
+\begin{center}
+\textbf{Box 1: The Eurostat's Donor Survey -- and why it is not included in the PRESS database}
+
+\end{center}
+
+The annual Donor Survey by Eurostat aims to provide an overview of statistical projects in the
+respective countries to allow for better planning of assistance in the field of statistics, to benefit
+from acquired experience, and to avoid overlap. The survey is distributed to donor countries,
+international organisations, and the recipients (mostly Eurostat member states or partner
+states) of support to data and statistics.
+
+According to the report of the 2020 round, the Donor Survey's main objectives included:
+
+\begin{itemize}
+\item
+  facilitating better planning and prioritisation of assistance, especially amongst the donors;
+\item
+  increasing transparency/visibility for donors and implementing agencies and potentially serving as an ``audit'' document for beneficiaries;
+\item
+  providing the beneficiaries with a broad overview of the areas in which they are receiving support, also at regional level, and prioritising their future needs;
+\item
+  benefitting and learning from the experiences, good practices, and shortcomings of other projects;
+\item
+  facilitating a dialogue between beneficiaries, donors, and implementing agencies.
+\end{itemize}
+
+At donor country level and on the donors' side, respondents to the Donor Survey overlap with
+CRS. However, the CRS reporting is coordinated by one national focal point, while the Donor
+Survey questionnaire is distributed to both the aid agencies and national statistics offices who
+provide technical support. However, the Donor Survey data set does not have a good system to
+harmonise the data from the two sides, nor does it contain the program identifiers, which
+are essential to avoid duplication when combining information with other sources. Unlike the
+development of financing databases, the Donor Survey also lacks a mechanism to update
+previous years' reported projects. Coverage of the survey is also not comprehensive enough to
+provide additional values to the alternative data sources identified in this document.
+:::::
+
+\hypertarget{addressing-gaps-in-the-alternative-data-sources}{%
+\subsubsection{Addressing gaps in the alternative data sources}\label{addressing-gaps-in-the-alternative-data-sources}}
+
+To take advantage of the alternative data sources, PARIS21 combined the information from CRS and
+online surveys with these alternative data sources to create a more up‐to‐date, harmonised database
+on funding for data and statistics. However, this means that two important problems must be
+addressed, described below:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{The completeness problem}: A common weakness of the alternative data sources,
+  compared with CRS, is their incomplete coverage. This is especially apparent in IATI where,
+  unlike CRS, donors may not report their full portfolio, leading to a lack of comprehensive
+  information (a ``vertical'' information gap i.e.~multiple donors but incomplete project
+  information for individual donor). Furthermore, the CRS uses a more ``centralized'' reporting
+  system for each donor country, whereby information from different agencies providing ODA
+  is gathered under one entity before reporting to CRS as a whole. The IATI, on the other hand,
+  allows different agencies in a single donor country to report their data separately. This implies
+  different reporting patterns for different agencies based on their capacity to do so regularly,
+  and a lack of overall coordination.
+\item
+  \textbf{The coverage problem}: CRS contains information from over 100 donors. On the other
+  hand, donor transparency portals suffer from a ``horizontal'' problem, i.e., they usually have
+  complete coverage and contain the full portfolio, but fewer than ten major donors provide
+  access to such open and easy‐to‐use databases.
+\end{enumerate}
+
+PARIS21 has mitigated the horizontal and vertical problems in alternative data sources by harmonising
+and linking these databases. The alternative sources provide a wider coverage, while the combination
+of CRS, IATI and donors' databases enhance the completeness of the data. The final data set used in
+the analyses combines the alternative data sources and PRESS data using project IDs and other
+identifiers. As a caveat, however, the total number of projects included in the alternative sources still
+only represents 40\% of all number of projects reported in the CRS.
+
+The advantage of using such data sources, such as the timeliness and inclusion of philanthropic
+foundations, makes them a useful extension of PRESS data, especially when trying to solve the lag
+issue. However, their weaknesses imply that they are not a substitute for CRS or, by extension,
+conventional PRESS analysis.
+
+\hypertarget{linking-the-alternative-sources-the-new-harmonised-database}{%
+\subsubsection{Linking the alternative sources: the new harmonised database}\label{linking-the-alternative-sources-the-new-harmonised-database}}
+
+The next step in leveraging the independent alternative data sources described above is to link them
+with PRESS data and create a new harmonised database of disbursements for data and statistics \textbf{at
+project level.}
+
+Using disbursements as the primary variable to determine the support to statistics is even more
+beneficial at this stage, and data on annual disbursements is adequately available in most of the
+sources considered above. The activity‐based CRS data, for example, contain nowcasting/forecasting
+regressions on this new data set by Simon etc. to see value add and/or consistency of our findings!
+Should we present this? I think you did it and found little to no change right? disbursement information
+for more than 98\% of the projects. Similarly, the PRESS survey for multilateral donors provides specific
+information on disbursement plans (though it is project‐based). The donors' transparency portals are
+also expenditure/disbursement based.
+
+However, the IATI database is weaker in this regard: it contains an unusually high percentage of
+negative commitments or disbursements. For example, data downloaded from the IATI database in
+2018 contained negative value commitments or disbursements in 18\% of projects reported\footnote{Based on data collected in 2019, the future improvements of the IATI database have resolved this issue.}. In
+comparison, less that 1\% of activities reported in CRS has negative value, mostly associated with loan
+repayments and correction of previous entries, i.e.~not a database error.
+
+For the harmonised database, the missing disbursement values were imputed based on the
+assumption that the commitments were distributed evenly from the start date to the end date of the
+project. The negative projects in IATI were corrected or removed by cross‐validating against CRS. The
+duplicated projects were removed based on project identifiers. Consultations with several multilateral
+donors were conducted to ensure the validity of the final data.
+
+Fig. \ref{fig:ePRESS} presents an example of how the new harmonised dataset looks after linking the different
+sources. For the 15,312 projects in the new datasets, 54\% of disbursement activities come from the
+CRS data, compared with over 73\% in the earlier dataset used for PRESS. In the new dataset, the PRESS
+survey accounts for 27\% of projects, while IATI data and donor databases account for 19\% of projects.
+By filtering through the data using recipient country and year, donors can already observe the
+upcoming funding received by a country for statistical development. It is then easier for them to
+identify funding gaps in prioritised areas. Hence, the new harmonised database can achieve better
+diversification of data sources and reduce the dependence on CRS.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{./images/ePRESS} 
+
+}
+
+\caption{Comparison of PRESS and the new harmonised database for the share of projects in the final data sets, by sources of data, 2016‐2018.}\label{fig:ePRESS}
+\end{figure}
+
+\hypertarget{bringing-them-together-nowcasting-and-forecasting-with-the-new-harmonised-database}{%
+\subsection{Bringing them together -- nowcasting and forecasting with the new harmonised database}\label{bringing-them-together-nowcasting-and-forecasting-with-the-new-harmonised-database}}
+
+PARIS21 applied the same model on nowcasting and forecasting support to statistics (disbursements)
+but based on the new harmonised database, linking PRESS data with the aforementioned alternative
+sources. The main findings of this approach were similar to those based on CRS estimations: there is
+no indication of a systematic increase in funding to statistics in the current or coming years.
+
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
+
+The nowcast and forecast analysis aims to address the specific reporting lag issue faced by the PRESS,
+rather than to substitute it. Even with longer lag, PRESS still reports the most reliable and
+comprehensive data on funding to statistics. The PRESS database continues to serve as the source data
+for SDG Indicator 17.19.1.
+
+The outputs from nowcast and forecast also vary in their accuracy. While the merged database is as
+robust as PRESS, and the nowcast results are relatively reliable, the forecast analysis is based on
+several assumptions. Results produced through the nowcast and forecast analyses can therefore be
+used for different products to serve different purposes:
+
+\begin{itemize}
+\tightlist
+\item
+  The nowcast on disbursements and some information provided by the harmonised dataset
+  can be directly presented in PRESS going forward, as a natural extension of its current
+  content, based on existing data sources such as CRS.
+\item
+  The forecast for funding gaps could be presented in separate policy briefs due to its
+  speculative nature.
+\item
+  The complete, harmonised database can also be deployed on a platform such as Bern
+  Network's \href{https://smartdatafinance.org}{Clearinghouse for Financing Development Data} to be used as a dynamic
+  planning tool by development partners.
+\end{itemize}
+
+The immediate next step in improving the new methodology is to strengthen the communication and
+consultation between PARIS21, donors, and recipients. Benefits from such consultations would lead
+to further robust results by correcting erroneous information contained in IATI data, validating
+assumptions on the termination or continuation of projects in assumptions for forecasting, and
+enhancing data sharing in general. Consultations for this product will also help PARIS21 to shape its
+work in order to better meet the demand of its stakeholders.
+
+As the COVID‐19 pandemic will affect donors' GNI and consequently their ODA, fluctuations in
+development financing for data and statistics can be expected. Despite the difficulty these anomalies
+will bring to the analyses, the transparency and timeliness of the information on funding to data and
+statistics have also become more relevant, as identified in Part I of PRESS 2020. The results from these
+analyses can play a crucial role in informing and supporting
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-CCSA}{}}%
+CCSA. 2020. {``{How COVID‐19 is changing the world: a statistical perspective}.''} taken from \url{https://unstats.un.org/unsd/ccsa/documents/covid19-report-ccsa_vol2.pdf}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Hudson}{}}%
+Hudson, John. 2015. {``{Promises kept, promises broken? The relationship between aid commitments and disbursements}.''} \emph{Review of Development Finance} 3: 109--20. \url{https://doi.org/10.1016/j.rdf.2013.08.001}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-PARIS21-Covid}{}}%
+PARIS21. 2020a. {``{Combating COVID‐19 with data: what role for national statistical systems?}''} Paris: Taken from \url{https://paris21.org/sites/default/files/inline‐files/COVID_Policybrief_Full.pdf?v=2.0}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-PRESS-2021}{}}%
+PARIS21. 2020b. {``{Partner Report on Support to Statistics 2020}.''} Paris: \url{https://paris21.org/sites/default/files/inline-files/PRESS2020\%20Final.pdf}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-UNFPA}{}}%
+UNFPA. 2020. {``{Technical Brief on the Implications of COVID‐19 on Census}.''} Taken from \url{https://www.unfpa.org/sites/default/files/resource‐pdf/Census_COVID19_digital.pdf}.
+
+\end{CSLReferences}
+
+\hypertarget{appendix-appendix}{%
+\appendix}
+
+
+\hypertarget{Appendix-A}{%
+\section{Appendix - Keyword lists}\label{Appendix-A}}
+
+\hypertarget{english}{%
+\subsection*{English}\label{english}}
+\addcontentsline{toc}{subsection}{English}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{10}{12}\selectfont
+
+\begin{tabular}{l|l|l}
+\hline
+statistical\_keywords & demining\_keywords & acronyms\\
+\hline
+statistics & land mine & dhs\\
+\hline
+survey & small arm & crvs\\
+\hline
+census & demining & cpi\\
+\hline
+database & demine & d4d\\
+\hline
+big data & landmine & paris21\\
+\hline
+data for decisions &  & gpsdd\\
+\hline
+civil registration &  & odw\\
+\hline
+civil register &  & data4sdg\\
+\hline
+land registration &  & devinfo\\
+\hline
+land register &  & nsds\\
+\hline
+cadaster &  & afristat\\
+\hline
+sdg indicator &  & ckan\\
+\hline
+information system &  & lfs questionnaire\\
+\hline
+birth registration &  & \\
+\hline
+birth register &  & \\
+\hline
+business register &  & \\
+\hline
+national account &  & \\
+\hline
+price index &  & \\
+\hline
+production index &  & \\
+\hline
+data science &  & \\
+\hline
+data for development &  & \\
+\hline
+data journalism &  & \\
+\hline
+data for education &  & \\
+\hline
+education data &  & \\
+\hline
+data for health &  & \\
+\hline
+peacebuilding data &  & \\
+\hline
+global data &  & \\
+\hline
+global pulse &  & \\
+\hline
+health data &  & \\
+\hline
+refugee data &  & \\
+\hline
+migration data &  & \\
+\hline
+data collection &  & \\
+\hline
+action through data &  & \\
+\hline
+data project &  & \\
+\hline
+open government data &  & \\
+\hline
+death regist &  & \\
+\hline
+vital registration &  & \\
+\hline
+data portal &  & \\
+\hline
+data archive &  & \\
+\hline
+archive data &  & \\
+\hline
+data dissemination &  & \\
+\hline
+disseminate data &  & \\
+\hline
+microdata &  & \\
+\hline
+metadata &  & \\
+\hline
+data management &  & \\
+\hline
+\end{tabular}
+\endgroup{}
+\end{table}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{10}{12}\selectfont
+
+\begin{tabular}{l|l|l}
+\hline
+statistical\_keywords & demining\_keywords & acronyms\\
+\hline
+data management &  & \\
+\hline
+data documentation &  & \\
+\hline
+quality data &  & \\
+\hline
+data quality &  & \\
+\hline
+access data &  & \\
+\hline
+open data &  & \\
+\hline
+use data &  & \\
+\hline
+produce data &  & \\
+\hline
+production data &  & \\
+\hline
+data user &  & \\
+\hline
+data producer &  & \\
+\hline
+data outreach &  & \\
+\hline
+data awareness &  & \\
+\hline
+data production &  & \\
+\hline
+data processing &  & \\
+\hline
+data access &  & \\
+\hline
+data harmonization &  & \\
+\hline
+harmonization data &  & \\
+\hline
+mdg indicators &  & \\
+\hline
+data standards &  & \\
+\hline
+data curation &  & \\
+\hline
+curating data &  & \\
+\hline
+demographic data &  & \\
+\hline
+mdg monitoring &  & \\
+\hline
+sdg monitoring &  & \\
+\hline
+monitoring mdg &  & \\
+\hline
+monitoring sdg &  & \\
+\hline
+release data &  & \\
+\hline
+data release &  & \\
+\hline
+prsp monitoring &  & \\
+\hline
+data revolution &  & \\
+\hline
+\end{tabular}
+\endgroup{}
+\end{table}
+
+\hypertarget{french}{%
+\subsection*{French}\label{french}}
+\addcontentsline{toc}{subsection}{French}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{10}{12}\selectfont
+
+\begin{tabular}{l|l|l}
+\hline
+statistical\_keywords & demining\_keywords & acronyms\\
+\hline
+statistiques & mine terrestre & dhs\\
+\hline
+enquête & arme de poing & enquêtes démographiques et de santé\\
+\hline
+recensement & déminage & EDS\\
+\hline
+base de données & déminer & crvs\\
+\hline
+données massives &  & cpi\\
+\hline
+des données pour les décisions &  & IPC\\
+\hline
+état civil &  & d4d\\
+\hline
+registre foncier &  & paris21\\
+\hline
+cadastre &  & gpsdd\\
+\hline
+Indicateur sdg &  & odw\\
+\hline
+système d'information &  & data4sdg\\
+\hline
+registre des naissances &  & devinfo\\
+\hline
+registre des entreprises &  & nsds\\
+\hline
+compte national &  & afristat\\
+\hline
+indice des prix &  & ckan\\
+\hline
+indice de production &  & enquête emploi\\
+\hline
+science des données &  & \\
+\hline
+données pour le développement &  & \\
+\hline
+journalisme de données &  & \\
+\hline
+données pour l'éducation &  & \\
+\hline
+données sur l'éducation &  & \\
+\hline
+données pour la santé &  & \\
+\hline
+données sur la consolidation de la paix &  & \\
+\hline
+données mondiales &  & \\
+\hline
+global pulse &  & \\
+\hline
+données de santé &  & \\
+\hline
+données sur les réfugiés &  & \\
+\hline
+données de migration &  & \\
+\hline
+collecte de données &  & \\
+\hline
+action par les données &  & \\
+\hline
+projet de données &  & \\
+\hline
+données gouvernementales ouvertes &  & \\
+\hline
+registre des décès &  & \\
+\hline
+enregistrement vital &  & \\
+\hline
+portail de données &  & \\
+\hline
+archives de données &  & \\
+\hline
+données d'archives &  & \\
+\hline
+diffusion des données &  & \\
+\hline
+disséminer les données &  & \\
+\hline
+microdonnées &  & \\
+\hline
+métadonnées &  & \\
+\hline
+gestion de données &  & \\
+\hline
+documentation des données &  & \\
+\hline
+données de qualité &  & \\
+\hline
+qualité des données &  & \\
+\hline
+\end{tabular}
+\endgroup{}
+\end{table}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{10}{12}\selectfont
+
+\begin{tabular}{l|l|l}
+\hline
+statistical\_keywords & demining\_keywords & acronyms\\
+\hline
+qualité des données &  & \\
+\hline
+données d'accès &  & \\
+\hline
+données ouvertes &  & \\
+\hline
+utilisateur de données &  & \\
+\hline
+producteur de données &  & \\
+\hline
+données de production &  & \\
+\hline
+utilisateur de données &  & \\
+\hline
+producteur de données &  & \\
+\hline
+sensibilisation aux données &  & \\
+\hline
+connaissance des données &  & \\
+\hline
+production de données &  & \\
+\hline
+traitement des données &  & \\
+\hline
+accès aux données &  & \\
+\hline
+harmonisation des données &  & \\
+\hline
+données d'harmonisation &  & \\
+\hline
+indicateurs omd &  & \\
+\hline
+normes de données &  & \\
+\hline
+préservation des données &  & \\
+\hline
+conservation des données &  & \\
+\hline
+données démographiques &  & \\
+\hline
+surveillance des omd &  & \\
+\hline
+suivi des omd &  & \\
+\hline
+surveillance des odd &  & \\
+\hline
+suivi des odd &  & \\
+\hline
+données publiées &  & \\
+\hline
+publication des données &  & \\
+\hline
+surveillance des dsrp &  & \\
+\hline
+révolution des données &  & \\
+\hline
+\end{tabular}
+\endgroup{}
+\end{table}
+
+\hypertarget{spanish}{%
+\subsection*{Spanish}\label{spanish}}
+\addcontentsline{toc}{subsection}{Spanish}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{10}{12}\selectfont
+
+\begin{tabular}{l|l|l}
+\hline
+statistical\_keywords & demining\_keywords & acronyms\\
+\hline
+estadísticas & mina terrestre & dhs\\
+\hline
+encuesta & Arma de fuego corta & encuesta de demografía y salud\\
+\hline
+censo & desminado & EDS\\
+\hline
+base de datos &  & crvs\\
+\hline
+datos masivos &  & cpi\\
+\hline
+datos para la toma de decisiones &  & IPC\\
+\hline
+registro civil &  & d4d\\
+\hline
+registro de la propiedad &  & paris21\\
+\hline
+catastro &  & gpsdd\\
+\hline
+indicador sdg &  & odw\\
+\hline
+sistema de información &  & data4sdg\\
+\hline
+registro de nacimiento &  & devinfo\\
+\hline
+registro de empresas &  & nsds\\
+\hline
+cuenta nacional &  & afristat\\
+\hline
+índice de precios &  & ckan\\
+\hline
+índice de producción &  & lfs\\
+\hline
+ciencia de los datos &  & epa\\
+\hline
+datos para el desarrollo &  & \\
+\hline
+periodismo de datos &  & \\
+\hline
+datos para la educación &  & \\
+\hline
+datos sobre educación &  & \\
+\hline
+datos para la salud &  & \\
+\hline
+datos sobre la construcción de la paz &  & \\
+\hline
+datos globales &  & \\
+\hline
+pulso global &  & \\
+\hline
+datos sanitarios &  & \\
+\hline
+datos de los refugiados &  & \\
+\hline
+datos de migración &  & \\
+\hline
+recolección de datos &  & \\
+\hline
+acción a través de los datos &  & \\
+\hline
+proyecto de datos &  & \\
+\hline
+datos públicos abiertos &  & \\
+\hline
+registro de defunción &  & \\
+\hline
+registro vital &  & \\
+\hline
+portal de datos &  & \\
+\hline
+archivo de datos &  & \\
+\hline
+datos de archivo &  & \\
+\hline
+difusión de datos &  & \\
+\hline
+difundir los datos &  & \\
+\hline
+microdatos &  & \\
+\hline
+metadatos &  & \\
+\hline
+gestión de datos &  & \\
+\hline
+documentación de datos &  & \\
+\hline
+datos de calidad &  & \\
+\hline
+calidad de los datos &  & \\
+\hline
+\end{tabular}
+\endgroup{}
+\end{table}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{10}{12}\selectfont
+
+\begin{tabular}{l|l|l}
+\hline
+statistical\_keywords & demining\_keywords & acronyms\\
+\hline
+calidad de los datos &  & \\
+\hline
+acceso a datos &  & \\
+\hline
+datos abiertos &  & \\
+\hline
+utilizar los datos &  & \\
+\hline
+producir datos &  & \\
+\hline
+datos de producción &  & \\
+\hline
+usuario de datos &  & \\
+\hline
+productor de datos &  & \\
+\hline
+alcance de los datos &  & \\
+\hline
+conocimiento de los datos &  & \\
+\hline
+producción de datos &  & \\
+\hline
+procesamiento de datos &  & \\
+\hline
+acceso a los datos &  & \\
+\hline
+armonización de datos &  & \\
+\hline
+datos de armonización &  & \\
+\hline
+indicadores mdg &  & \\
+\hline
+normas de datos &  & \\
+\hline
+conservación de datos &  & \\
+\hline
+curación de datos &  & \\
+\hline
+datos demográficos &  & \\
+\hline
+monitoreo de los objetivos del milenio &  & \\
+\hline
+monitoreo de los ods &  & \\
+\hline
+monitories de los ddm &  & \\
+\hline
+seguimiento de los ods &  & \\
+\hline
+datos de publicación &  & \\
+\hline
+publicación de datos &  & \\
+\hline
+seguimiento de los prsp &  & \\
+\hline
+revolución de los datos &  & \\
+\hline
+diseminación de datos &  & \\
+\hline
+diseminar datos &  & \\
+\hline
+usuario de estadísticas &  & \\
+\hline
+productor de estadísticas &  & \\
+\hline
+\end{tabular}
+\endgroup{}
+\end{table}
+
+\hypertarget{german}{%
+\subsection*{German}\label{german}}
+\addcontentsline{toc}{subsection}{German}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{10}{12}\selectfont
+
+\begin{tabular}{l|l|l}
+\hline
+statistical\_keywords & demining\_keywords & acronyms\\
+\hline
+Statistik & Landmine & dhs\\
+\hline
+Umfrage & Handfeuerwaffe & crvs\\
+\hline
+Volkszählung & Minenentschärfung & cpi\\
+\hline
+Datenbank & Minenräumung & VPI\\
+\hline
+big Data & entmienen & d4d\\
+\hline
+Daten für Entscheidungen &  & paris21\\
+\hline
+Melderegister &  & gpsdd\\
+\hline
+Grundbucheintrag &  & odw\\
+\hline
+Kataster &  & data4sdg\\
+\hline
+sdg-Indikator &  & devinfo\\
+\hline
+Informationssystem &  & nsds\\
+\hline
+Geburtenregister &  & afristat\\
+\hline
+Personenstandsregister &  & ckan\\
+\hline
+Personenstandsregister &  & lfs\\
+\hline
+nationales Konto &  & Arbeitskräfteerhebung\\
+\hline
+Preisindex &  & AKE\\
+\hline
+Produktionsindex &  & \\
+\hline
+Data Science &  & \\
+\hline
+Daten für die Entwicklung &  & \\
+\hline
+Datenjournalismus &  & \\
+\hline
+Daten für Bildung &  & \\
+\hline
+bildungsbezogene Daten &  & \\
+\hline
+Daten für das Gesundheitssystem &  & \\
+\hline
+Daten zur Friedensförderung &  & \\
+\hline
+globale Daten &  & \\
+\hline
+globaler Puls &  & \\
+\hline
+Gesundheitsdaten &  & \\
+\hline
+Flüchtlingsdaten &  & \\
+\hline
+Migrationsdaten &  & \\
+\hline
+Datenerfassung &  & \\
+\hline
+Handeln durch Daten &  & \\
+\hline
+Datenprojekt &  & \\
+\hline
+offene Regierungsdaten &  & \\
+\hline
+Sterberegister &  & \\
+\hline
+Bevölkerungsstatistik &  & \\
+\hline
+Datenportal &  & \\
+\hline
+Datenarchiv &  & \\
+\hline
+Archivdaten &  & \\
+\hline
+Datenverbreitung &  & \\
+\hline
+Daten verbreiten &  & \\
+\hline
+Mikrodaten &  & \\
+\hline
+Metadaten &  & \\
+\hline
+Datenverwaltung &  & \\
+\hline
+Datendokumentation &  & \\
+\hline
+Qualitätsdaten &  & \\
+\hline
+\end{tabular}
+\endgroup{}
+\end{table}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{10}{12}\selectfont
+
+\begin{tabular}{l|l|l}
+\hline
+statistical\_keywords & demining\_keywords & acronyms\\
+\hline
+Qualitätsdaten &  & \\
+\hline
+Datenqualität &  & \\
+\hline
+Zugangsdaten &  & \\
+\hline
+offene Daten &  & \\
+\hline
+Daten verwenden &  & \\
+\hline
+Daten produzieren &  & \\
+\hline
+Produktionsdaten &  & \\
+\hline
+Datenbenutzer &  & \\
+\hline
+Datenproduzent &  & \\
+\hline
+Datenübermittlung &  & \\
+\hline
+Datenbewusstsein &  & \\
+\hline
+Datenerstellung &  & \\
+\hline
+Datenverarbeitung &  & \\
+\hline
+Datenzugriff &  & \\
+\hline
+Datenharmonisierung &  & \\
+\hline
+Harmonisierungsdaten &  & \\
+\hline
+mdg-Indikatoren &  & \\
+\hline
+Datenstandards &  & \\
+\hline
+Datenkuratierung &  & \\
+\hline
+Daten kuratieren &  & \\
+\hline
+demografische Daten &  & \\
+\hline
+mdg-überwachung &  & \\
+\hline
+sdg-überwachung &  & \\
+\hline
+überwachung von mdg &  & \\
+\hline
+überwachung von sdg &  & \\
+\hline
+Freigabedaten &  & \\
+\hline
+Datenfreigabe &  & \\
+\hline
+prsp-überwachung &  & \\
+\hline
+Datenrevolution &  & \\
+\hline
+\end{tabular}
+\endgroup{}
+\end{table}
+
+\hypertarget{Appendix-B}{%
+\section{Appendix - Performance tests}\label{Appendix-B}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./images/en_threshold_precision_accuracy_it1_1_n9482learning} 
+
+}
+
+\caption{Precision, accuracy, recall and F1 score for the English classification}\label{fig:Appendix-B-precision}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./images/es_hist_donorname_learning_data} 
+
+}
+
+\caption{Donor distribution of the learning data for the Spanish classification.}\label{fig:Appendix-B-es-donor-learning}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./images/es_hist_donorname_pred_data} 
+
+}
+
+\caption{Donor distribution of the prediction data for the Spanish classification.}\label{fig:Appendix-B-es-donor-pred}
+\end{figure}
+
+\end{document}

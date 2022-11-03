@@ -4,8 +4,9 @@
 
 ## English {-}
 
-```{r Appendix-A-en, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Appendix-A-en, echo=FALSE, message=FALSE, warning=FALSE, fig.pos = "!H"}
 library(tidyverse)
+library(kableExtra)
 lang <- "en"
 list_keywords_stat <- read_lines(paste0("./Data/Final keyword lists/statistics_reduced_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
 demining_small_arms <- read_lines(paste0("./Data/Final keyword lists/demining_small_arms_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
@@ -14,7 +15,10 @@ max <- max(length(list_keywords_stat), length(demining_small_arms), length(list_
 keywords <- data.frame(statistical_keywords = c(list_keywords_stat, rep("", max - length(list_keywords_stat))),
                           demining_keywords = c(demining_small_arms, rep("", max - length(demining_small_arms))),
                           acronyms = c(list_acronyms, rep("", max - length((list_acronyms)))))
-knitr::kable(keywords)
+knitr::kable(keywords[1:45,], row.names = F)%>% 
+  kable_styling(font_size = 10, latex_options = "HOLD_position")
+knitr::kable(keywords[45:nrow(keywords), ], row.names = F) %>% 
+  kable_styling(font_size = 10, latex_options = "HOLD_position")
 ```
 ## French {-}
 
@@ -27,7 +31,10 @@ max <- max(length(list_keywords_stat), length(demining_small_arms), length(list_
 keywords <- data.frame(statistical_keywords = c(list_keywords_stat, rep("", max - length(list_keywords_stat))),
                           demining_keywords = c(demining_small_arms, rep("", max - length(demining_small_arms))),
                           acronyms = c(list_acronyms, rep("", max - length((list_acronyms)))))
-knitr::kable(keywords)
+knitr::kable(keywords[1:45,], row.names = F)%>% 
+  kable_styling(font_size = 10, latex_options = "HOLD_position")
+knitr::kable(keywords[45:nrow(keywords), ], row.names = F) %>% 
+  kable_styling(font_size = 10, latex_options = "HOLD_position")
 ```
 
 ## Spanish {-}
@@ -41,7 +48,10 @@ max <- max(length(list_keywords_stat), length(demining_small_arms), length(list_
 keywords <- data.frame(statistical_keywords = c(list_keywords_stat, rep("", max - length(list_keywords_stat))),
                           demining_keywords = c(demining_small_arms, rep("", max - length(demining_small_arms))),
                           acronyms = c(list_acronyms, rep("", max - length((list_acronyms)))))
-knitr::kable(keywords)
+knitr::kable(keywords[1:45,], row.names = F)%>% 
+  kable_styling(font_size = 10, latex_options = "HOLD_position")
+knitr::kable(keywords[45:nrow(keywords), ], row.names = F) %>% 
+  kable_styling(font_size = 10, latex_options = "HOLD_position")
 ```
 
 ## German {-}
@@ -55,7 +65,10 @@ max <- max(length(list_keywords_stat), length(demining_small_arms), length(list_
 keywords <- data.frame(statistical_keywords = c(list_keywords_stat, rep("", max - length(list_keywords_stat))),
                           demining_keywords = c(demining_small_arms, rep("", max - length(demining_small_arms))),
                           acronyms = c(list_acronyms, rep("", max - length((list_acronyms)))))
-knitr::kable(keywords)
+knitr::kable(keywords[1:45,], row.names = F)%>% 
+  kable_styling(font_size = 10, latex_options = "HOLD_position")
+knitr::kable(keywords[45:nrow(keywords), ], row.names = F) %>% 
+  kable_styling(font_size = 10, latex_options = "HOLD_position")
 ```
 
 # Appendix - Performance tests {#Appendix-B}
