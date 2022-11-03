@@ -21,6 +21,14 @@ keywords:
   - 2022
 ---
 
+<!-- your comment 
+
+From html to pdf 3 thins change:
+  1. change one figure from knitr chunk to pdf format in 03.
+  2. change format of kabels in appendix
+  3. emphbox in 04.
+-->
+
 
 # Acknowledgements {-}
 
