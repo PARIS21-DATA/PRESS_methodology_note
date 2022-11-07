@@ -395,16 +395,20 @@ knitr::include_graphics("./images/text_mining.png")
 ```
 
 ```{r importance-matrix, echo=FALSE, fig.align="center", fig.cap = "Relative importance assigned to terms appearing in long descriptions.", out.width="70%" }
-knitr::include_graphics("./images/importance_matrix.png")
+  knitr::include_graphics("./images/importance_matrix.png")
 ```
-<!-- your comment 
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.7\textwidth]{images/importance_matrix.png}
-  \caption{Relative importance assigned to terms appearing in long descriptions.}
-  \label{fig:importance-matrix}
-\end{figure}
+
+<!-- your comment 
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.7\textwidth]{images/importance_matrix.png}
+    \caption{Relative importance assigned to terms appearing in long descriptions.}
+    \label{fig:importance-matrix}
+  \end{figure} 
 -->
+  
+
+
 
   

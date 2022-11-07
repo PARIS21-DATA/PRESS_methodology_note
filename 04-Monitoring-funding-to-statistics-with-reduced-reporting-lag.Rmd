@@ -259,7 +259,9 @@ knitr::include_graphics("./images/data_sources.png")
 ```
 
 
-:::: {.emphbox data-latex=""}
+<!-- 
+--->
+:::: {.emphbox data-latex=""} 
 ::: {.center data-latex=""}
 **Box 1: The Eurostat’s Donor Survey – and why it is not included in the PRESS database**
 :::

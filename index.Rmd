@@ -21,14 +21,22 @@ keywords:
   - 2022
 ---
 
-<!-- your comment 
+<!-- From gitbook to pdf:
 
-From html to pdf 3 thins change:
-  1. change one figure from knitr chunk to pdf format in 03.
-  2. change format of kabels in appendix
-  3. emphbox in 04.
+for pdf: bookdown::render_book("index.Rmd", "bookdown::pdf_book") 
+for gitbook: bookdown::render_book("index.Rmd", "bookdown::gitbook")
+
+From html to pdf 4 things change:
+  1. uncomment last figure from knitr chunk to latex format in chapter 03.
+  3. uncomment emphbox in 04.
+  4. Set pdf <- TRUE to hide code chunk output and adjust kable formating in Appendix
 -->
 
+```{r setup, echo = F}
+pdf <- FALSE
+# Set code chunk output globally 
+if (pdf) knitr::opts_chunk$set(echo = F)
+```
 
 # Acknowledgements {-}
 

@@ -43,46 +43,6 @@
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -263,69 +223,33 @@ Here, the process of preparing the data is outlined (see Fig. \ref{fig:data-prep
 
   \begin{enumerate}
   \def\labelenumii{\roman{enumii}.}
+  \tightlist
   \item
     \emph{Text cleaning}: First of all, the titles and descriptions were lowercased and cleaned by removing all numbers and punctuation signs in an effort to prepare the text for the creation of unique text identifiers. This is done to avoid unnecessary inclusion of projects that differ only slightly (e.g.~by a number or comma).
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tm)}
-
-\CommentTok{\# Define function to clean titles}
-\NormalTok{clean\_titles }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(title)\{}
-\NormalTok{  title }\OtherTok{\textless{}{-}}\NormalTok{ title }\SpecialCharTok{\%\textgreater{}\%} 
-\NormalTok{    removeNumbers }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{removePunctuation}\NormalTok{(}\AttributeTok{preserve\_intra\_word\_dashes =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-\NormalTok{    tolower}
-  \FunctionTok{return}\NormalTok{(title)}
-\NormalTok{\}}
-
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs\_raw }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{projecttitle =} \FunctionTok{clean\_titles}\NormalTok{(projecttitle),}
-         \AttributeTok{shortdescription =} \FunctionTok{clean\_titles}\NormalTok{(shortdescription),}
-         \AttributeTok{longdescription =} \FunctionTok{clean\_titles}\NormalTok{(longdescription))}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{1}
+  \tightlist
   \item
     \emph{Id creation}: Each project title and description is given a specific id in order to be able to analyze only distinct titles and descriptions later on. These were created using a well-known hashing algorithm called ``xxHash'' that is reasonably fast and exhibits very good collision properties (see \url{https://github.com/Cyan4973/xxHash}).
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(digest)}
-
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{rowwise}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# use rowwise operations since digest concatenates vector of strings}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{text\_id =}\NormalTok{ digest}\SpecialCharTok{::}\FunctionTok{digest}\NormalTok{(longdescription, }\AttributeTok{algo =} \StringTok{"xxhash32"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# add text\_id as hashed longdesription}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{2}
+  \tightlist
   \item
     \emph{descr2mine}: Due to lazy reporting, frequently the descriptions differ only marginally from the project titles. This would pose a problem to the previously outlined twofold procedure since descriptions that are identical to the project titles would be analyzed twice. Therefore, only distinct descriptions are used which are identified using the \href{https://en.wikipedia.org/wiki/Damerau\%E2\%80\%93Levenshtein_distance}{Damerau-Levenshtein-Distance} that counts how many alterations it would take to align both texts. The threshold for the maximal distance was set to 10 since this includes spelling mistakes, as well as one-word deviations (e.g.~Output: \ldots).
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(stringdist)}
-
-\CommentTok{\# Max string distance underneath which strings can be considered the same/differing just by a word}
-\NormalTok{max\_string\_dist }\OtherTok{\textless{}{-}} \DecValTok{10} 
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{descr2mine =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{stringdist}\NormalTok{(projecttitle, longdescription) }\SpecialCharTok{\textless{}}\NormalTok{ max\_string\_dist }\SpecialCharTok{|} \FunctionTok{str\_count}\NormalTok{(longdescription) }\SpecialCharTok{\textless{}} \DecValTok{3}\NormalTok{, }
-                             \ConstantTok{NA}\NormalTok{, }
-\NormalTok{                             longdescription))}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{3}
+  \tightlist
   \item
     \emph{Crating identifiers}: The CRS data set contains information about purpose of the funding flow in form of the purpose code, as well as other valuable information in other markers such as the gender marker (add link to resource) or the certain channel codes (41146 for UN Women). Table 1 lists all added identifiers.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{scb =} \FunctionTok{ifelse}\NormalTok{(purposecode }\SpecialCharTok{==} \DecValTok{16062}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }\CommentTok{\# Statistical capcity building identifier}
-         \AttributeTok{pop =} \FunctionTok{ifelse}\NormalTok{(purposecode }\SpecialCharTok{==} \DecValTok{13010}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }\CommentTok{\# population policy identifier}
-         \AttributeTok{gen\_ppcode =} \FunctionTok{ifelse}\NormalTok{(purposecode }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{15170}\SpecialCharTok{:}\DecValTok{15180}\NormalTok{), }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }\CommentTok{\# add gender purpose code identifier}
-         \AttributeTok{gen\_marker =} \FunctionTok{ifelse}\NormalTok{(gender }\SpecialCharTok{==} \DecValTok{1} \SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(gender), }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }\CommentTok{\# add gender marker (0 {-} no gender, 1 {-} primary purpose, 2 {-} secondary)}
-         \AttributeTok{gen\_donor =} \FunctionTok{ifelse}\NormalTok{(channelcode }\SpecialCharTok{==} \DecValTok{41146}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{), }\CommentTok{\# all projects from UN Women}
-         \AttributeTok{gen\_sdg =} \FunctionTok{str\_detect}\NormalTok{(sdgfocus, }\StringTok{"\^{}5|,5"}\NormalTok{)) }\CommentTok{\# SDG 5: Gender equality}
-\end{Highlighting}
-\end{Shaded}
   \end{enumerate}
 \end{enumerate}
 
@@ -353,119 +277,38 @@ In the following, the process of matching pertinent keywords in project titles i
   To give an overview how many projects are analyzed using this method, this approach encompasses 3.145.387 (90.6\%) projects while 23.4020 (6.7\%) were excluded for being (NA, NA) projects. That leaves 90241 (2.6\%) projects that were excluded because they were either wrongly detected or belong to some minor reporting languages (e.g.~Norwegian, Portuguese or Polish with a significant fraction within the 2.6\% of excluded projects).
 
   In the second step, duplicated project titles were dropped to analyze these titles only once during the title pattern matching procedure which again reduced computation time.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# All languages to include in classification {-} options: en, fr, es, de}
-\NormalTok{languages }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"en"}\NormalTok{, }\StringTok{"fr"}\NormalTok{, }\StringTok{"es"}\NormalTok{, }\StringTok{"de"}\NormalTok{)}
-
-\CommentTok{\# Add unique title id and detect language of title and long description}
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{projecttitle\_lower =} \FunctionTok{tolower}\NormalTok{(projecttitle)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{rowwise}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# use rowwise operations since digest concatenates vector of strings}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{title\_id =}\NormalTok{ digest}\SpecialCharTok{::}\FunctionTok{digest}\NormalTok{(projecttitle\_lower, }\AttributeTok{algo =} \StringTok{"xxhash32"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# create title id to drop duplicated titles later}
-  \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{title\_language =}\NormalTok{ cld2}\SpecialCharTok{::}\FunctionTok{detect\_language}\NormalTok{(projecttitle)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{long\_language =}\NormalTok{ cld2}\SpecialCharTok{::}\FunctionTok{detect\_language}\NormalTok{(longdescription))}
-
-\CommentTok{\# Use only projects in en, fr, es and de}
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(title\_language }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(languages, }\ConstantTok{NA}\NormalTok{) }\SpecialCharTok{\&}\NormalTok{ long\_language }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(languages,}\ConstantTok{NA}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(title\_language) }\SpecialCharTok{|} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(long\_language)) }\CommentTok{\# omit projects with both languages NA }
-
-\CommentTok{\# Select necessary columns and drop projects with duplicated title ids }
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{select}\NormalTok{(title\_id, projecttitle, projecttitle\_lower, longdescription, title\_language, long\_language) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{duplicated}\NormalTok{(title\_id))}
-\end{Highlighting}
-\end{Shaded}
 \item
   \textbf{Title pattern matching}
 
   \begin{enumerate}
   \def\labelenumii{\roman{enumii}.}
+  \tightlist
   \item
     \emph{Clean and lemmatize keyword lists}: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix \ref{Appendix-A}. The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles.
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# list\_keywords\_stat, list\_acronyms and demining\_small\_arms previously loaded}
-
-\CommentTok{\# Define lemmatization function}
-\NormalTok{clean\_and\_lemmatize }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{ (string)\{}
-\NormalTok{  string }\OtherTok{\textless{}{-}}\NormalTok{ string }\SpecialCharTok{\%\textgreater{}\%} 
-\NormalTok{    tolower }\SpecialCharTok{\%\textgreater{}\%} 
-    \FunctionTok{removeWords}\NormalTok{(}\StringTok{"\textquotesingle{}s"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# remove possesive s so that plural nouns get lemmatized correctly, e.g. "women\textquotesingle{}s"}
-    \FunctionTok{removeNumbers}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{removePunctuation}\NormalTok{(}\AttributeTok{preserve\_intra\_word\_dashes =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-\NormalTok{    stripWhitespace }\SpecialCharTok{\%\textgreater{}\%} 
-    \FunctionTok{removeWords}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FunctionTok{stopwords}\NormalTok{(}\StringTok{\textquotesingle{}english\textquotesingle{}}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%} 
-    \FunctionTok{removeWords}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FunctionTok{stopwords}\NormalTok{(}\AttributeTok{source =} \StringTok{"smart"}\NormalTok{)[}\SpecialCharTok{!}\FunctionTok{stopwords}\NormalTok{(}\AttributeTok{source =} \StringTok{"smart"}\NormalTok{) }\SpecialCharTok{\%in\%} \StringTok{"use"}\NormalTok{])) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# exclude "use" from smart stopwords }
-    \FunctionTok{lemmatize\_strings}\NormalTok{()}
-\NormalTok{\}}
-
-\CommentTok{\# Lemmatization for "en"}
-\NormalTok{list\_keywords\_stat }\OtherTok{\textless{}{-}} \FunctionTok{clean\_and\_lemmatize}\NormalTok{(list\_keywords\_stat)}
-\NormalTok{demining\_small\_arms }\OtherTok{\textless{}{-}} \FunctionTok{clean\_and\_lemmatize}\NormalTok{(demining\_small\_arms)}
-
-\CommentTok{\# Stemming for minority languages "fr", "es" and "de"}
-\NormalTok{list\_keywords\_stat }\OtherTok{\textless{}{-}} \FunctionTok{stem\_and\_concatenate}\NormalTok{(list\_keywords\_stat, }\AttributeTok{language =}\NormalTok{ lang)}
-\NormalTok{demining\_small\_arms }\OtherTok{\textless{}{-}} \FunctionTok{stem\_and\_concatenate}\NormalTok{(demining\_small\_arms, }\AttributeTok{language =}\NormalTok{ lang)}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{1}
+  \tightlist
   \item
     \emph{Clean and lemmatize titles}: Cleaning of project titles was achieved by removing numbers, punctuation and so called ``stopwords'' (e.g.~``and'', ``the'', ``for'') since they don't contain information towards the classification. Subsequently, words were lemmatized meaning to reduce different forms of a word to its lemma (e.g.~``women'', ``woman's'', ``woman'' -\textgreater{} ``woman''). This is very important to guarantee that all various versions are found during the title pattern search. For minority languages however, stemming is used instead of lemmatization since no good lemmatization implementation was available.
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{projecttitle\_clean =} \FunctionTok{ifelse}\NormalTok{(title\_language }\SpecialCharTok{==}\NormalTok{ lang }\SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(title\_language), }
-                                     \FunctionTok{clean\_and\_lemmatize}\NormalTok{(projecttitle\_lower),}
-\NormalTok{                                     projecttitle\_clean)) }\SpecialCharTok{\%\textgreater{}\%}        
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{2}
+  \tightlist
   \item
     \emph{Keyword detection}: For every language, the project title was analyzed whether it contains one of the statistical keywords or acronyms. Note that statistical keywords were detected within cleaned and lemmatized titles whereas for acronyms, the original title was used since the lemmatization and stemming algorithms were found to change acronyms.
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Create regex for searching titles }
-\NormalTok{list\_keywords\_stat }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{" "}\NormalTok{, }\FunctionTok{paste}\NormalTok{(list\_keywords\_stat, }\AttributeTok{collapse =} \StringTok{" | "}\NormalTok{),}\StringTok{" |\^{}"}\NormalTok{, }\CommentTok{\# words with whitespaces}
-                            \FunctionTok{paste}\NormalTok{(list\_keywords\_stat, }\AttributeTok{collapse =} \StringTok{" |\^{}"}\NormalTok{),}\StringTok{" | "}\NormalTok{, }\CommentTok{\# beginning of string}
-                            \FunctionTok{paste}\NormalTok{(list\_keywords\_stat, }\AttributeTok{collapse =} \StringTok{"$| "}\NormalTok{), }\StringTok{"$"}\NormalTok{) }\CommentTok{\# end of string}
-
-\NormalTok{list\_acronyms }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{" "}\NormalTok{, }\FunctionTok{paste}\NormalTok{(list\_acronyms, }\AttributeTok{collapse =} \StringTok{" | "}\NormalTok{),}\StringTok{" |\^{}"}\NormalTok{, }
-                  \FunctionTok{paste}\NormalTok{(list\_acronyms, }\AttributeTok{collapse =} \StringTok{" |\^{}"}\NormalTok{),}\StringTok{" | "}\NormalTok{, }\CommentTok{\# beginning of string}
-                  \FunctionTok{paste}\NormalTok{(list\_acronyms, }\AttributeTok{collapse =} \StringTok{"$| "}\NormalTok{), }\StringTok{"$"}\NormalTok{) }\CommentTok{\# end of string}
-
-\NormalTok{demining\_small\_arms }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{" "}\NormalTok{, }\FunctionTok{paste}\NormalTok{(demining\_small\_arms, }\AttributeTok{collapse =} \StringTok{" | "}\NormalTok{),}\StringTok{" |\^{}"}\NormalTok{, }
-                          \FunctionTok{paste}\NormalTok{(demining\_small\_arms, }\AttributeTok{collapse =} \StringTok{" |\^{}"}\NormalTok{),}\StringTok{" | "}\NormalTok{, }\CommentTok{\# beginning of string}
-                          \FunctionTok{paste}\NormalTok{(demining\_small\_arms, }\AttributeTok{collapse =} \StringTok{"$| "}\NormalTok{), }\StringTok{"$"}\NormalTok{) }\CommentTok{\# end of string}
-
-\CommentTok{\# Detect stat, acronyms and mining }
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{match\_stat =} \FunctionTok{ifelse}\NormalTok{(title\_language }\SpecialCharTok{==}\NormalTok{ lang }\SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(title\_language), }
-                             \FunctionTok{str\_detect}\NormalTok{(projecttitle\_clean, list\_keywords\_stat), }
-\NormalTok{                             match\_stat),}
-         \AttributeTok{mining =} \FunctionTok{ifelse}\NormalTok{(title\_language }\SpecialCharTok{==}\NormalTok{ lang }\SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(title\_language),}
-                         \FunctionTok{str\_detect}\NormalTok{(projecttitle\_clean, demining\_small\_arms),}
-\NormalTok{                         mining)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{match\_stat =} \FunctionTok{ifelse}\NormalTok{(title\_language }\SpecialCharTok{==}\NormalTok{ lang }\SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(title\_language),}
-                             \FunctionTok{str\_detect}\NormalTok{(projecttitle\_lower, list\_acronyms) }\SpecialCharTok{|}\NormalTok{ match\_stat,}
-\NormalTok{                             match\_stat))}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{3}
+  \tightlist
   \item
     \emph{Merging classes for final filter}: The reason to detect also mining projects was to exclude those projects from the statistics filter since expressions like ``small arms survey'', ``survey of landmine situation'' make frequent appearances in project titles but are not related to statistics. Hence, only projects for which a statistical keyword was detected but no mining keyword are marked as a statistical project in the pattern matching step.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Exclude mining projects, since they contain survey {-}\textgreater{} not statistical project}
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{text\_detection\_wo\_mining =}\NormalTok{ match\_stat }\SpecialCharTok{\&} \SpecialCharTok{!}\NormalTok{mining) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{text\_detection\_wo\_mining\_w\_scb =}\NormalTok{ match\_stat }\SpecialCharTok{|}\NormalTok{ scb)}
-\end{Highlighting}
-\end{Shaded}
   \end{enumerate}
 \end{enumerate}
 
@@ -492,186 +335,74 @@ Lastly, the process of applying a machine learning approach to classify the proj
 
   \begin{enumerate}
   \def\labelenumii{\roman{enumii}.}
+  \tightlist
   \item
     \emph{Language filtering}: For the preparation of the data, the reduced data set with the additional statistics filter from the pattern matching is filtered according to the description language to ensure that the text mining is applied only to text in one language. Note that there are projects with differing title and description language (frequently English title, minority language description) which is however no problem, since a project's description can be assumed to be statistical even when its title is in another language.
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lang }\OtherTok{\textless{}{-}} \StringTok{"en"}
-
-\CommentTok{\# Filter only projects with description language lang}
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs\_reduced }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(long\_language }\SpecialCharTok{==}\NormalTok{ lang)}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{1}
+  \tightlist
   \item
     \emph{Manual filter correction}: For 200 English projects, the description of projects, which were detected as statistical projects by the title pattern matching, were verified manually by experts. It can be the case that a projects title refers to statistics (e.g.~``census aid'') while its description contains no relevant information towards a classification (``Material and equipment for on the ground operations''). This additional step makes sure that the learning set contains less errors and hence increases the accuracy.
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Read manually verified projects }
-\NormalTok{man\_verified }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"./Data/Manually verified/stat\_projects\_verified.rds"}\NormalTok{)}
-
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(descr2mine)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{select}\NormalTok{(text\_id, }\AttributeTok{description =}\NormalTok{ descr2mine, longdescription, }\AttributeTok{class\_filter =}\NormalTok{ text\_detection\_wo\_mining\_w\_scb) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{left\_join}\NormalTok{(man\_verified }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(longdescription, match\_stat), }\AttributeTok{by =} \StringTok{"longdescription"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# add manually verified}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{class\_filter =} \FunctionTok{ifelse}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(match\_stat), match\_stat, class\_filter)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# replace class filter with manually verified filter}
-  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{longdescription, }\SpecialCharTok{{-}}\NormalTok{match\_stat)}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{2}
+  \tightlist
   \item
     \emph{Drop duplicated text ids}: As for the title ids, duplicated text ids are dropped to reduce the computational load during the text mining. In addition, some projects shared a discription but differed in their title. If one of the projects was detected as \texttt{TRUE} and one as \texttt{FLASE} in step \textbf{A}, both of them were discarded to reduce errors in the training set later on.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df\_crs }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs\_reduced }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(descr2mine)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{distinct}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{group\_by}\NormalTok{(text\_id) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# remove all ambiguous projects (same description, one FALSE one TRUE)}
-  \FunctionTok{filter}\NormalTok{(}\FunctionTok{n}\NormalTok{() }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
-\NormalTok{  as.data.frame}
-\end{Highlighting}
-\end{Shaded}
   \end{enumerate}
 \item
   \textbf{Text mining of long description}
 
   \begin{enumerate}
   \def\labelenumii{\roman{enumii}.}
+  \tightlist
   \item
     \emph{Construct learning and prediction set}: For this machine learning approach, it is necessary to construct a balanced learning set which contains 50\% negatively marked (NM) and 50\% positively marked (PM) projects. The projects detected in Step \textbf{A} are used as the PM projects since it is reasonable to assume that if the title contains statistical keywords, also its description refers to statistics. The NM projects are chosen randomly because it can be assumed that only a small fraction of projects refer to statistics and therefore the probability to introduce error into the learning set is very small. The prediction data set contains simply the rest of the NM projects in the text mining data set.
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Define parameters }
-\NormalTok{frac\_pred\_set }\OtherTok{\textless{}{-}} \DecValTok{1}             \CommentTok{\# use only x\% of full prediction set to speed up for testing}
-\NormalTok{full\_learning\_percent }\OtherTok{\textless{}{-}} \DecValTok{1}     \CommentTok{\# take only x\% of full learning set size if too large for RAM}
-\NormalTok{neg\_sample\_fraction }\OtherTok{\textless{}{-}} \DecValTok{1}       \CommentTok{\# fraction of NM to PM in learning set}
-
-\CommentTok{\# Get size of PM projects in learning set}
-\NormalTok{size\_positive\_train }\OtherTok{\textless{}{-}}\NormalTok{ neg\_sample\_fraction }\SpecialCharTok{*}\NormalTok{ full\_learning\_percent }\SpecialCharTok{*}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(class\_filter }\SpecialCharTok{==} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ nrow}
-
-\CommentTok{\# Construct prediction set}
-\NormalTok{pred }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(class\_filter }\SpecialCharTok{==} \ConstantTok{FALSE} \SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(class\_filter)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =}\NormalTok{ frac\_pred\_set }\SpecialCharTok{*} \FunctionTok{n}\NormalTok{())}
-
-\CommentTok{\# Error: if size of pred smaller than size of PM projects, not possible to construct training set}
-\ControlFlowTok{if}\NormalTok{(pred }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(class\_filter)) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ nrow }\SpecialCharTok{\textless{}}\NormalTok{ size\_positive\_train) }\FunctionTok{stop}\NormalTok{(}\StringTok{"Pred not large enough to create learning set! Choose a larger frac\_pred\_set"}\NormalTok{)}
-
-\CommentTok{\# Construct training set}
-\NormalTok{learning }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(class\_filter }\SpecialCharTok{==} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =} \FunctionTok{n}\NormalTok{()}\SpecialCharTok{*}\NormalTok{full\_learning\_percent) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{rbind}\NormalTok{(pred }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(class\_filter)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =}\NormalTok{ size\_positive\_train)) }\CommentTok{\# add same amount of NM project from pred}
-
-\CommentTok{\# Exclude NM projects in training set from pred}
-\NormalTok{pred }\OtherTok{\textless{}{-}}\NormalTok{ pred }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{text\_id }\SpecialCharTok{\%in\%}\NormalTok{ train}\SpecialCharTok{$}\NormalTok{text\_id)}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{1}
+  \tightlist
   \item
     \emph{Clean and lemmatize descr2mine}: As previously discussed, only distinct long descriptions (distinct from title) are used to avoid analyzing the same text twice. These are then cleaned and lemmatized to reduce the text to the relevant information.
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Set languages for stemming and lemmatization}
-\NormalTok{stem\_languages }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"de"}\NormalTok{, }\StringTok{"fr"}\NormalTok{, }\StringTok{"es"}\NormalTok{)}
-\NormalTok{lemma\_languages }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"en"}\NormalTok{)}
-
-\CommentTok{\# Change original description with cleaned description}
-\ControlFlowTok{if}\NormalTok{ (lang }\SpecialCharTok{\%in\%}\NormalTok{ lemma\_languages) \{}
-\NormalTok{  learning}\SpecialCharTok{$}\NormalTok{text\_cleaned }\OtherTok{\textless{}{-}} \FunctionTok{clean\_and\_lemmatize}\NormalTok{(learning}\SpecialCharTok{$}\NormalTok{description)}
-  \FunctionTok{print}\NormalTok{(}\StringTok{"Start lemmatize pred"}\NormalTok{)}
-\NormalTok{  pred}\SpecialCharTok{$}\NormalTok{text\_cleaned }\OtherTok{\textless{}{-}} \FunctionTok{clean\_and\_lemmatize}\NormalTok{(pred}\SpecialCharTok{$}\NormalTok{description)}
-  \FunctionTok{print}\NormalTok{(}\StringTok{"Finished lemmatization pred"}\NormalTok{)}
-\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (lang }\SpecialCharTok{\%in\%}\NormalTok{ stem\_languages) \{}
-\NormalTok{  learning}\SpecialCharTok{$}\NormalTok{text\_cleaned }\OtherTok{\textless{}{-}} \FunctionTok{stem\_and\_concatenate}\NormalTok{(learning}\SpecialCharTok{$}\NormalTok{description, }\AttributeTok{language =}\NormalTok{ lang)}
-\NormalTok{  pred}\SpecialCharTok{$}\NormalTok{text\_cleaned }\OtherTok{\textless{}{-}} \FunctionTok{stem\_and\_concatenate}\NormalTok{(pred}\SpecialCharTok{$}\NormalTok{description, }\AttributeTok{language =}\NormalTok{ lang)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{2}
+  \tightlist
   \item
     \emph{Create DTM matrices}: After splitting the learning set into the training set and testing set in a ration of 80/20, the document term matrix (DTM) is created for the training set. It has all the words that are present in all descriptions of the training data set (terms) as columns and collects their weighted frequency for each project in the respective row. For creating the DTMs of the test data and prediction data, terms occurring in the training data DTM are used which means that the all DTMs share the same columns. This is important for the prediction step later on since the model is only trained on these terms and assigns a relative weight to each of them. Therefore, it can only predict on terms that has already ``seen''.
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Take 80\% training data, 20\% testing data}
-\NormalTok{dt }\OtherTok{\textless{}{-}} \FunctionTok{sort}\NormalTok{(}\FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(learning), }\FunctionTok{nrow}\NormalTok{(learning)}\SpecialCharTok{*}\FloatTok{0.8}\NormalTok{))}
-\NormalTok{train\_data }\OtherTok{\textless{}{-}}\NormalTok{ learning[dt,]}
-\NormalTok{test\_data }\OtherTok{\textless{}{-}}\NormalTok{ learning[}\SpecialCharTok{{-}}\NormalTok{dt,]}
-
-\CommentTok{\# Construct DTMs }
-\NormalTok{train\_data\_dtm }\OtherTok{\textless{}{-}}\NormalTok{ train\_data}\SpecialCharTok{$}\NormalTok{text\_cleaned }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VectorSource}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VCorpus}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{DocumentTermMatrix}\NormalTok{(}\AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{weighting =}\NormalTok{ weightTf))}
-\NormalTok{dictionary\_dtm }\OtherTok{\textless{}{-}} \FunctionTok{Terms}\NormalTok{(train\_data\_dtm) }\CommentTok{\# use only terms appearing in training data to construct test and pred DTM}
-\NormalTok{test\_data\_dtm }\OtherTok{\textless{}{-}}\NormalTok{ test\_data}\SpecialCharTok{$}\NormalTok{text\_cleaned }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VectorSource}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VCorpus}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{DocumentTermMatrix}\NormalTok{(}\AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{weighting =}\NormalTok{ weightTf, }\AttributeTok{dictionary =}\NormalTok{ dictionary\_dtm))}
-\NormalTok{prediction\_data\_dtm }\OtherTok{\textless{}{-}}\NormalTok{ pred}\SpecialCharTok{$}\NormalTok{text\_cleaned }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VectorSource}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{VCorpus}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{DocumentTermMatrix}\NormalTok{(}\AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{weighting =}\NormalTok{ weightTf, }\AttributeTok{dictionary =}\NormalTok{ dictionary\_dtm))}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{3}
+  \tightlist
   \item
     \emph{Training the XGBoost model}: The model is obtained from the regularizing gradient boosting framework \href{https://xgboost.readthedocs.io/en/stable/index.html}{XGBoost} by fitting the training data. Due to the broad literature on this machine learning approach, a detailed discussion shall be refrained from here. It can be said however that by passing along the training data DTM alongside the correct classification labels, the XGBoost model identifies the most important words appearing in the PM projects and assigns a high importance to them (see Fig. \ref{fig:importance-matrix} below).
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Set the labels for class\_filter}
-\NormalTok{label.train }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(train\_data}\SpecialCharTok{$}\NormalTok{class\_filter)}
-
-\CommentTok{\# Training parameters}
-\NormalTok{eta\_par }\OtherTok{\textless{}{-}} \FloatTok{0.1}
-\NormalTok{nrounds\_par }\OtherTok{\textless{}{-}} \DecValTok{5} \SpecialCharTok{/}\NormalTok{ eta\_par}
-
-\CommentTok{\# Train the model}
-\NormalTok{fit.xgb }\OtherTok{\textless{}{-}} \FunctionTok{xgboost}\NormalTok{(}\AttributeTok{data =} \FunctionTok{as.matrix}\NormalTok{(train\_data\_dtm), }\AttributeTok{label =}\NormalTok{ label.train, }\AttributeTok{max.depth =} \DecValTok{17}\NormalTok{, }\AttributeTok{eta =}\NormalTok{ eta\_par, }\AttributeTok{nthread =} \DecValTok{2}\NormalTok{, }
-                   \AttributeTok{nrounds =}\NormalTok{ nrounds\_par, }\AttributeTok{objective =} \StringTok{"binary:logistic"}\NormalTok{, }\AttributeTok{verbose =} \DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \setcounter{enumii}{21}
+  \tightlist
   \item
     \emph{Testing and prediction}: The model is then assessed using the test data. Since the model returns a score p\_stat in the range from 0 to 1 whether a project's description refers to statistics, different thresholds are tested to see how the model performs (more in Appendix \ref{Appendix-B}). Finally, all projects in the prediction set are predicted using the fitted model. If a project receives a score of \(p_{stat} \geq 0.9\), it is marked as statistical by the text mining (justification of threshold).
+  \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Predict test and pred data}
-\NormalTok{test.xgb }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(fit.xgb, }\FunctionTok{as.matrix}\NormalTok{(test\_data\_dtm))}
-\NormalTok{pred.xgb }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(fit.xgb, }\FunctionTok{as.matrix}\NormalTok{(prediction\_data\_dtm))}
-
-\CommentTok{\# Set all projects to 1 for a score higher than 0.9}
-\NormalTok{threshold }\OtherTok{\textless{}{-}} \FloatTok{0.90}
-\NormalTok{test\_data }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(test\_data, }\AttributeTok{predictions =} \FunctionTok{ifelse}\NormalTok{(predictions\_raw }\SpecialCharTok{\textgreater{}}\NormalTok{ threshold, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
-\NormalTok{pred }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(pred, }\AttributeTok{predictions =} \FunctionTok{ifelse}\NormalTok{(predictions\_raw }\SpecialCharTok{\textgreater{}}\NormalTok{ threshold, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
-
-\CommentTok{\# Show accuracy}
-\NormalTok{accurracy }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(test\_data}\SpecialCharTok{$}\NormalTok{predictions }\SpecialCharTok{==}\NormalTok{ test\_data}\SpecialCharTok{$}\NormalTok{class\_filter)}
-\FunctionTok{print}\NormalTok{(accurracy)}
-\end{Highlighting}
-\end{Shaded}
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{5}
+  \tightlist
   \item
     \emph{Iteration of step i.-v. for learning set robustness}: In step 1, the 50\% NM projects were chosen at random since the probability that statistical project is in this set is very small. However, it could still be the case that the statistical projects are included by chance. This can be almost avoided by repeating steps 1. -- 5. with a training set that is constructed using only projects that are predicted not to be statistical with \(p_{stat} \leq 0.3\). This threshold is chosen because it makes sure that the training set is only constructed from true NM projects while not being too restrictive and potentially introducing a bias into the training set (e.g.~if all projects with \(p_{stat} \leq 0.05\) stem from the agriculture sector). On average, this iterative procedure increases the accuracy by 5\% - 10\% depending on the size of the prediction set.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Filter projects with low score }
-\NormalTok{pred\_negative }\OtherTok{\textless{}{-}}\NormalTok{ pred }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{(predictions\_raw }\SpecialCharTok{\textless{}=} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =}\NormalTok{ size\_positive\_train) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{select}\NormalTok{(text\_id, description, class\_filter) }
-
-\CommentTok{\# Construct new learning set with low{-}score projects as NM}
-\NormalTok{learning }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(class\_filter }\SpecialCharTok{==} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =} \FunctionTok{n}\NormalTok{()}\SpecialCharTok{*}\NormalTok{full\_learning\_percent) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{rbind}\NormalTok{(pred\_negative) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(class\_filter))}
-
-\CommentTok{\# Construct pred from all NM projects that are not in the training set}
-\NormalTok{pred }\OtherTok{\textless{}{-}}\NormalTok{ df\_crs }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{((class\_filter }\SpecialCharTok{==} \ConstantTok{FALSE} \SpecialCharTok{|} \FunctionTok{is.na}\NormalTok{(class\_filter)) }\SpecialCharTok{\&} \SpecialCharTok{!}\NormalTok{(text\_id }\SpecialCharTok{\%in\%}\NormalTok{ pred\_negative}\SpecialCharTok{$}\NormalTok{text\_id)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{sample\_n}\NormalTok{(}\AttributeTok{size =}\NormalTok{ frac\_pred\_set }\SpecialCharTok{*} \FunctionTok{n}\NormalTok{()) }\CommentTok{\#use only frac\_pred\_set\% to speed up for testing}
-
-\CommentTok{\# Repeat step i. {-} v.}
-\end{Highlighting}
-\end{Shaded}
   \end{enumerate}
 \end{enumerate}
 
@@ -687,11 +418,11 @@ Finally, the text mining filter is added back to the reduced data set according 
 \end{figure}
 
 \begin{figure}[H]
-  \centering
-  \includegraphics[width = 0.7\textwidth]{images/importance_matrix.png}
-  \caption{Relative importance assigned to terms appearing in long descriptions.}
-  \label{fig:importance-matrix}
-\end{figure}
+    \centering
+    \includegraphics[width = 0.7\textwidth]{images/importance_matrix.png}
+    \caption{Relative importance assigned to terms appearing in long descriptions.}
+    \label{fig:importance-matrix}
+  \end{figure}
 
 \hypertarget{monitoring-funding-to-statistics-with-reduced-reporting-lag}{%
 \section{Monitoring funding to statistics with reduced reporting lag}\label{monitoring-funding-to-statistics-with-reduced-reporting-lag}}
@@ -1302,8 +1033,6 @@ microdata &  & \\
 \hline
 metadata &  & \\
 \hline
-data management &  & \\
-\hline
 \end{tabular}
 \endgroup{}
 \end{table}
@@ -1480,8 +1209,6 @@ documentation des données &  & \\
 \hline
 données de qualité &  & \\
 \hline
-qualité des données &  & \\
-\hline
 \end{tabular}
 \endgroup{}
 \end{table}
@@ -1651,8 +1378,6 @@ gestión de datos &  & \\
 documentación de datos &  & \\
 \hline
 datos de calidad &  & \\
-\hline
-calidad de los datos &  & \\
 \hline
 \end{tabular}
 \endgroup{}
@@ -1831,8 +1556,6 @@ Metadaten &  & \\
 Datenverwaltung &  & \\
 \hline
 Datendokumentation &  & \\
-\hline
-Qualitätsdaten &  & \\
 \hline
 \end{tabular}
 \endgroup{}
