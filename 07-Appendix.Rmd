@@ -6,6 +6,7 @@
 
 ```{r Appendix-A-en, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
+pdf <- F
 lang <- "en"
 list_keywords_stat <- read_lines(paste0("./Data/Final keyword lists/statistics_reduced_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
 demining_small_arms <- read_lines(paste0("./Data/Final keyword lists/demining_small_arms_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()

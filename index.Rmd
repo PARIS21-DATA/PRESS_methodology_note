@@ -1,10 +1,7 @@
 --- 
-title: "Methodology for measuring and estimating funding to data and statistics"
+title: "Measuring and estimating funding to data and statistics"
 description: "Technical note for the Partner Report on Support to Statistics"
-author: 
-  - Yu Tian, [PARIS21](https://paris21.org/about-paris21/our-team/yu-tian)
-  - Archita Misra, [PARIS21](https://www.paris21.org)
-#date: "`r Sys.Date()`"
+date: "Version 2 (Updated on 1 November 2022)"
 site: bookdown::bookdown_site
 header-includes:
   - \usepackage{caption}
@@ -32,16 +29,18 @@ From html to pdf 4 things change:
   4. Set pdf <- TRUE to hide code chunk output and adjust kable formating in Appendix
 -->
 
+PARIS21 produces the Partner Report on Support to Statistics (PRESS) annually to report on trends in 
+support  to  statistics.  The  methodology  is  applied  retrospectively  for  all  previous  years  to  ensure comparability over time. This document presents the methodology used in PRESS. 
+
+<br />
+
+```{r front-cover, echo=FALSE, fig.align="center", out.width="60%" }
+knitr::include_graphics("./images/PRESS_2022_cover.PNG")
+```
+
+<br />
 ```{r setup, echo = F}
 pdf <- FALSE
 # Set code chunk output globally 
 if (pdf) knitr::opts_chunk$set(echo = F)
 ```
-
-# Acknowledgements {-}
-
-Draft  methodological  note  prepared  by  Yu  Tian  and  Archita  Misra  (PARIS21)  under  the  supervision  of  Rajiv 
-Ranjan (PARIS21). The authors are grateful to Eric Swanson and Lorenz Noe (Open Data Watch) and Simon Lange 
-(OECD)  for  their  valuable  review  and  feedback.  Further  comments  to  the  authors  (Yu.Tian@oecd.org; 
-Archita.misra@oecd.org) are welcome.
-

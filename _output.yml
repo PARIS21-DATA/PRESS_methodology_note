@@ -7,7 +7,7 @@ bookdown::gitbook:
   config:
     toc:
       depth: 1
-      collapse: section
+      collapse: sub-section
       scroll_highlight: true
       before: |
         <li class="toc-logo"><a href="./"><img src="P21_logo.png"></a></li>
