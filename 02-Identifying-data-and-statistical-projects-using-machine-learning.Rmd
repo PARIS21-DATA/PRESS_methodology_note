@@ -1,6 +1,6 @@
-# Identifying data and statistical projects using machine learning {#machine-learning}
+# Identifying statistical and gender-related projects using machine learning {#machine-learning}
 
-The developed method to identify data and statistical projects is based on a two-step procedure that analyzes project titles in the first step by detecting pertinent keyword (**A**) and evaluates project’s detailed descriptions using a machine learning approach (**B**).
+The developed method to identify statistical projects is based on a two-step procedure that analyzes project titles in the first step by detecting pertinent keyword (**A**) and evaluates project’s detailed descriptions using a machine learning approach (**B**). The identification of gender-related projects follows the same process. Projects that are classified both gender and statistical projects are counted as gender data projects. 
 
 ## Reading the CRS data
 
@@ -83,7 +83,7 @@ knitr::include_graphics("./images/data_preparation_CRS.png")
 
 ## **A**: Title pattern matching
 
-In the following, the process of matching pertinent keywords in project titles is outlined (see Fig. \@ref(fig:title-pattern-matching) for a comprehensive overview).
+In the following, the process of matching pertinent keywords in project titles is outlined (see Fig. \@ref(fig:title-pattern-matching) for a comprehensive overview). 
 
 1. **Preparing the data**
 
@@ -121,7 +121,7 @@ df_crs <- df_crs %>%
 
 2. **Title pattern matching**
 
-    i. *Clean and lemmatize keyword lists*: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix \@ref(Appendix-A). The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles. 
+    i. *Clean and lemmatize keyword lists*: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix \@ref(Appendix-A). The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles. PARIS21, OECD D4D and Open Data Watchproduced the keyword lists used in this process by collaboratively harmonising the methodology the three organisation used in this area.  
     
         ```{r clean-lemmatize-keywords, results="asis", eval = FALSE}
         # list_keywords_stat, list_acronyms and demining_small_arms previously loaded

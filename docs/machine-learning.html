@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Identifying data and statistical projects using machine learning | Measuring and estimating funding to data and statistics</title>
+  <title>2 Identifying statistical and gender-related projects using machine learning | Measuring and estimating funding to data and statistics</title>
   <meta name="description" content="Technical note for the Partner Report on Support to Statistics" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Identifying data and statistical projects using machine learning | Measuring and estimating funding to data and statistics" />
+  <meta property="og:title" content="2 Identifying statistical and gender-related projects using machine learning | Measuring and estimating funding to data and statistics" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/PRESS_2022_cover.png" />
   <meta property="og:description" content="Technical note for the Partner Report on Support to Statistics" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Identifying data and statistical projects using machine learning | Measuring and estimating funding to data and statistics" />
+  <meta name="twitter:title" content="2 Identifying statistical and gender-related projects using machine learning | Measuring and estimating funding to data and statistics" />
   
   <meta name="twitter:description" content="Technical note for the Partner Report on Support to Statistics" />
   <meta name="twitter:image" content="/PRESS_2022_cover.png" />
@@ -900,7 +900,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.1" data-path="monitoring-funding-to-statistics-with-accuracy.html"><a href="monitoring-funding-to-statistics-with-accuracy.html#oecds-creditor-reporting-system-crs"><i class="fa fa-check"></i><b>1.1</b> OECD’s Creditor Reporting System (CRS)</a></li>
 <li class="chapter" data-level="1.2" data-path="monitoring-funding-to-statistics-with-accuracy.html"><a href="monitoring-funding-to-statistics-with-accuracy.html#P21-online-survey"><i class="fa fa-check"></i><b>1.2</b> PARIS21’s annual online survey</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>2</b> Identifying data and statistical projects using machine learning</a>
+<li class="chapter" data-level="2" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>2</b> Identifying statistical and gender-related projects using machine learning</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="machine-learning.html"><a href="machine-learning.html#reading-the-crs-data"><i class="fa fa-check"></i><b>2.1</b> Reading the CRS data</a></li>
 <li class="chapter" data-level="2.2" data-path="machine-learning.html"><a href="machine-learning.html#preparing-the-data"><i class="fa fa-check"></i><b>2.2</b> Preparing the data</a></li>
@@ -956,8 +956,8 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="machine-learning" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">2</span> Identifying data and statistical projects using machine learning<a href="machine-learning.html#machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The developed method to identify data and statistical projects is based on a two-step procedure that analyzes project titles in the first step by detecting pertinent keyword (<strong>A</strong>) and evaluates project’s detailed descriptions using a machine learning approach (<strong>B</strong>).</p>
+<h1><span class="header-section-number">2</span> Identifying statistical and gender-related projects using machine learning<a href="machine-learning.html#machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The developed method to identify statistical projects is based on a two-step procedure that analyzes project titles in the first step by detecting pertinent keyword (<strong>A</strong>) and evaluates project’s detailed descriptions using a machine learning approach (<strong>B</strong>). The identification of gender-related projects follows the same process. Projects that are classified both gender and statistical projects are counted as gender data projects.</p>
 <div id="reading-the-crs-data" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Reading the CRS data<a href="machine-learning.html#reading-the-crs-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>After downloading all .txt files for the years 2006 - 2020 from the official OECD <a href="https://stats.oecd.org/DownloadFiles.aspx?DatasetCode=CRS1">data base</a>, the fully merged data set is stored.</p>
@@ -1054,7 +1054,7 @@ Figure 2.1: Diagram of the data preparation process.
 <p><br /></p></li>
 <li><p><strong>Title pattern matching</strong></p>
 <ol style="list-style-type: lower-roman">
-<li><p><em>Clean and lemmatize keyword lists</em>: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix <a href="Appendix-A.html#Appendix-A">A</a>. The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles.</p>
+<li><p><em>Clean and lemmatize keyword lists</em>: For the treatment of the minority languages (French, Spanish and German), the English keyword list for statistics was translated by experts working in the field of official statistics. It contains many aspects of official development assistance in statistics and can be found in Appendix <a href="Appendix-A.html#Appendix-A">A</a>. The keywords therein are chosen in a way that it is almost certain that a project is at least partly related to statistics if its title contains one of the keywords. The same was done for the English list of acronyms which can differ in other foreign languages. Together with the list for mining projects, the keyword lists were cleaned and lemmatized to guarantee that they will be matched to cleaned and lemmatized words occurring in project titles. PARIS21, OECD D4D and Open Data Watchproduced the keyword lists used in this process by collaboratively harmonising the methodology the three organisation used in this area.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="machine-learning.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list_keywords_stat, list_acronyms and demining_small_arms previously loaded</span></span>
 <span id="cb6-2"><a href="machine-learning.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="machine-learning.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define lemmatization function</span></span>
