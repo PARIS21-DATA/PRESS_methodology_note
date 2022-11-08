@@ -21,17 +21,19 @@ bookdown::gitbook:
   url: https\://methodology.note.smartdatafinance.org/
   includes: 
     in_header: hide_code.html
-bookdown::pdf_book:
-    keep_tex: true
+# bookdown::pdf_book:
+#     keep_tex: true
 
-
-  #fontsettings:
-    #   theme: Night
-    #   family: sans
-    #   size: 2
+# 
+# fontsettings:
+#   theme: Night
+#   family: sans
+#   size: 2
 # bookdown::bs4_book:
 #   theme:
 #     primary: "#544154"
 #   repo: https://github.com/PARIS21-DATA/PRESS_methodology_note
 #   includes:
 #     in_header: [ga_script.html]
+#   # citation_package: natbib
+

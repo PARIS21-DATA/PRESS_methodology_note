@@ -3,31 +3,25 @@ title: "Measuring and estimating funding to data and statistics"
 description: "Technical note for the Partner Report on Support to Statistics"
 date: "Version 2 (Updated on 1 November 2022)"
 site: bookdown::bookdown_site
+cover-image: PRESS_2022_cover.png
+favicon: P21_icon.ico
 header-includes:
   - \usepackage{caption}
   - \usepackage{array}
   - \usepackage{float}
   - \hypersetup{colorlinks = true, urlcolor = cyan, citecolor = black, menucolor = black, anchorcolor = black, linkcolor=black}
-
-favicon: "P21_icon.ico"
-bibliography: Bibliography.bib
-link-citations: true
+bibliography: [Bibliography.bib]
+nocite: '@*'
+link-citations: yes
 keywords:
   - PRESS
   - Statistics
   - 2022
 ---
 
-<!-- From gitbook to pdf:
 
-for pdf: bookdown::render_book("index.Rmd", "bookdown::pdf_book") 
-for gitbook: bookdown::render_book("index.Rmd", "bookdown::gitbook")
 
-From html to pdf 4 things change:
-  1. uncomment last figure from knitr chunk to latex format in chapter 03.
-  3. uncomment emphbox in 04.
-  4. Set pdf <- TRUE to hide code chunk output and adjust kable formating in Appendix
--->
+# Why this ebook? {-}
 
 PARIS21 produces the Partner Report on Support to Statistics (PRESS) annually to report on trends in 
 support  to  statistics.  The  methodology  is  applied  retrospectively  for  all  previous  years  to  ensure comparability over time. This document presents the methodology used in PRESS. 
@@ -36,11 +30,4 @@ support  to  statistics.  The  methodology  is  applied  retrospectively  for  a
 
 ```{r front-cover, echo=FALSE, fig.align="center", out.width="60%" }
 knitr::include_graphics("./images/PRESS_2022_cover.PNG")
-```
-
-<br />
-```{r setup, echo = F}
-pdf <- FALSE
-# Set code chunk output globally 
-if (pdf) knitr::opts_chunk$set(echo = F)
 ```

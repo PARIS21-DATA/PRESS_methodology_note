@@ -1,4 +1,8 @@
-# (APPENDIX) Appendix {-} 
+# References
+
+<div id="refs"></div>
+
+# (APPENDIX) Appendix {-}
 
 # Appendix - Keyword lists {#Appendix-A}
 
@@ -6,7 +10,6 @@
 
 ```{r Appendix-A-en, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
-pdf <- F
 lang <- "en"
 list_keywords_stat <- read_lines(paste0("./Data/Final keyword lists/statistics_reduced_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
 demining_small_arms <- read_lines(paste0("./Data/Final keyword lists/demining_small_arms_", lang, ".txt"), skip_empty_rows = TRUE)  %>% trimws()
@@ -15,7 +18,7 @@ max <- max(length(list_keywords_stat), length(demining_small_arms), length(list_
 keywords <- data.frame(statistical_keywords = c(list_keywords_stat, rep("", max - length(list_keywords_stat))),
                           demining_keywords = c(demining_small_arms, rep("", max - length(demining_small_arms))),
                           acronyms = c(list_acronyms, rep("", max - length((list_acronyms)))))
-
+pdf <- F
 library(kableExtra)
 if (pdf){
   knitr::kable(keywords[1:44, ], format = "latex") %>% 
@@ -29,6 +32,7 @@ if (pdf) {
   knitr::kable(keywords, format = "html") 
 }
 ```
+
 ## French {-}
 
 ```{r Appendix-A-fr, echo=FALSE}
@@ -100,6 +104,8 @@ if (pdf) {
   knitr::kable(keywords, format = "html") 
 }
 ```
+
+
 
 # Appendix - Performance tests {#Appendix-B}
 
