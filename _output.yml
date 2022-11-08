@@ -12,14 +12,11 @@ bookdown::gitbook:
       before: |
         <li class="toc-logo"><a href="./"><img src="P21_logo.png"></a></li>
         <li><a href="./">PRESS Methodology note</a></li>
-      after: |
-        <li><a href="https\://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    download: [["PRESS_methodology_note.pdf", "PDF"]]
     info: no
     fontsettings:
       size: 2
   url: https\://methodology.note.smartdatafinance.org/
-  includes: 
+  includes:
     in_header: hide_code.html
 # bookdown::pdf_book:
 #     keep_tex: true
