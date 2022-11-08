@@ -15,22 +15,7 @@ bookdown::gitbook:
     info: no
     fontsettings:
       size: 2
+    download: [["https://www.oecd-ilibrary.org/development/the-paris21-partner-report-on-support-to-statistics-2022_c3cfb353-en", "Go to the report"]]
   url: https\://methodology.note.smartdatafinance.org/
   includes:
     in_header: hide_code.html
-# bookdown::pdf_book:
-#     keep_tex: true
-
-# 
-# fontsettings:
-#   theme: Night
-#   family: sans
-#   size: 2
-# bookdown::bs4_book:
-#   theme:
-#     primary: "#544154"
-#   repo: https://github.com/PARIS21-DATA/PRESS_methodology_note
-#   includes:
-#     in_header: [ga_script.html]
-#   # citation_package: natbib
-

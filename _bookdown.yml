@@ -6,14 +6,12 @@ view: https://github.com/PARIS21-DATA/PRESS_methodology_note/blob/master/%s
 language:
   ui:
     chapter_name: ""
-# include_uncited: |
-#   @Manual
 # rmd_files: [
 #   "index.Rmd",
 #   "01-Monitoring-funding-to-statistics-with-accuracy.Rmd",
 #   "02-Identifying-data-and-statistical-projects-using-machine-learning.Rmd",
 #   "03-Monitoring-funding-to-statistics-with-reduced-reporting-lag.Rmd",
-#   "04-Conclusion.Rmd", 
+#   "04-Conclusion.Rmd",
 #   "05-About-this-note.Rmd"
 #   "06-references.Rmd",
 #   "07-Appendix.Rmd"
