@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Monitoring funding to statistics with accuracy | Measuring and estimating funding to data and statistics</title>
+  <title>Measuring and estimating funding to data and statistics</title>
   <meta name="description" content="Technical note for the Partner Report on Support to Statistics" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Monitoring funding to statistics with accuracy | Measuring and estimating funding to data and statistics" />
+  <meta property="og:title" content="Measuring and estimating funding to data and statistics" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/PRESS_2022_cover.png" />
   <meta property="og:description" content="Technical note for the Partner Report on Support to Statistics" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Monitoring funding to statistics with accuracy | Measuring and estimating funding to data and statistics" />
+  <meta name="twitter:title" content="Measuring and estimating funding to data and statistics" />
   
   <meta name="twitter:description" content="Technical note for the Partner Report on Support to Statistics" />
   <meta name="twitter:image" content="/PRESS_2022_cover.png" />
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="P21_icon.ico" type="image/x-icon" />
-<link rel="prev" href="index.html"/>
-<link rel="next" href="machine-learning.html"/>
+
+<link rel="next" href="monitoring-funding-to-statistics-with-accuracy.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -790,6 +790,28 @@
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -871,82 +893,25 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="monitoring-funding-to-statistics-with-accuracy" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> Monitoring funding to statistics with accuracy<a href="monitoring-funding-to-statistics-with-accuracy.html#monitoring-funding-to-statistics-with-accuracy" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This section provides information on how to monitor support to statistics and how the data of the
-PRESS, which is also used for reporting SDG indicator 17.19.1 (“Dollar Value of all resources made
-available to strengthen statistical capacity in developing countries”), is generated.</p>
-<p>Prior to PRESS 2018, the PRESS only focused on borrowing countries of the International Development
-Association.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
-Since 2018, the PRESS covers the commitments received by all countries throughout the
-report to align the findings with the SDG indicator 17.19.1: “Dollar value of all resources made
-available to strengthen statistical capacity in developing countries”. Commitments were used as the
-main measurement instead of disbursements from the beginning of PRESS in 2006, when commitment
-data entries were made available more consistently. See section <a href="monitoring-funding-to-statistics-with-reduced-reporting-lag.html#estimating-using-CRS">3.2</a> for a discussion on using commitments vs disbursements in detail.</p>
-<p>The PRESS aims to provide a full picture of international support to statistics. To achieve this goal, it
-mainly takes advantage of two data sources:</p>
-<div id="oecds-creditor-reporting-system-crs" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> OECD’s Creditor Reporting System (CRS)<a href="monitoring-funding-to-statistics-with-accuracy.html#oecds-creditor-reporting-system-crs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Organisation for Economic Co‐operation and Development (OECD)’s Creditor Reporting System
-(CRS) records data from OECD Development Assistance Committee (DAC) members (donors) and some
-non‐DAC donors. This provides a comprehensive account of Official Development Assistance (ODA).
-Donors report to the CRS using specific codes for the sectors targeted by their aid activity. Statistical
-Capacity Building (SCB) is designated by the sector code 16062.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
-Each activity reported in CRS can only be assigned with one of the over 100 purpose codes.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
-While CRS is one of the most reliable and comprehensive databases that accounts for aid flows, there are some concerns that need to be
-addressed while compiling support for data and statistics, such as: the cross‐cutting nature of projects
-with statistical components, limited reporter knowledge about the code, the assignment of some ODA
-for data and statistics under other codes, lack of granularity in reporting, etc. These issues are covered
-in detail in PARIS (2019). PARIS21 is seeking to reduce this usually downward bias using a text analysis
-methodology (see section <a href="machine-learning.html#machine-learning">2</a>).</p>
-<p>The CRS identifies a project donor by looking at the source of the funding. Countries are identified as
-donors if the flow is directly between them and the recipient country (type 1 in Fig. <a href="monitoring-funding-to-statistics-with-accuracy.html#fig:funding-flows">1.1</a>), or if
-the flow is earmarked for a certain project and channeled through multilateral organisations (type 3
-in Fig. <a href="monitoring-funding-to-statistics-with-accuracy.html#fig:funding-flows">1.1</a>). If a project is funded by un‐earmarked core contributions to multilateral
-organisations, the donors are marked as the multilateral organisations (types 2 and 4 in Fig. <a href="monitoring-funding-to-statistics-with-accuracy.html#fig:funding-flows">1.1</a>).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:funding-flows"></span>
-<img src="images/CRS_funding_flow.png" alt="Flow of official aid in CRS." width="60%" />
-<p class="caption">
-Figure 1.1: Flow of official aid in CRS.
-</p>
+<div id="header">
+<h1 class="title">Measuring and estimating funding to data and statistics</h1>
+<p class="date"><em>Version 2 (Updated on 1 November 2022)</em></p>
 </div>
-</div>
-<div id="P21-online-survey" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> PARIS21’s annual online survey<a href="monitoring-funding-to-statistics-with-accuracy.html#P21-online-survey" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The PARIS21 Secretariat supplements the data from the CRS with an annual online survey that is
-completed by a global network of respondents, mostly non‐DAC donors. The survey covers a subset
-of the variables collected in the CRS, as well as some additional variables specific to data and statistics.
-Responding to the online survey is voluntary and offers an opportunity for respondents to share
-information about their statistical activities. Respondents include non‐DAC members, including non‐
-DAC donor countries, multilateral organisations, regional statistical training institutes, and other
-philanthropic organisations. The percentage of these projects in the final PRESS database has
-decreased in recent years, as many multilateral organisations have improved the granularity of their
-reporting to the CRS, making these data equally useful as data collected from the PRESS survey. To
-reduce the burden on donors, these multilateral organisations are no longer required to fill in the
-PRESS survey.</p>
+<div id="why-this-ebook" class="section level1 unnumbered hasAnchor">
+<h1>Why this ebook?<a href="index.html#why-this-ebook" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>PARIS21 produces the Partner Report on Support to Statistics (PRESS) annually to report on trends in
+support to statistics. The methodology is applied retrospectively for all previous years to ensure comparability over time. This document presents the methodology used in PRESS.</p>
+<p><br /></p>
+<p><img src="images/PRESS_2022_cover.PNG" width="60%" style="display: block; margin: auto;" /></p>
 
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Eligibility for IDA support depends first and foremost on a country’s relative poverty, which is defined as GNI per capita
-below an established threshold and updated annually ($1,185 in the fiscal year 2021). IDA also supports some countries,
-including several small island economies, that are above the operational cut‐off but lack the required creditworthiness to
-borrow from the International Bank for Reconstruction and Development (IBRD). For more information, see: <a href="https://ida.worldbank.org/en/about/borrowing-countries" class="uri">https://ida.worldbank.org/en/about/borrowing-countries</a><a href="monitoring-funding-to-statistics-with-accuracy.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Until 2019, this purpose was vaguely defined as “Both in national statistical offices and any other government ministries”. However, after a successful campaign to improve the description, this purpose is now defined as “All statistical activities, such as data collection, processing, dissemination and analysis; support to development and management of official statistics
-including demographic, social, economic, environmental, and multi‐sectoral statistics; statistical quality frameworks;
-development of human and technological resources for statistics, investments in data innovation.”<a href="monitoring-funding-to-statistics-with-accuracy.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>In recent years, CRS reporters can also assign multiple voluntary purpose codes to the same project. Code 16062 is not a voluntary code. See the CRS code list for more information: <a href="https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/dacandcrscodelists.htm" class="uri">https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/dacandcrscodelists.htm</a><a href="monitoring-funding-to-statistics-with-accuracy.html#fnref3" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="monitoring-funding-to-statistics-with-accuracy.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -985,7 +950,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/PARIS21-DATA/PRESS_methodology_note/blob/master/01-Monitoring-funding-to-statistics-with-accuracy.Rmd",
+"link": "https://github.com/PARIS21-DATA/PRESS_methodology_note/blob/master/index.Rmd",
 "text": null
 },
 "download": [["PRESS_methodology_note.pdf", "PDF"]],

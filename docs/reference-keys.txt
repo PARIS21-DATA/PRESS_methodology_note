@@ -51,3 +51,10 @@ exploring-alternative-data-sources-for-aid-flows-on-statistics-1
 addressing-gaps-in-the-alternative-data-sources-1
 linking-the-alternative-sources-the-new-harmonised-database-1
 bringing-them-together-nowcasting-and-forecasting-with-the-new-harmonised-database-1
+methodological-note-for-press-2022
+references
+about-this-note-1
+english
+french
+references--
+biblio-style-apalike
