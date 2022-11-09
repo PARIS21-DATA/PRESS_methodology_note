@@ -1,7 +1,7 @@
 --- 
 title: "Measuring and estimating funding to data and statistics"
 description: "Technical note for the Partner Report on Support to Statistics"
-date: "Version 2 (Updated on 1 November 2022)"
+date: "`r paste0('Version 2 (updated on ', format(Sys.time(), '%B %Y'), ')')`"
 site: bookdown::bookdown_site
 cover-image: PRESS_2022_cover.png
 favicon: P21_icon.ico
