@@ -21,13 +21,13 @@ keywords:
 
 
 
-# Why this ebook? {-}
+# Why this methodology note? {-}
 
 PARIS21 produces the Partner Report on Support to Statistics (PRESS) annually to report on trends in 
-support  to  statistics.  The  methodology  is  applied  retrospectively  for  all  previous  years  to  ensure comparability over time. This document presents the methodology used in PRESS. 
+support  to  statistics.  The  methodology  is  applied  retrospectively  for  all  previous  years  to  ensure comparability over time. This document presents the methodology used in [PRESS 2022](https://www.oecd-ilibrary.org/sites/c3cfb353-en/index.html?itemId=/content/publication/c3cfb353-en). 
 
 <br />
 
-```{r front-cover, echo=FALSE, fig.align="center", out.width="60%" }
+```{r front-cover, echo=FALSE, fig.align="center", out.width="100%" }
 knitr::include_graphics("./images/PRESS_2022_cover.PNG")
 ```
