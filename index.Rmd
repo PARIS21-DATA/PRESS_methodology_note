@@ -29,5 +29,5 @@ support  to  statistics.  The  methodology  is  applied  retrospectively  for  a
 <br />
 
 ```{r front-cover, echo=FALSE, fig.align="center", out.width="100%" }
-knitr::include_graphics("./images/PRESS_2022_cover.PNG")
+knitr::include_graphics("./images/PRESS_2022_cover.jpg")
 ```
