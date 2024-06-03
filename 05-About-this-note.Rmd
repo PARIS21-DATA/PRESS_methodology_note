@@ -1,0 +1,11 @@
+# About this note
+
+## What's new in version 2?
+
+The 2022 update includes a harmonized approach to identifying statistical projects and gender-related statistical activities based on collaboration between PARIS21, OECD D4D, and Open Data Watch (ODW). Code chunks are also added to explain the methodology. 
+
+## Acknowledgement
+
+The 2022 update of the methodology note is authored by Yu Tian and Johannes Abele with inputs from Lorenz Noe, Fatoumata Ngnom, Rajiv Rajan and Lauren Harrison. This version is built on the previous  methodological  note  prepared  by  Yu  Tian  and  Archita  Misra under  the  supervision  of  Rajiv Ranjan (PARIS21). The authors are grateful to Eric Swanson and Lorenz Noe (Open Data Watch) and Simon Lange (OECD)  for  their  valuable  review  and  feedback.  
+
+Further  comments  to  the  authors  [Yu Tian](mailto:yu.Tian@oecd.org) are welcome.

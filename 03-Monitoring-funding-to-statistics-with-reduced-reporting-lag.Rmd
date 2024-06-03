@@ -37,8 +37,8 @@ methodology extension. While the PRESS methodology will still be used to report 
 months before the publication, the methodology extension will provide stakeholders with PRESS‐like
 information on more recent periods, therefore reducing the reporting lag significantly. This concept
 became more relevant in 2020, when the development co‐operation community had to face the
-challenges that arose due to the COVID‐19 pandemic in national statistical systems [@PARIS21-Covid]
-and funding to data by domestic and external stakeholders [@PRESS-2021].
+challenges that arose due to the COVID‐19 pandemic in national statistical systems [@PARIS21-2020a]
+and funding to data by domestic and external stakeholders [@PARIS21-2020b].
 
 
 ## Estimating up‐to‐date support to statistics using CRS {#estimating-using-CRS}

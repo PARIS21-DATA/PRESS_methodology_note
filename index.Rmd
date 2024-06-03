@@ -1,47 +1,33 @@
 --- 
-title: "Methodology for measuring and estimating funding to data and statistics"
+title: "Measuring and estimating funding to data and statistics"
 description: "Technical note for the Partner Report on Support to Statistics"
-author: 
-  - Yu Tian, [PARIS21](https://paris21.org/about-paris21/our-team/yu-tian)
-  - Archita Misra, [PARIS21](https://www.paris21.org)
-#date: "`r Sys.Date()`"
+date: "Version 2 (published on 1 November 2022)"
 site: bookdown::bookdown_site
+cover-image: PRESS_2022_cover.png
+favicon: P21_icon.ico
 header-includes:
   - \usepackage{caption}
   - \usepackage{array}
   - \usepackage{float}
   - \hypersetup{colorlinks = true, urlcolor = cyan, citecolor = black, menucolor = black, anchorcolor = black, linkcolor=black}
-
-favicon: "P21_icon.ico"
-bibliography: Bibliography.bib
-link-citations: true
+bibliography: [Bibliography.bib]
+nocite: '@*'
+link-citations: yes
 keywords:
   - PRESS
   - Statistics
   - 2022
 ---
 
-<!-- From gitbook to pdf:
 
-for pdf: bookdown::render_book("index.Rmd", "bookdown::pdf_book") 
-for gitbook: bookdown::render_book("index.Rmd", "bookdown::gitbook")
 
-From html to pdf 4 things change:
-  1. uncomment last figure from knitr chunk to latex format in chapter 03.
-  3. uncomment emphbox in 04.
-  4. Set pdf <- TRUE to hide code chunk output and adjust kable formating in Appendix
--->
+# Why this methodology note? {-}
 
-```{r setup, echo = F}
-pdf <- FALSE
-# Set code chunk output globally 
-if (pdf) knitr::opts_chunk$set(echo = F)
+PARIS21 produces the Partner Report on Support to Statistics (PRESS) annually to report on trends in 
+support  to  statistics.  The  methodology  is  applied  retrospectively  for  all  previous  years  to  ensure comparability over time. This document presents the methodology used in [PRESS 2022](https://www.oecd-ilibrary.org/sites/c3cfb353-en/index.html?itemId=/content/publication/c3cfb353-en). 
+
+<br />
+
+```{r front-cover, echo=FALSE, fig.align="center", out.width="100%" }
+knitr::include_graphics("./images/PRESS_2022_cover.jpg")
 ```
-
-# Acknowledgements {-}
-
-Draft  methodological  note  prepared  by  Yu  Tian  and  Archita  Misra  (PARIS21)  under  the  supervision  of  Rajiv 
-Ranjan (PARIS21). The authors are grateful to Eric Swanson and Lorenz Noe (Open Data Watch) and Simon Lange 
-(OECD)  for  their  valuable  review  and  feedback.  Further  comments  to  the  authors  (Yu.Tian@oecd.org; 
-Archita.misra@oecd.org) are welcome.
-
