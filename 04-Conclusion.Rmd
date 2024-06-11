@@ -1,9 +1,6 @@
 # Conclusion
 
-The nowcast and forecast analysis aims to address the specific reporting lag issue faced by the PRESS,
-rather than to substitute it. Even with longer lag, PRESS still reports the most reliable and
-comprehensive data on funding to statistics. The PRESS database continues to serve as the source data
-for SDG Indicator 17.19.1.
+The nowcast and forecast analysis aims to address the specific reporting lag issue faced by the PRESS, rather than to substitute it. Even with longer lag, PRESS still reports the most reliable and comprehensive data on funding to statistics. The PRESS database continues to serve as the source data for SDG Indicator 17.19.1.
 
 The outputs from nowcast and forecast also vary in their accuracy. While the merged database is as
 robust as PRESS, and the nowcast results are relatively reliable, the forecast analysis is based on

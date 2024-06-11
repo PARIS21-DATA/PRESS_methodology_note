@@ -1,10 +1,18 @@
 # About this note
 
-## What's new in version 2?
+## What's new in version 2024?
+
+The 2024 update includes a detailed description on the analytical code used for the PRESS data analysis. 
+
+## Acknowledgements for version 2024
+
+The 2024 update of the methodology note is authored by Yu Tian and Xingwen Liu (PARIS21) with inputs from Lorenz Noe and Lauren Harrison. This version is built on the 2022 version of the methodological note. 
+
+## What's new in version 2022?
 
 The 2022 update includes a harmonized approach to identifying statistical projects and gender-related statistical activities based on collaboration between PARIS21, OECD D4D, and Open Data Watch (ODW). Code chunks are also added to explain the methodology. 
 
-## Acknowledgement
+## Acknowledgements for version 2022
 
 The 2022 update of the methodology note is authored by Yu Tian and Johannes Abele with inputs from Lorenz Noe, Fatoumata Ngnom, Rajiv Rajan and Lauren Harrison. This version is built on the previous  methodological  note  prepared  by  Yu  Tian  and  Archita  Misra under  the  supervision  of  Rajiv Ranjan (PARIS21). The authors are grateful to Eric Swanson and Lorenz Noe (Open Data Watch) and Simon Lange (OECD)  for  their  valuable  review  and  feedback.  
 
